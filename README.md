@@ -184,5 +184,3 @@ At this point, the product should be LIVE.
 
 ---
 [Django Soft Design](https://appseed.us/product/soft-ui-design/django/) - **Django** Starter provided by **[AppSeed](https://appseed.us/)**
-
-Clone Worked!
