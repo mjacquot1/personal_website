@@ -2,11 +2,13 @@ version: '3.8'
 services:
   appseed-app:
     container_name: appseed_app
+    image: django_gunicorn_instance # Added in
     restart: always
     build: .
     networks:
       - db_network
       - web_network
+
   nginx:
     container_name: nginx
     restart: always
@@ -17,11 +19,11 @@ services:
       - ./nginx:/etc/nginx/conf.d
     networks:
       - web_network
-    depends_on: 
+    depends_on:
       - appseed-app
+
 networks:
   db_network:
-    driver: bridge
+    driver: bridge # Bridge means there is no network being created
   web_network:
     driver: bridge
- 
