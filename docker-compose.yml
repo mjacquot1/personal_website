@@ -5,9 +5,14 @@ services:
     image: django_gunicorn_instance # Added in
     restart: always
     build: .
+    volumes:
+      - .:/app
     networks:
       - db_network
       - web_network
+    depends_on:
+      - redis
+      - db
 
   nginx:
     container_name: nginx
