@@ -11,6 +11,10 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
+from decouple import config
+
+# DJANGO_SETTINGS_MODULE_ENV is an env variable imported through decouple
+os.environ.setdefault("DJANGO_SETTINGS_MODULE",
+                      config("DJANGO_SETTINGS_MODULE_ENV"))
 
 application = get_asgi_application()

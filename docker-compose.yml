@@ -5,6 +5,8 @@ services:
     image: django_gunicorn_instance # Added in
     restart: always
     build: .
+    env_file:
+      - ./.env
     volumes:
       - .:/app
     networks:

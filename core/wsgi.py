@@ -12,7 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 from decouple import config
 
-# DJANGO_SETTINGS_MODULE_CONFIG is an env variable imported through decouple
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", config("DJANGO_SETTINGS_MODULE_CONFIG")) 
+# DJANGO_SETTINGS_MODULE_ENV is an env variable imported through decouple
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", config("DJANGO_SETTINGS_MODULE_ENV")) 
 
 application = get_wsgi_application()

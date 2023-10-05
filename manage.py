@@ -9,8 +9,8 @@ from decouple import config
 
 def main():
     """Run administrative tasks."""
-    # DJANGO_SETTINGS_MODULE_CONFIG is an env variable imported through decouple
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", config("DJANGO_SETTINGS_MODULE_CONFIG")) 
+    # DJANGO_SETTINGS_MODULE_ENV is an env variable imported through decouple
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", config("DJANGO_SETTINGS_MODULE_ENV")) 
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
