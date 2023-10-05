@@ -10,9 +10,6 @@ services:
     networks:
       - db_network
       - web_network
-    depends_on:
-      - redis
-      - db
 
   nginx:
     container_name: nginx
