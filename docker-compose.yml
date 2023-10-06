@@ -12,6 +12,22 @@ services:
     networks:
       - db_network
       - web_network
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:14-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=${SQL_DATABASE_ENV}
+      - POSTGRES_USER=${SQL_USER_ENV}
+      - POSTGRES_PASSWORD=${SQL_PASSWORD_ENV}
+    restart: always
+
+  redis:
+    image: redis:7-alpine
 
   nginx:
     container_name: nginx
@@ -31,3 +47,6 @@ networks:
     driver: bridge # Bridge means there is no network being created
   web_network:
     driver: bridge
+
+volumes:
+  postgres_data:
