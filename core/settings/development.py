@@ -25,3 +25,22 @@ DATABASES = {
         "PORT": config("SQL_PORT_ENV", cast=int),
     }
 }
+
+
+# Redis Cache
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": config("REDIS_BACKEND_ENV")
+    }
+}
+
+# # Dummy cache for local dev
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+#     }
+# }
+
+CELERY_BROKER_URL = config("CELERY_BROKER_ENV", default=config("REDIS_BACKEND_ENV"))
+CELERY_RESULT_BACKEND = config("CELERY_BACKEND_ENV", default=config("REDIS_BACKEND_ENV"))

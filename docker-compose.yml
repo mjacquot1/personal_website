@@ -34,6 +34,9 @@ services:
 
   redis:
     image: redis:7-alpine
+    networks: # Make sure the redis and the db has access to the same networks
+      - db_network
+      - web_network
 
   nginx:
     container_name: nginx
