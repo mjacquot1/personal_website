@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# if any of the commands in the code fails for any reason, the entire script fails
+set -o errexit
+# fail exit if one of the pipe command fails
+set -o pipefail
+# exits if any of the variables is not set
+set -o nounset
+
+postgres_ready() {
+python << END
+import sys
+
+import psycopg2
+from decouple import config
+
+try:
+    psycopg2.connect(
+        dbname=   config("SQL_DATABASE_ENV"),
+        user=     config("SQL_USER_ENV"),
+        password= config("SQL_PASSWORD_ENV"),
+        host=     config("SQL_HOST_ENV"),
+        port=     config("SQL_PORT_ENV"),
+    )
+except psycopg2.OperationalError as e:
+    print(e)
+    sys.exit(-1)
+sys.exit(0)
+
+END
+}
+until postgres_ready; do
+  >&2 echo 'Waiting for PostgreSQL to become available...'
+  sleep 1
+done
+>&2 echo 'PostgreSQL is available'
+
+exec "$@"

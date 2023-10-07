@@ -9,12 +9,18 @@ COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
+COPY ./entrypoint /entrypoint
+RUN sed -i 's/\r$//g' /entrypoint
+RUN chmod +x /entrypoint
+
+
 WORKDIR /app
 COPY . .
+
+ENTRYPOINT ["/entrypoint"]
 
 # running migrations
 # RUN python manage.py migrate
 
 # gunicorn
-# This calls gunicorn to run core.wsgi with the gunicorn-cfg.py configuration file by using the -c (--config) command
-CMD ["gunicorn", "-c", "gunicorn-cfg.py", "core.wsgi"] 
+# CMD ["gunicorn", "-c", "gunicorn-cfg.py", "core.wsgi"] 

@@ -3,6 +3,8 @@ services:
   appseed-app:
     container_name: appseed_app
     image: django_gunicorn_instance # Added in
+    # This calls gunicorn to run core.wsgi with the gunicorn-cfg.py configuration file by using the -c (--config) command
+    command: gunicorn -c gunicorn-cfg.py core.wsgi
     restart: always
     build: .
     env_file:
@@ -24,7 +26,14 @@ services:
       - POSTGRES_DB=${SQL_DATABASE_ENV}
       - POSTGRES_USER=${SQL_USER_ENV}
       - POSTGRES_PASSWORD=${SQL_PASSWORD_ENV}
+    expose: # Expose this port to all connections
+      - "5432"
     restart: always
+    networks:
+      - db_network
+
+# SQL_HOST_ENV=db
+# SQL_PORT_ENV=5432
 
   redis:
     image: redis:7-alpine
