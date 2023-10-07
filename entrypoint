@@ -35,4 +35,4 @@ until postgres_ready; do
 done
 >&2 echo 'PostgreSQL is available'
 
-exec "$@"
+exec "$@" # Run the rest of the commands sent through docker

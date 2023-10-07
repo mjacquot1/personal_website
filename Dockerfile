@@ -10,7 +10,14 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./entrypoint /entrypoint
+# sed is a stream editor to modify the /entrypoint file with the command:
+# '-i' change the file
+# 's' for substitute / 
+# '\r$' Regular Expression, any carriage return at the end of a string with /
+# '' nothing /
+# and 'g' is the command to substitute all instances
 RUN sed -i 's/\r$//g' /entrypoint
+# Authorize the /entrypoint file
 RUN chmod +x /entrypoint
 
 

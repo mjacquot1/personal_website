@@ -29,11 +29,8 @@ services:
     expose: # Expose this port to all connections
       - "5432"
     restart: always
-    networks:
+    networks: # Make sure the webapp and the db has access to the same networks
       - db_network
-
-# SQL_HOST_ENV=db
-# SQL_PORT_ENV=5432
 
   redis:
     image: redis:7-alpine
