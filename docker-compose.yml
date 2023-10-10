@@ -36,10 +36,42 @@ services:
 
   redis:
     image: redis:7-alpine
+    # Save to disk every 20 seconds
+    command: redis-server --save 20 1
     networks:
       # Make sure the redis and the db has access to the same networks
       - db_network
       - web_network
+    volumes:
+      - cache:/data
+
+  # celery_worker:
+  #   build:
+  #     context: .
+  #     dockerfile: ./compose/local/django/Dockerfile
+  #   image: simple_social_celery_worker
+  #   command: /start-celeryworker
+  #   volumes:
+  #     - .:/app
+  #   env_file:
+  #     - ./.env/.dev-sample
+  #   depends_on:
+  #     - redis
+  #     - db
+
+  # celery_beat:
+  #   build:
+  #     context: .
+  #     dockerfile: ./compose/local/django/Dockerfile
+  #   image: simple_social_celery_beat
+  #   command: /start-celerybeat
+  #   volumes:
+  #     - .:/app
+  #   env_file:
+  #     - ./.env/.dev-sample
+  #   depends_on:
+  #     - redis
+  #     - db
 
   nginx:
     container_name: nginx
@@ -61,4 +93,7 @@ networks:
     driver: bridge
 
 volumes:
-  postgres_data:
+  postgres_data: # Save on the 'local' volume (I believe like a name)
+
+  cache:
+    driver: local
