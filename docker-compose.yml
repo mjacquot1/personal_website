@@ -26,15 +26,18 @@ services:
       - POSTGRES_DB=${SQL_DATABASE_ENV}
       - POSTGRES_USER=${SQL_USER_ENV}
       - POSTGRES_PASSWORD=${SQL_PASSWORD_ENV}
-    expose: # Expose this port to all connections
+    expose:
+      # Expose this port to all connections
       - "5432"
     restart: always
-    networks: # Make sure the webapp and the db has access to the same networks
+    networks:
+      # Make sure the webapp and the db has access to the same networks
       - db_network
 
   redis:
     image: redis:7-alpine
-    networks: # Make sure the redis and the db has access to the same networks
+    networks:
+      # Make sure the redis and the db has access to the same networks
       - db_network
       - web_network
 

@@ -31,7 +31,10 @@ DATABASES = {
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": config("REDIS_BACKEND_ENV")
+        "LOCATION": config("REDIS_BACKEND_ENV"),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        },
     }
 }
 
@@ -42,5 +45,7 @@ CACHES = {
 #     }
 # }
 
-CELERY_BROKER_URL = config("CELERY_BROKER_ENV", default=config("REDIS_BACKEND_ENV"))
-CELERY_RESULT_BACKEND = config("CELERY_BACKEND_ENV", default=config("REDIS_BACKEND_ENV"))
+CELERY_BROKER_URL = config(
+    "CELERY_BROKER_ENV", default=config("REDIS_BACKEND_ENV"))
+CELERY_RESULT_BACKEND = config(
+    "CELERY_BACKEND_ENV", default=config("REDIS_BACKEND_ENV"))
