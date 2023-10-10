@@ -6,7 +6,9 @@ services:
     # This calls gunicorn to run core.wsgi with the gunicorn-cfg.py configuration file by using the -c (--config) command
     command: gunicorn -c gunicorn-cfg.py core.wsgi
     restart: always
-    build: .
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
     env_file:
       - ./.env
     volumes:
@@ -46,6 +48,7 @@ services:
       - cache:/data
 
   # celery_worker:
+  #   # Build off the same docker file as Django, since they share many scripts and Celery tasks use django's ORM
   #   build:
   #     context: .
   #     dockerfile: ./compose/local/django/Dockerfile

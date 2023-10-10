@@ -9,7 +9,7 @@ COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ./entrypoint /entrypoint
+COPY ./compose/local/django/entrypoint /entrypoint
 # sed is a stream editor to modify the /entrypoint file with the command:
 # '-i' change the file
 # 's' for substitute / 
