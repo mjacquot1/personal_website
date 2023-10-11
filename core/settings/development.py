@@ -46,6 +46,6 @@ CACHES = {
 # }
 
 CELERY_BROKER_URL = config(
-    "CELERY_BROKER_ENV", default=config("REDIS_BACKEND_ENV"))
+    config("CELERY_BROKER_ENV"), default=config("REDIS_BACKEND_ENV"))
 CELERY_RESULT_BACKEND = config(
-    "CELERY_BACKEND_ENV", default=config("REDIS_BACKEND_ENV"))
+    config("CELERY_BACKEND_ENV"), default=config("REDIS_BACKEND_ENV"))

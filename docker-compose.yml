@@ -1,7 +1,7 @@
 version: '3.8'
 services:
-  appseed-app:
-    container_name: appseed_app
+  web-app:
+    container_name: web-app
     image: django_gunicorn_instance # Added in
     # This calls gunicorn to run core.wsgi with the gunicorn-cfg.py configuration file by using the -c (--config) command
     command: gunicorn -c gunicorn-cfg.py core.wsgi
@@ -9,6 +9,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
+    # Passes the environment file through for decouple
     env_file:
       - ./.env
     volumes:
@@ -47,34 +48,62 @@ services:
     volumes:
       - cache:/data
 
-  # celery_worker:
-  #   # Build off the same docker file as Django, since they share many scripts and Celery tasks use django's ORM
-  #   build:
-  #     context: .
-  #     dockerfile: ./compose/local/django/Dockerfile
-  #   image: simple_social_celery_worker
-  #   command: /start-celeryworker
-  #   volumes:
-  #     - .:/app
-  #   env_file:
-  #     - ./.env/.dev-sample
-  #   depends_on:
-  #     - redis
-  #     - db
+  celery_worker:
+    # Build off the same docker file as Django, since they share many scripts and Celery tasks use django's ORM
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: web-app_celery_worker
+    command: /start-celeryworker
+    volumes:
+      - .:/app
+    env_file:
+      # - ./.env/.dev-sample
+      - ./.env
+    networks:
+      - db_network
+      - web_network
+    depends_on:
+      - redis
+      - db
 
-  # celery_beat:
-  #   build:
-  #     context: .
-  #     dockerfile: ./compose/local/django/Dockerfile
-  #   image: simple_social_celery_beat
-  #   command: /start-celerybeat
-  #   volumes:
-  #     - .:/app
-  #   env_file:
-  #     - ./.env/.dev-sample
-  #   depends_on:
-  #     - redis
-  #     - db
+  celery_beat:
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: web-app_celery_beat
+    command: /start-celerybeat
+    volumes:
+      - .:/app
+    env_file:
+      # - ./.env/.dev-sample
+      - ./.env
+    networks:
+      - db_network
+      - web_network
+    depends_on:
+      - redis
+      - db
+
+  flower:
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: web-app_celery_flower
+    command: /start-flower
+    volumes:
+      - .:/app
+    env_file:
+      # - ./.env/.dev-sample
+      - ./.env
+    ports:
+      - 5557:5555
+    networks:
+      - db_network
+      - web_network
+    depends_on:
+      - redis
+      - db
 
   nginx:
     container_name: nginx
@@ -87,7 +116,7 @@ services:
     networks:
       - web_network
     depends_on:
-      - appseed-app
+      - web-app
 
 networks:
   db_network:
