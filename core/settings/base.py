@@ -14,9 +14,6 @@ import os
 import random
 import string
 from pathlib import Path
-from dotenv import load_dotenv
-
-load_dotenv()  # take environment variables from .env.
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,17 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
-if not SECRET_KEY:
-    SECRET_KEY = ''.join(random.choice(string.ascii_lowercase)
-                         for i in range(32))
+# # (No longer) Render Deployment Code
+# DEBUG = "DEBUG_ENV"  # Changed to just true. Used to be set up for render deployment.
 
-# (No longer) Render Deployment Code
-DEBUG = True  # Changed to just true. Used to be set up for render deployment.
-
-# Docker HOST
-ALLOWED_HOSTS = ['localhost']
+# # Docker HOST
+# ALLOWED_HOSTS = ['localhost']
 
 # Add here your deployment HOSTS
 CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085']
@@ -92,34 +83,61 @@ TEMPLATES = [
 WSGI_APPLICATION = "core.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+# # Database (Came with template)
+# # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DB_ENGINE = os.getenv('DB_ENGINE', None)
-DB_USERNAME = os.getenv('DB_USERNAME', None)
-DB_PASS = os.getenv('DB_PASS', None)
-DB_HOST = os.getenv('DB_HOST', None)
-DB_PORT = os.getenv('DB_PORT', None)
-DB_NAME = os.getenv('DB_NAME', None)
+# DB_ENGINE = os.getenv('DB_ENGINE', None)
+# DB_USERNAME = os.getenv('DB_USERNAME', None)
+# DB_PASS = os.getenv('DB_PASS', None)
+# DB_HOST = os.getenv('DB_HOST', None)
+# DB_PORT = os.getenv('DB_PORT', None)
+# DB_NAME = os.getenv('DB_NAME', None)
 
-if DB_ENGINE and DB_NAME and DB_USERNAME:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.' + DB_ENGINE,
-            'NAME': DB_NAME,
-            'USER': DB_USERNAME,
-            'PASSWORD': DB_PASS,
-            'HOST': DB_HOST,
-            'PORT': DB_PORT,
-        },
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'db.sqlite3',
-        }
-    }
+# if DB_ENGINE and DB_NAME and DB_USERNAME:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.' + DB_ENGINE,
+#             'NAME': DB_NAME,
+#             'USER': DB_USERNAME,
+#             'PASSWORD': DB_PASS,
+#             'HOST': DB_HOST,
+#             'PORT': DB_PORT,
+#         },
+#     }
+# else:
+
+# Update for postgres, Redis and celery
+
+# SQL_ENGINE_ENV = django.db.backends.postgresql
+# SQL_DATABASE_ENV = hello_django
+# SQL_USER_ENV = hello_django
+# SQL_PASSWORD_ENV = hello_django
+# SQL_HOST_ENV = db
+# SQL_PORT_ENV = 5432
+
+# CELERY_BROKER_ENV = redis: // redis: 6379/0
+# CELERY_BACKEND_ENV = redis: // redis: 6379/0
+
+# # Redis Cache
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.redis.RedisCache",
+#         "LOCATION": config("REDIS_BACKEND"),
+#     },
+# }
+
+# CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://127.0.0.1:6379/0")
+# CELERY_RESULT_BACKEND = os.environ.get(
+#     "CELERY_BACKEND", "redis://127.0.0.1:6379/0")
+
+# Update for postgres and celery
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

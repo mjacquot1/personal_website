@@ -1,3 +1,5 @@
+<!-- 
+
 # [Django Soft Design](https://appseed.us/product/soft-ui-design/django/)
 
 Open-source **Django** project crafted on top of **[Soft Design](https://appseed.us/product/soft-ui-design/django/)**, an open-source `Bootstrap 5` design from [Creative-Tim](https://www.creative-tim.com/?AFFILIATE=128200).
@@ -183,4 +185,6 @@ At this point, the product should be LIVE.
 <br />
 
 ---
-[Django Soft Design](https://appseed.us/product/soft-ui-design/django/) - **Django** Starter provided by **[AppSeed](https://appseed.us/)**
+[Django Soft Design](https://appseed.us/product/soft-ui-design/django/) - **Django** Starter provided by **[AppSeed](https://appseed.us/)** 
+
+-->
