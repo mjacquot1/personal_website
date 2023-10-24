@@ -1,3 +1,6 @@
+![alt text](https://github.com/mjacquot1/personal_website/blob/master/personal_website_stack.drawio.png?raw=true)
+
+
 <!-- 
 
 # [Django Soft Design](https://appseed.us/product/soft-ui-design/django/)
