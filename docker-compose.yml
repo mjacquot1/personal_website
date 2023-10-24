@@ -125,7 +125,7 @@ networks:
     driver: bridge
 
 volumes:
-  postgres_data: # Save on the 'local' volume (I believe like a name)
-
   cache:
     driver: local
+
+  postgres_data: # Save on the 'local' volume (I believe like a name)
