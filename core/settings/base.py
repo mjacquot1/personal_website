@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    'theme_soft_design',
     "home",
+    'theme_soft_design',
 ]
 
 MIDDLEWARE = [
@@ -62,12 +62,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "core.urls"
 
-HOME_TEMPLATES = os.path.join(BASE_DIR, 'home', 'templates')
+HOME_TEMPLATES = os.path.join(BASE_DIR, 'home/', 'templates/')
+BASE_TEMPLATES = os.path.join(BASE_DIR, 'templates/')
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [HOME_TEMPLATES],
+        "DIRS": [HOME_TEMPLATES, BASE_TEMPLATES],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
