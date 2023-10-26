@@ -35,23 +35,16 @@
                   <ul class="dropdown-menu mega-menu mega-menu-dark mega-menu-img">
                     <li class="mega-menu-content mega-menu-scroll">
                       <ul class="row row-cols-1 row-cols-lg-6 gx-0 gx-lg-4 gy-lg-2 list-unstyled">
-                        {% with list='1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34' %}
-                        {% for i in list.split %}
-                          {% with 'ui_testing/img/demos/mi'|add:i|add:'.jpg' as link_1 %}
-                          {% with 'ui_testing/img/demos/mi'|add:i|add:'@2x.jpg' as link_2 %}
-                          {% with 'Demo '|add:i as demo_output %}
+                        {% for i in range_list %}
                           <li class="col">
                             <a class="dropdown-item" href="">
-                              <figure class="rounded lift d-none d-lg-block"><img src="{% static link_1 %}" srcset="{% static link_2 %} 2x" alt=""></figure>
-                              <span class="d-lg-none"> {{demo_output}} </span>
+                              {% comment %} srcset="{% static link_2 %} 2x" {% endcomment %}
+                              <figure class="rounded lift d-none d-lg-block"><img src="{% static i %}" alt=""></figure>
+                              <span class="d-lg-none"> Demo {{ forloop.counter }} </span>
                             </a>
                           </li>
-                          {% endwith %}
-                          {% endwith %}
-                          {% endwith %}
                         {% endfor %}
-                        {% endwith %}                        
-                        
+
                       </ul>
                       <!--/.row -->
                       <span class="d-none d-lg-flex"><i class="uil uil-direction"></i><strong>Scroll to view more</strong></span>
