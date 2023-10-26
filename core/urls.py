@@ -20,5 +20,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path("admin/", admin.site.urls),
     # path("home_test/", include('home.urls', namespace='home')),
+    path("ui_testing/", include('ui_testing.urls')),
     path("", include('theme_soft_design.urls')),
+    
 ]

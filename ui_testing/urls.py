@@ -7,5 +7,5 @@ from . import views
 app_name = 'ui_testing'
 
 urlpatterns = [
-
+    path('', views.test_404, name='test_404'),
 ]
