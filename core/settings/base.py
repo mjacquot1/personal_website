@@ -65,13 +65,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "core.urls"
 
-HOME_TEMPLATES = os.path.join(BASE_DIR, 'home/', 'templates/')
-BASE_TEMPLATES = os.path.join(BASE_DIR, 'templates/')
+# HOME_TEMPLATES = os.path.join(BASE_DIR, 'home/', 'templates/')
+# BASE_TEMPLATES = os.path.join(BASE_DIR, 'templates/')
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [HOME_TEMPLATES, BASE_TEMPLATES],
+        # "DIRS": [HOME_TEMPLATES, BASE_TEMPLATES],
+        "DIRS": [BASE_DIR / 'home' / 'templates', BASE_DIR / 'ui_testing' / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -80,6 +81,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            'debug':True
         },
     },
 ]

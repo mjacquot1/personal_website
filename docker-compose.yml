@@ -4,7 +4,7 @@ services:
     container_name: web-app
     image: django_gunicorn_instance # Added in
     # This calls gunicorn to run core.wsgi with the gunicorn-cfg.py configuration file by using the -c (--config) command
-    command: gunicorn -c gunicorn-cfg.py core.wsgi
+    command: gunicorn -c gunicorn-cfg.py core.wsgi --reload
     restart: always
     build:
       context: .
