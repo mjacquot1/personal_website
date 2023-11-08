@@ -554,6 +554,7 @@ section {
   --bs-accordion-body-padding-y: 1rem;
   --bs-accordion-active-color: var(--bs-primary-text-emphasis);
   --bs-accordion-active-bg: #e4edf9;
+  padding-bottom: 2em;
 }
 
 /* 
@@ -916,6 +917,12 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Stack
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
 .services .icon-box {
@@ -929,10 +936,10 @@ section {
   justify-content: center;
   width: 54px;
   height: 54px;
-  background: #149ddd;
+  /* background: #149ddd;
   border-radius: 50%;
   transition: 0.5s;
-  border: 1px solid #149ddd;
+  border: 1px solid #149ddd; */
 }
 
 .services .icon i {
@@ -941,13 +948,13 @@ section {
   line-height: 0;
 }
 
-.services .icon-box:hover .icon {
+/* .services .icon-box:hover .icon {
   background: #fff;
 }
 
 .services .icon-box:hover .icon i {
   color: #149ddd;
-}
+} */
 
 .services .title {
   margin-left: 80px;
@@ -1326,3 +1333,7 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+/*--------------------------------------------------------------
+# Custom Bootstrap Override
+--------------------------------------------------------------*/

@@ -121,6 +121,69 @@
       </div>
     </section><!-- End About Section -->
 
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Website Stack</h2>
+          <p>This website is built using the following technologies.</p>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\django.png' %}"  style="width:64px;height:64px;" ></div>
+            <h4 class="title"><a href="https://www.djangoproject.com/">Django</a></h4>
+            <p class="description">The Django web framework is primarily used.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\nginx.png' %}"  style="width:64px;height:64px;" ></div>
+            <h4 class="title"><a href="https://www.nginx.com/">Nginx</a></h4>
+            <p class="description">Nginx is used as the web server.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\docker.png' %}"  style="width:64px;height:64px;" ></div>
+            <h4 class="title"><a href="https://www.docker.com/"></a>Docker</h4>
+            <p class="description">Docker was used for development and containerization</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\gunicorn.png' %}"  style="width:64px;height:39px;" ></div>
+            <h4 class="title"><a href="https://gunicorn.org/">Gunicorn</a></h4>
+            <p class="description">Gunicorn is used as the application server.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\celery.png' %}"  style="width:64px;height:64px;" ></div>
+            <h4 class="title"><a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html"></a>Celery</h4>
+            <p class="description">Celery was used as for asynchronous task queues.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\redis.png' %}"  style="width:64px;height:64px;" ></div>
+            <h4 class="title"><a href="https://redis.com/solutions/use-cases/messaging/"></a>Redis</h4>
+            <p class="description">Redis is used for caching and as a message broker for Celery.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\bootstrap5.png' %}"  style="width:64px;height:51px;" ></div>
+            <h4 class="title"><a href="https://getbootstrap.com/"></a>Bootstrap</h4>
+            <p class="description">Bootstrap is the primary elements for the frontend.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\postgresql.png' %}"  style="width:64px;height:64px;" ></div>
+            <h4 class="title"><a href="https://www.postgresql.org/">PostgreSQL</a></h4>
+            <p class="description">PostgreSQL is used as the backend database.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
     <!-- ======= Facts Section ======= -->
     <section id="facts" class="facts">
       <div class="container">
@@ -133,16 +196,13 @@
         <div class="row no-gutters">
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
-            </div>
+              <img src="{% static 'ui_testing\favicon\django.png' %}"  style="width:50.25px;height:64px;" >
+              <span>Django</span>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
+              <i class="bi bi-images"></i>
               <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Projects</strong> adipisci atque cum quia aut</p>
             </div>
@@ -172,20 +232,33 @@
 <!-- ======= Resume Section ======= -->
 
     <section id="resume" class="resume">
-        <div class="container">
+      <div class="container">
 
         <div class="section-title">
             <h2>Resume</h2>
         </div>
-          <div class="row">
-            <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
-              <div class='card d-flex text-center shadow sticky-bottom'>
+        <div class="row">
+          
+          <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <div class='card d-flex text-center shadow'>
                 
                 <div class="card-header">
                   <h3 class="resume-title">Skills</h3>
                 </div>
 
                 <div class="card-body">
+                  <h5 class="card-title"><strong>Interests</strong></h5>
+                  <div class='skills align-items-center justify-content-center'>
+                    <ul id="skill-flters">
+                      <li data-filter="" style='background:#fff;'>Programming</li>
+                      <li data-filter="">Finance</li>
+                      <li data-filter="">Web Dev</li>
+                      <li data-filter="">Financial Markets</li>
+                      <li data-filter="">Sentiment Analysis</li>
+                      <li data-filter="">Machine Learning</li>
+                    </ul>
+                  </div>
+
                   <h5 class="card-title"><strong>Programming Languages</strong></h5>
                   <div class='skills align-items-center justify-content-center'>
                     <ul id="skill-flters">
@@ -241,201 +314,188 @@
 
                 </div>
               </div>
-            </div>
-            <div class="col-lg-9" data-aos="fade-up">
-              <h3 class="resume-title">Professional Experience</h3>
+          </div>
+          <div class="col-lg-9" data-aos="fade-up">
+            <h3 class="resume-title">Professional Experience</h3>
 
-              <div class="resume-item">
-                <h4>Software Engineer L2, Platform</h4>
-                <h5>March 2022 - March 2023</h5><em>  Remote</em>
-                <div class="accordion accordion-flush resume_accordion" id="work_exp_a">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="work_exp_a_heading_1">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_a_collapse_1" aria-expanded="true" aria-controls="work_exp_a_collapse_1">
-                          <strong>Summary</strong>
-                        </button>
-                      </h2>
-                      <div id="work_exp_a_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_a_heading_1" data-bs-parent="#work_exp_a">
-                        <div class="accordion-body">
+            <div class="resume-item">
+              <h4>Software Engineer L2, Platform</h4>
+              <h5>March 2022 - March 2023</h5><em>  Remote</em>
+              <div class="accordion accordion-flush resume_accordion" id="work_exp_a">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_a_heading_1">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_a_collapse_1" aria-expanded="true" aria-controls="work_exp_a_collapse_1">
+                        <strong>Summary</strong>
+                      </button>
+                    </h2>
+                    <div id="work_exp_a_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_a_heading_1" data-bs-parent="#work_exp_a">
+                      <div class="accordion-body">
+                        <ul>
+                          <li>Automated a manually intensive product attribute updating process by developing and deploying an application feature that asynchronously updated product attributes from supplier-provided Excel workbooks.</li>
+                          <li>Adhered to Agile methodologies throughout the software development lifecycle. Maintained open lines of communication with all project stakeholders and created project documentation using Jira.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_a_heading_2">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_a_collapse_2" aria-expanded="false" aria-controls="work_exp_a_collapse_2">
+                        <b> Do you want to know more? </b>
+                      </button>
+                    </h2>
+                    <div id="work_exp_a_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_a_heading_2" data-bs-parent="#work_exp_a">
+                      <div class="accordion-body">
                           <ul>
-                            <li>Automated a manually intensive product attribute updating process by developing and deploying an application feature that asynchronously updated product attributes from supplier-provided Excel workbooks.</li>
-                            <li>Adhered to Agile methodologies throughout the software development lifecycle. Maintained open lines of communication with all project stakeholders and created project documentation using Jira.</li>
+                              <li>Automated a manually intensive product attribute updating process by developing and deploying an application feature that asynchronously updated product attributes from supplier-provided Excel workbooks.</li>
+                              <li>Developed and implement both front-end and back-end features for updating product attributes utilizing Ruby on Rails gems including Views and Active Record. </li>
+                              <li>Designed and developed AWS Lambda Ruby functions. Employed infrastructure as code tooling such as CloudFormation and Terraform  for VPC configurations, IAM security measures, and S3 connections.</li>
+                              <li>Secured GraphQL queries and mutations by implementing authorization hooks based on user credentials within a centralized code repository. Mapped inter-app GraphQL usage between multiple stacks. 
+                              <li>Strengthened code quality and reliability by developing and executing RSpec unit tests to validate program functionality, ensure accurate database updates, and effectively both handle and log errors.</li>
+                              <li>Monitored errors using New Relic alerts and implemented error handlers in critical areas where user input was accepted or database operations were performed. Generated  error reports for internal users.</li>
+                              <li>Developed and implemented data scrubbing modules using Ruby on Rails to secure external data inputs and protect against Json, SQL, and VBA injection attacks.</li>
+                              <li>Configured and ran Docker images to facilitate local app development and testing.</li>
+                              <li>Created internal documentation outlining the configuration process for a Terragrunt/Terraform repository used to deploy Ruby Lambdas within the primary stack.</li>
+                              <li>Utilized Git for CI/CD. Conducted code reviews and approvals to ensure deployment readiness.</li>
+                              <li>Adhered to Agile methodologies throughout the software development lifecycle. Maintained open lines of communication with all project stakeholders and created project documentation using Jira.</li>
                           </ul>
-                        </div>
                       </div>
                     </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="work_exp_a_heading_2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_a_collapse_2" aria-expanded="false" aria-controls="work_exp_a_collapse_2">
-                          <b> Do you want to know more? </b>
-                        </button>
-                      </h2>
-                      <div id="work_exp_a_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_a_heading_2" data-bs-parent="#work_exp_a">
-                        <div class="accordion-body">
-                            <ul>
-                                <li>Automated a manually intensive product attribute updating process by developing and deploying an application feature that asynchronously updated product attributes from supplier-provided Excel workbooks.</li>
-                                <li>Developed and implement both front-end and back-end features for updating product attributes utilizing Ruby on Rails gems including Views and Active Record. </li>
-                                <li>Designed and developed AWS Lambda Ruby functions. Employed infrastructure as code tooling such as CloudFormation and Terraform  for VPC configurations, IAM security measures, and S3 connections.</li>
-                                <li>Secured GraphQL queries and mutations by implementing authorization hooks based on user credentials within a centralized code repository. Mapped inter-app GraphQL usage between multiple stacks. 
-                                <li>Strengthened code quality and reliability by developing and executing RSpec unit tests to validate program functionality, ensure accurate database updates, and effectively both handle and log errors.</li>
-                                <li>Monitored errors using New Relic alerts and implemented error handlers in critical areas where user input was accepted or database operations were performed. Generated  error reports for internal users.</li>
-                                <li>Developed and implemented data scrubbing modules using Ruby on Rails to secure external data inputs and protect against Json, SQL, and VBA injection attacks.</li>
-                                <li>Configured and ran Docker images to facilitate local app development and testing.</li>
-                                <li>Created internal documentation outlining the configuration process for a Terragrunt/Terraform repository used to deploy Ruby Lambdas within the primary stack.</li>
-                                <li>Utilized Git for CI/CD. Conducted code reviews and approvals to ensure deployment readiness.</li>
-                                <li>Adhered to Agile methodologies throughout the software development lifecycle. Maintained open lines of communication with all project stakeholders and created project documentation using Jira.</li>
-                            </ul>
-                        </div>
-                      </div>
-                    </div>
-                </div>
+                  </div>
               </div>
-              
-              <div class="resume-item">
-                <h4>Role</h4>
-                <h5>Month Year - Month Year</h5><em>  Location</em>
-                <div class="accordion accordion-flush resume_accordion" id="work_exp_b">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="work_exp_b_heading_2">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_b_collapse_1" aria-expanded="true" aria-controls="work_exp_b_collapse_1">
-                          <strong>Summary</strong>
-                        </button>
-                      </h2>
-                      <div id="work_exp_b_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_b_heading_2" data-bs-parent="#work_exp_b">
-                        <div class="accordion-body">
+            </div>
+            
+            <div class="resume-item">
+              <h4>Lead Software Engineer</h4>
+              <h5>July 2019 - March 2022</h5><em>  Ontario, CA</em>
+              <div class="accordion accordion-flush resume_accordion" id="work_exp_b">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_b_heading_2">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_b_collapse_1" aria-expanded="true" aria-controls="work_exp_b_collapse_1">
+                        <strong>Summary</strong>
+                      </button>
+                    </h2>
+                    <div id="work_exp_b_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_b_heading_2" data-bs-parent="#work_exp_b">
+                      <div class="accordion-body">
+                        <ul>
+                          <li>Used python, VBA, and MongoDB to architect, design, and implement:</li>
                           <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li>A Python program to generate financial plans after automatically ingesing client information.</li>
+                            <li>Excel workbooks to automate day-to-day financial planning tasks.</li>
+                            <li>A MongoDB database to hold and access client information.</li>
                           </ul>
-                        </div>
+                        </ul>
                       </div>
                     </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="work_exp_b_heading_2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_b_collapse_2" aria-expanded="false" aria-controls="work_exp_b_collapse_2">
-                          <b> Do you want to know more? </b>
-                        </button>
-                      </h2>
-                      <div id="work_exp_b_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_b_heading_2" data-bs-parent="#work_exp_b">
-                        <div class="accordion-body">
-                            <ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-              </div>
-              
-              <div class="resume-item">
-                <h4>Role</h4>
-                <h5>Month Year - Month Year</h5><em>  Location</em>
-                <div class="accordion accordion-flush resume_accordion" id="work_exp_c">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="work_exp_c_heading_1">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_c_collapse_1" aria-expanded="true" aria-controls="work_exp_c_collapse_1">
-                          <strong>Summary</strong>
-                        </button>
-                      </h2>
-                      <div id="work_exp_c_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_c_heading_1" data-bs-parent="#work_exp_c">
-                        <div class="accordion-body">
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_b_heading_2">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_b_collapse_2" aria-expanded="false" aria-controls="work_exp_b_collapse_2">
+                        <b> Do you want to know more? </b>
+                      </button>
+                    </h2>
+                    <div id="work_exp_b_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_b_heading_2" data-bs-parent="#work_exp_b">
+                      <div class="accordion-body">
                           <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                              <li>Developed an automatic document writer through Python UI and MongoDB integration, allowing client information to be centralized to programmatically generate personalized financial plans.</li>
+                              <li>Oversaw the continual development of an Excel and VBA macro based cash flow tool that provides tax calculations, projected client cash flows, and retirement account recommendations.</li>
+                              <li>Employed a NoSQL data model with MongoDB using the attribute design pattern.</li>
+                              <li>Identified design problems early to refactor the necessary application code ensuring long term extensibility.</li>
+                              <li>Architect, designed, implemented and deployed the following features:</li>
+                              <ul>
+                                <li>A Python 3 Desktop GUI application to generate formatted word documents based on a list of userdefined conditional arguments and formatting rules.</li>
+                                <li>An interface to allow users to easily create conditional logic, translating the string conditions to executable code.</li>
+                                <li>An interface to allow users to easily create formatting rules that translate into Microsoft Word syntax.</li>
+                                <li>A calculator interface to easily create formulas used for conditional logic.</li>
+                                <li>Template revision history and restore feature to allow users to revert to an older template.</li>
+                                <li>An interface utilizing a Breadth First Search algorithm to import an Excel workbook and parse user conditional variables defined in the template.</li>
+                              </ul>
                           </ul>
-                        </div>
                       </div>
                     </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="work_exp_c_heading_2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_c_collapse_2" aria-expanded="false" aria-controls="work_exp_c_collapse_2">
-                          <b> Do you want to know more? </b>
-                        </button>
-                      </h2>
-                      <div id="work_exp_c_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_c_heading_2" data-bs-parent="#work_exp_c">
-                        <div class="accordion-body">
-                            <ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                      </div>
-                    </div>
-                </div>
+                  </div>
               </div>
-              
-              <div class="resume-item">
-                <h4>Role</h4>
-                <h5>Month Year - Month Year</h5><em>  Location</em>
-                <div class="accordion accordion-flush resume_accordion" id="work_exp_d">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="work_exp_d_heading_1">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_d_collapse_1" aria-expanded="true" aria-controls="work_exp_d_collapse_1">
-                          <strong>Summary</strong>
-                        </button>
-                      </h2>
-                      <div id="work_exp_d_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_d_heading_1" data-bs-parent="#work_exp_d">
-                        <div class="accordion-body">
+            </div>
+            
+            <div class="resume-item">
+              <h4>Business Analyst</h4>
+              <h5>December 2017 - July 2019</h5><em>  Monterey Park, CA</em>
+              <div class="accordion accordion-flush resume_accordion" id="work_exp_c">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_c_heading_1">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_c_collapse_1" aria-expanded="true" aria-controls="work_exp_c_collapse_1">
+                        <strong>Summary</strong>
+                      </button>
+                    </h2>
+                    <div id="work_exp_c_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_c_heading_1" data-bs-parent="#work_exp_c">
+                      <div class="accordion-body">
+                        <ul>
+                          <li>Managed development projects for item processing.</li>
+                          <li>Developed VBA Macros to assist in operations.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_c_heading_2">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_c_collapse_2" aria-expanded="false" aria-controls="work_exp_c_collapse_2">
+                        <b> Do you want to know more? </b>
+                      </button>
+                    </h2>
+                    <div id="work_exp_c_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_c_heading_2" data-bs-parent="#work_exp_c">
+                      <div class="accordion-body">
                           <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                              <li>Used Excel VBA macros to randomly generate values for Checking items used for testing, resulting in an increase in testing accuracy, faster defect resolution, and a 95% reduction in man-hours.</li>
+                              <li>Designed, developed, and tested the Canadian item processing capture platform for our location in Tempe, Arizona, and oversaw record keeping for post implementation defect analysis and debugging.</li>
+                              <li>Automated risk reports of daily cash letters for MUB Controllers on a quarterly basis.</li>
                           </ul>
-                        </div>
                       </div>
                     </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="work_exp_d_heading_2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_d_collapse_2" aria-expanded="false" aria-controls="work_exp_d_collapse_2">
-                          <b> Do you want to know more? </b>
-                        </button>
-                      </h2>
-                      <div id="work_exp_d_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_d_heading_2" data-bs-parent="#work_exp_d">
-                        <div class="accordion-body">
-                            <ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                      </div>
-                    </div>
-                </div>
+                  </div>
               </div>
+            </div>
+            
+            <div class="resume-item">
+              <h4>Assistant Manager</h4>
+              <h5>June 2015 - December 2017</h5><em>  Montclair, CA</em>
+              <div class="accordion accordion-flush resume_accordion" id="work_exp_d">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_d_heading_1">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_d_collapse_1" aria-expanded="true" aria-controls="work_exp_d_collapse_1">
+                        <strong>Summary</strong>
+                      </button>
+                    </h2>
+                    <div id="work_exp_d_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_d_heading_1" data-bs-parent="#work_exp_d">
+                      <div class="accordion-body">
+                        <ul>
+                          <li>Assisted in managing a Men's Wearhouse retail store.</li>
+                          <li>Sold men's formal and casual wear on commission.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_d_heading_2">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_d_collapse_2" aria-expanded="false" aria-controls="work_exp_d_collapse_2">
+                        <b> Do you want to know more? </b>
+                      </button>
+                    </h2>
+                    <div id="work_exp_d_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_d_heading_2" data-bs-parent="#work_exp_d">
+                      <div class="accordion-body">
+                          <ul>
+                              <li>Assisted in running management operations including opening and closing the store, depositing store funds, and delegating work to employees.</li>
+                              <li>Developed and maintained customer relationships to ensure repeat business.</li>
+                              <li>Networked through daily telephone calls.</li>
+                              <li>Sold on commission.</li>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
 
             </div>
           </div>
-
-            
-        </div>
-
-        </div>
+      </div>
     </section><!-- End Resume Section -->
   </section>
 
@@ -622,51 +682,6 @@
 
       </div>
     </section><!-- End Portfolio Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
