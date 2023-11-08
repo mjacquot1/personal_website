@@ -132,50 +132,67 @@
 
         <div class="row d-flex justify-content-center">
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\django.png' %}"  style="width:64px;height:64px;" ></div>
-            <h4 class="title"><a href="https://www.djangoproject.com/">Django</a></h4>
+            <div class="stack_icon icon shake_icon">
+              <a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\django.png' %}"  style="width:64px;height:64px;" ></a>
+            </div>
+            {% comment "" %} target="_blank" rel="noopener noreferrer" opens in new rab, and rel="noopener noreferrer" adds security {% endcomment %}
+            <h4 class="title"><a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">Django</a></h4>
             <p class="description">The Django web framework is primarily used.</p>
           </div>
 
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\nginx.png' %}"  style="width:64px;height:64px;" ></div>
-            <h4 class="title"><a href="https://www.nginx.com/">Nginx</a></h4>
+            <div class="stack_icon icon shake_icon">
+              <a href="https://www.nginx.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\nginx.png' %}"  style="width:64px;height:64px;" ></a>
+            </div>
+            <h4 class="title"><a href="https://www.nginx.com/" target="_blank" rel="noopener noreferrer">Nginx</a></h4>
             <p class="description">Nginx is used as the web server.</p>
           </div>
 
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\docker.png' %}"  style="width:64px;height:64px;" ></div>
-            <h4 class="title"><a href="https://www.docker.com/"></a>Docker</h4>
+            <div class="stack_icon icon shake_icon">
+              <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\docker.png' %}"  style="width:64px;height:64px;" ></a>
+            </div>
+            <h4 class="title"><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a></h4>
             <p class="description">Docker was used for development and containerization</p>
           </div>
 
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\gunicorn.png' %}"  style="width:64px;height:39px;" ></div>
-            <h4 class="title"><a href="https://gunicorn.org/">Gunicorn</a></h4>
+            <div class="stack_icon icon shake_icon">
+              <a href="https://gunicorn.org/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\gunicorn.png' %}"  style="width:64px;height:39px;" ></a>
+            </div>
+            <h4 class="title"><a href="https://gunicorn.org/" target="_blank" rel="noopener noreferrer">Gunicorn</a></h4>
             <p class="description">Gunicorn is used as the application server.</p>
           </div>
 
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\celery.png' %}"  style="width:64px;height:64px;" ></div>
-            <h4 class="title"><a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html"></a>Celery</h4>
+            <div class="stack_icon icon shake_icon">
+              <a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\celery.png' %}"  style="width:64px;height:64px;" ></a>
+          </div>
+            <h4 class="title"><a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html" target="_blank" rel="noopener noreferrer">Celery</a></h4>
             <p class="description">Celery was used as for asynchronous task queues.</p>
           </div>
 
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\redis.png' %}"  style="width:64px;height:64px;" ></div>
-            <h4 class="title"><a href="https://redis.com/solutions/use-cases/messaging/"></a>Redis</h4>
+            <div class="stack_icon icon shake_icon">
+              <a href="https://redis.com/solutions/use-cases/messaging/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\redis.png' %}"  style="width:64px;height:64px;" ></a>
+            </div>
+            <h4 class="title"><a href="https://redis.com/solutions/use-cases/messaging/" target="_blank" rel="noopener noreferrer">Redis</a></h4>
             <p class="description">Redis is used for caching and as a message broker for Celery.</p>
           </div>
 
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\bootstrap5.png' %}"  style="width:64px;height:51px;" ></div>
-            <h4 class="title"><a href="https://getbootstrap.com/"></a>Bootstrap</h4>
+            <div class="stack_icon icon shake_icon">
+              <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\bootstrap5.png' %}"  style="width:64px;height:51px;" ></a>
+            </div>
+            <h4 class="title"><a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a></h4>
             <p class="description">Bootstrap is the primary elements for the frontend.</p>
           </div>
 
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon "><img src="{% static 'ui_testing\icon\postgresql.png' %}"  style="width:64px;height:64px;" ></div>
-            <h4 class="title"><a href="https://www.postgresql.org/">PostgreSQL</a></h4>
+            <div class="stack_icon icon shake_icon">
+              <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\postgresql.png' %}"  style="width:64px;height:64px;" ></a>
+            </div>
+            <h4 class="title"><a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer">PostgreSQL</a></h4>
             <p class="description">PostgreSQL is used as the backend database.</p>
           </div>
 
