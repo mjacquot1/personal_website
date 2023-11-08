@@ -1012,7 +1012,7 @@ section {
 .services .title {
   margin-left: 80px;
   font-weight: 700;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   font-size: 18px;
 }
 
