@@ -1,12 +1,15 @@
 from django.shortcuts import render
+from .models import Recreation
 
 # Create your views here.
 
 
 def test_404(request):
-    range_list = [
-        f'ui_testing/sandbox/img/demos/mi{i}.jpg' for i in range(1, 35)]
+
+    recreation_images = Recreation.objects.all()
+
     context = {
-        'range_list': range_list
+        'recreation_images': recreation_images
     }
+
     return render(request, 'resume.html', context)

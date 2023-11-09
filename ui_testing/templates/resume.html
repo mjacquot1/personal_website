@@ -607,6 +607,22 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
+          {% for image in recreation_images %}
+            <div class="col-lg-3 col-6 portfolio-item filter_ocean">
+              <a href="{{ image.main_image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ image.image_description }}">
+                <div class="portfolio-wrap">
+                  {% comment %} <img src="{% get_media_prefix %}{{ image.tile_image.name }}" class="img-fluid" alt=""> {% endcomment %}
+                  <img src="{{ image.tile_image.url }}" class="img-fluid" alt="">
+
+                  <div class='portfolio-info'>
+                    <h4>{{ image.image_title }}</h4>
+                  </div>
+
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+
           <div class="col-lg-3 col-6 portfolio-item filter_ocean">
             <a href="{% static 'ui_testing/photos/recreation/scuba_3_fish.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Three Girabaldis next to a kelp forest.">
               <div class="portfolio-wrap">

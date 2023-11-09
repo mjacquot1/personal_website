@@ -12,6 +12,7 @@ if not SECRET_KEY:
                          for i in range(32))
 
 DEBUG = config("DEBUG_ENV", default=False, cast=bool)
+# DEBUF = False
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS_ENV", cast=Csv())
 

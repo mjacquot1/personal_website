@@ -10,4 +10,3 @@ urlpatterns = [
     path('', views.test_404, name='test_404'),
     # path('ignore_again/', views.test_404, name='ignore'),
 ]
-
