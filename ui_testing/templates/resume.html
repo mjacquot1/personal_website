@@ -46,18 +46,18 @@
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
           <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
           <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> {% endcomment %}
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/marcel-jacquot-9b470975/" target="_blank" rel="noopener noreferrer" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/mjacquot1" target="_blank" rel="noopener noreferrer" class="github"><i class="bi bi-github"></i></a>
         </div>
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Web Stack</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Recreation</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bi bi-person-circle"></i> <span>About</span></a></li>
+          <li><a href="#services" class="nav-link scrollto"><i class="bi bi-stack"></i> <span>Web Stack</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bi bi-file-earmark-text"></i> <span>Resume</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bi bi-tree"></i> <span>Recreation</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bi bi-envelope"></i> <span>Contact</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
@@ -102,7 +102,9 @@
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelors</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>LinkedIn:</strong> <span>www.example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Github:</strong> <span>https://github.com/mjacquot1</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Github:</strong>
+                    <a href="https://github.com/mjacquot1" target="_blank" rel="noopener noreferrer"><span>https://github.com/mjacquot1</span></a>
+                  </li>
                 </ul>
               </div>
               {% comment %} <div class="col-lg-6">
@@ -132,7 +134,7 @@
 
         <div class="row d-flex justify-content-center">
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="stack_icon icon grow_icon">
+            <div class="icon grow_icon">
               <a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\django.png' %}"  style="width:64px;height:64px;" ></a>
             </div>
             {% comment "" %} target="_blank" rel="noopener noreferrer" opens in new rab, and rel="noopener noreferrer" adds security {% endcomment %}
@@ -141,47 +143,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon grow_icon">
-              <a href="https://www.nginx.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\nginx.png' %}"  style="width:64px;height:64px;" ></a>
-            </div>
-            <h4 class="title"><a href="https://www.nginx.com/" target="_blank" rel="noopener noreferrer">Nginx</a></h4>
-            <p class="description">Nginx is used as the web server.</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon grow_icon">
-              <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\docker.png' %}"  style="width:64px;height:64px;" ></a>
-            </div>
-            <h4 class="title"><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a></h4>
-            <p class="description">Docker was used for development and containerization</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon grow_icon">
-              <a href="https://gunicorn.org/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\gunicorn.png' %}"  style="width:64px;height:39px;" ></a>
-            </div>
-            <h4 class="title"><a href="https://gunicorn.org/" target="_blank" rel="noopener noreferrer">Gunicorn</a></h4>
-            <p class="description">Gunicorn is used as the application server.</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon grow_icon">
-              <a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\celery.png' %}"  style="width:64px;height:64px;" ></a>
-          </div>
-            <h4 class="title"><a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html" target="_blank" rel="noopener noreferrer">Celery</a></h4>
-            <p class="description">Celery was used as for asynchronous task queues.</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon grow_icon">
-              <a href="https://redis.com/solutions/use-cases/messaging/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\redis.png' %}"  style="width:64px;height:64px;" ></a>
-            </div>
-            <h4 class="title"><a href="https://redis.com/solutions/use-cases/messaging/" target="_blank" rel="noopener noreferrer">Redis</a></h4>
-            <p class="description">Redis is used for caching and as a message broker for Celery.</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon grow_icon">
+            <div class="icon grow_icon">
               <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\bootstrap5.png' %}"  style="width:64px;height:51px;" ></a>
             </div>
             <h4 class="title"><a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a></h4>
@@ -189,11 +151,51 @@
           </div>
 
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="stack_icon icon grow_icon">
+            <div class="icon grow_icon">
+              <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\docker.png' %}"  style="width:64px;height:64px;" ></a>
+            </div>
+            <h4 class="title"><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a></h4>
+            <p class="description">Docker was used for development and containerization</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon grow_icon">
+              <a href="https://www.nginx.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\nginx.png' %}"  style="width:64px;height:64px;" ></a>
+            </div>
+            <h4 class="title"><a href="https://www.nginx.com/" target="_blank" rel="noopener noreferrer">Nginx</a></h4>
+            <p class="description">Nginx is used as the web server.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon grow_icon">
+              <a href="https://gunicorn.org/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\gunicorn.png' %}"  style="width:64px;height:39px;" ></a>
+            </div>
+            <h4 class="title"><a href="https://gunicorn.org/" target="_blank" rel="noopener noreferrer">Gunicorn</a></h4>
+            <p class="description">Gunicorn is used as the application server.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon grow_icon">
               <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\postgresql.png' %}"  style="width:64px;height:64px;" ></a>
             </div>
             <h4 class="title"><a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer">PostgreSQL</a></h4>
             <p class="description">PostgreSQL is used as the backend database.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon grow_icon">
+              <a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\celery.png' %}"  style="width:64px;height:64px;" ></a>
+          </div>
+            <h4 class="title"><a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html" target="_blank" rel="noopener noreferrer">Celery</a></h4>
+            <p class="description">Celery was used as for asynchronous task queues.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon grow_icon">
+              <a href="https://redis.com/solutions/use-cases/messaging/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\redis.png' %}"  style="width:64px;height:64px;" ></a>
+            </div>
+            <h4 class="title"><a href="https://redis.com/solutions/use-cases/messaging/" target="_blank" rel="noopener noreferrer">Redis</a></h4>
+            <p class="description">Redis is used for caching and as a message broker for Celery.</p>
           </div>
 
         </div>
@@ -605,10 +607,10 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_ocean">
+          <div class="col-lg-3 col-6 portfolio-item filter_ocean">
             <a href="{% static 'ui_testing/photos/recreation/scuba_3_fish.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Three Girabaldis next to a kelp forest.">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/scuba_3_fish.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/scuba_3_fish_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Ghirabaldis</h4>
@@ -618,10 +620,10 @@
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_misc">
+          <div class="col-lg-3 col-6 portfolio-item filter_misc">
             <a href="{% static 'ui_testing/photos/recreation/goldblum.jpeg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/goldblum.jpeg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/goldblum_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Me &amp; Jeff Goldblum </h4>
@@ -631,10 +633,10 @@
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_art">
+          <div class="col-lg-3 col-6 portfolio-item filter_art">
             <a href="{% static 'ui_testing/photos/recreation/cirque_love.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/cirque_love.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/cirque_love_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Cirque de Soleil</h4>
@@ -644,10 +646,10 @@
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_mountain">
+          <div class="col-lg-3 col-6 portfolio-item filter_mountain">
             <a href="{% static 'ui_testing/photos/recreation/canyons.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/canyons.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/canyons_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Canyons</h4>
@@ -656,11 +658,11 @@
               </div>
             </a>
           </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter_mountain">
+ 
+          <div class="col-lg-3 col-6 portfolio-item filter_mountain">
             <a href="{% static 'ui_testing/photos/recreation/top_of_the_world.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/top_of_the_world.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/top_of_the_world_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Above the Clouds</h4>
@@ -670,10 +672,10 @@
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_mountain">
+          <div class="col-lg-3 col-6 portfolio-item filter_mountain">
             <a href="{% static 'ui_testing/photos/recreation/white_stillness.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/white_stillness.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/white_stillness_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Sunset in the Snow</h4>
@@ -683,10 +685,10 @@
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_ocean">
+          <div class="col-lg-3 col-6 portfolio-item filter_ocean">
             <a href="{% static 'ui_testing/photos/recreation/scuba_selfie.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/scuba_selfie.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/scuba_selfie_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Scuba Selfie</h4>
@@ -696,10 +698,10 @@
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_mountain">
+          <div class="col-lg-3 col-6 portfolio-item filter_mountain">
             <a href="{% static 'ui_testing/photos/recreation/sunset_peak.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/sunset_peak.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/sunset_peak_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Sunset over Peaks</h4>
@@ -709,10 +711,10 @@
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_art">
+          <div class="col-lg-3 col-6 portfolio-item filter_art">
             <a href="{% static 'ui_testing/photos/recreation/infinite_lights.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/infinite_lights.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/infinite_lights_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Infinite Lights</h4>
@@ -722,10 +724,10 @@
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_art">
+          <div class="col-lg-3 col-6 portfolio-item filter_art">
             <a href="{% static 'ui_testing/photos/recreation/lily_pads.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/lily_pads.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/lily_pads_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Never-Ending Lily Pads</h4>
@@ -735,10 +737,10 @@
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_art">
+          <div class="col-lg-3 col-6 portfolio-item filter_art">
             <a href="{% static 'ui_testing/photos/recreation/sunflowers.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/sunflowers.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/sunflowers_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Sunflowers</h4>
@@ -748,10 +750,10 @@
             </a>
           </div>
 
-          <div class="col-lg-3 col-md-6 portfolio-item filter_misc">
+          <div class="col-lg-3 col-6 portfolio-item filter_misc">
             <a href="{% static 'ui_testing/photos/recreation/deer.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
               <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/deer.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'ui_testing/photos/recreation/deer_tile.jpg' %}" class="img-fluid" alt="">
 
                 <div class='portfolio-info'>
                   <h4>Friendly Deer</h4>

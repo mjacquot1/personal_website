@@ -110,7 +110,8 @@ h6 {
   font-size: 18px;
   display: inline-block;
   background: #212431;
-  color: #fff;
+  /* Changed color to 6f7180 */
+  color: #6f7180;
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
