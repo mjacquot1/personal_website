@@ -101,7 +101,9 @@
                   <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Henderson, Nevada</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelors</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>LinkedIn:</strong> <span>www.example.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>LinkedIn:</strong> 
+                    <a href="https://www.linkedin.com/in/marcel-jacquot-9b470975/" target="_blank" rel="noopener noreferrer"><span>Marcel Jacquot</span></a>
+                  </li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Github:</strong>
                     <a href="https://github.com/mjacquot1" target="_blank" rel="noopener noreferrer"><span>https://github.com/mjacquot1</span></a>
                   </li>
@@ -133,70 +135,17 @@
         </div>
 
         <div class="row d-flex justify-content-center">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon grow_icon">
-              <a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\django.png' %}"  style="width:64px;height:64px;" ></a>
-            </div>
-            {% comment "" %} target="_blank" rel="noopener noreferrer" opens in new rab, and rel="noopener noreferrer" adds security {% endcomment %}
-            <h4 class="title"><a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">Django</a></h4>
-            <p class="description">The Django web framework is primarily used.</p>
-          </div>
 
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon grow_icon">
-              <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\bootstrap5.png' %}"  style="width:64px;height:51px;" ></a>
+          {% for stack_tool in web_stack_tools %}
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+              <div class="icon grow_icon">
+                <a href="{{ stack_tool.tool_link }}" target="_blank" rel="noopener noreferrer"><img src="{{ stack_tool.main_image.url }}" width="{{ stack_tool.thumbnail_width }}" height="{{ stack_tool.thumbnail_height }}" ></a>
+              </div>
+              {% comment "" %} target="_blank" rel="noopener noreferrer" opens in new rab, and rel="noopener noreferrer" adds security {% endcomment %}
+              <h4 class="title"><a href="{{ stack_tool.tool_link }}" target="_blank" rel="noopener noreferrer">{{ stack_tool.tool_name }}</a></h4>
+              <p class="description">{{ stack_tool.tool_description }}</p>
             </div>
-            <h4 class="title"><a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a></h4>
-            <p class="description">Bootstrap is the primary elements for the frontend.</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon grow_icon">
-              <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\docker.png' %}"  style="width:64px;height:64px;" ></a>
-            </div>
-            <h4 class="title"><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a></h4>
-            <p class="description">Docker was used for development and containerization</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon grow_icon">
-              <a href="https://www.nginx.com/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\nginx.png' %}"  style="width:64px;height:64px;" ></a>
-            </div>
-            <h4 class="title"><a href="https://www.nginx.com/" target="_blank" rel="noopener noreferrer">Nginx</a></h4>
-            <p class="description">Nginx is used as the web server.</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon grow_icon">
-              <a href="https://gunicorn.org/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\gunicorn.png' %}"  style="width:64px;height:39px;" ></a>
-            </div>
-            <h4 class="title"><a href="https://gunicorn.org/" target="_blank" rel="noopener noreferrer">Gunicorn</a></h4>
-            <p class="description">Gunicorn is used as the application server.</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon grow_icon">
-              <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\postgresql.png' %}"  style="width:64px;height:64px;" ></a>
-            </div>
-            <h4 class="title"><a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer">PostgreSQL</a></h4>
-            <p class="description">PostgreSQL is used as the backend database.</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon grow_icon">
-              <a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\celery.png' %}"  style="width:64px;height:64px;" ></a>
-          </div>
-            <h4 class="title"><a href="https://docs.celeryq.dev/en/stable/getting-started/introduction.html" target="_blank" rel="noopener noreferrer">Celery</a></h4>
-            <p class="description">Celery was used as for asynchronous task queues.</p>
-          </div>
-
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon grow_icon">
-              <a href="https://redis.com/solutions/use-cases/messaging/" target="_blank" rel="noopener noreferrer"><img src="{% static 'ui_testing\icon\redis.png' %}"  style="width:64px;height:64px;" ></a>
-            </div>
-            <h4 class="title"><a href="https://redis.com/solutions/use-cases/messaging/" target="_blank" rel="noopener noreferrer">Redis</a></h4>
-            <p class="description">Redis is used for caching and as a message broker for Celery.</p>
-          </div>
+          {% endfor %}
 
         </div>
 
@@ -608,7 +557,7 @@
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
           {% for image in recreation_images %}
-            <div class="col-lg-3 col-6 portfolio-item filter_ocean">
+            <div class="col-lg-3 col-6 portfolio-item {{ image.filter_field }}">
               <a href="{{ image.main_image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ image.image_description }}">
                 <div class="portfolio-wrap">
                   {% comment %} <img src="{% get_media_prefix %}{{ image.tile_image.name }}" class="img-fluid" alt=""> {% endcomment %}
@@ -622,162 +571,6 @@
               </a>
             </div>
           {% endfor %}
-
-          <div class="col-lg-3 col-6 portfolio-item filter_ocean">
-            <a href="{% static 'ui_testing/photos/recreation/scuba_3_fish.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Three Girabaldis next to a kelp forest.">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/scuba_3_fish_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Ghirabaldis</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-6 portfolio-item filter_misc">
-            <a href="{% static 'ui_testing/photos/recreation/goldblum.jpeg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/goldblum_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Me &amp; Jeff Goldblum </h4>
-                </div>
-                
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-6 portfolio-item filter_art">
-            <a href="{% static 'ui_testing/photos/recreation/cirque_love.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/cirque_love_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Cirque de Soleil</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-6 portfolio-item filter_mountain">
-            <a href="{% static 'ui_testing/photos/recreation/canyons.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/canyons_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Canyons</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
- 
-          <div class="col-lg-3 col-6 portfolio-item filter_mountain">
-            <a href="{% static 'ui_testing/photos/recreation/top_of_the_world.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/top_of_the_world_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Above the Clouds</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-6 portfolio-item filter_mountain">
-            <a href="{% static 'ui_testing/photos/recreation/white_stillness.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/white_stillness_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Sunset in the Snow</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-6 portfolio-item filter_ocean">
-            <a href="{% static 'ui_testing/photos/recreation/scuba_selfie.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/scuba_selfie_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Scuba Selfie</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-6 portfolio-item filter_mountain">
-            <a href="{% static 'ui_testing/photos/recreation/sunset_peak.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/sunset_peak_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Sunset over Peaks</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-6 portfolio-item filter_art">
-            <a href="{% static 'ui_testing/photos/recreation/infinite_lights.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/infinite_lights_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Infinite Lights</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-6 portfolio-item filter_art">
-            <a href="{% static 'ui_testing/photos/recreation/lily_pads.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/lily_pads_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Never-Ending Lily Pads</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-6 portfolio-item filter_art">
-            <a href="{% static 'ui_testing/photos/recreation/sunflowers.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/sunflowers_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Sunflowers</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-3 col-6 portfolio-item filter_misc">
-            <a href="{% static 'ui_testing/photos/recreation/deer.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="">
-              <div class="portfolio-wrap">
-                <img src="{% static 'ui_testing/photos/recreation/deer_tile.jpg' %}" class="img-fluid" alt="">
-
-                <div class='portfolio-info'>
-                  <h4>Friendly Deer</h4>
-                </div>
-
-              </div>
-            </a>
-          </div>
 
       </div>
     </section><!-- End Portfolio Section -->
