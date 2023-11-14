@@ -729,6 +729,8 @@ section {
   border-radius: 16px;
 }
 
+
+
 .skills #skill-flters li:nth-of-type(4n - 2) {
   background: #c5ddfc;
 }

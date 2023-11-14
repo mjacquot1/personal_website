@@ -50,3 +50,9 @@ CELERY_BROKER_URL = config(
     config("CELERY_BROKER_ENV"), default=config("REDIS_BACKEND_ENV"))
 CELERY_RESULT_BACKEND = config(
     config("CELERY_BACKEND_ENV"), default=config("REDIS_BACKEND_ENV"))
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '1025'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False

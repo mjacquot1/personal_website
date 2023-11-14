@@ -219,8 +219,8 @@
                   <div class='skills align-items-center justify-content-center'>
                     <ul id="skill-flters">
                       <li data-filter="" style='background:#fff;'>Programming</li>
-                      <li data-filter="">Finance</li>
-                      <li data-filter="">Web Dev</li>
+                      <li data-filter=".finance">Finance</li>
+                      <li data-filter=".web_dev">Web Dev</li>
                       <li data-filter="">Financial Markets</li>
                       <li data-filter="">Sentiment Analysis</li>
                       <li data-filter="">Machine Learning</li>
@@ -242,7 +242,6 @@
                     <ul id="skill-flters">
                       <li data-filter="">Django</li>
                       <li data-filter="">Ruby on Rails</li>
-                      <li data-filter="">SAS</li>
                     </ul>
                   </div>
 
@@ -251,6 +250,7 @@
                     <ul id="skill-flters">
                       <li data-filter="">Rspec</li>
                       <li data-filter="">GraphQL</li>
+                      <li data-filter="">SAS</li>
                       <li data-filter="">Regex</li>
                       <li data-filter="">Pandas</li>
                       <li data-filter="">Python-docx</li>
@@ -299,8 +299,8 @@
                     <div id="work_exp_a_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_a_heading_1" data-bs-parent="#work_exp_a">
                       <div class="accordion-body">
                         <ul>
-                          <li>Automated a manually intensive product attribute updating process by developing and deploying an application feature that asynchronously updated product attributes from supplier-provided Excel workbooks.</li>
-                          <li>Adhered to Agile methodologies throughout the software development lifecycle. Maintained open lines of communication with all project stakeholders and created project documentation using Jira.</li>
+                          <li class="resume_line finance">Automated a manually intensive product attribute updating process by developing and deploying an application feature that asynchronously updated product attributes from supplier-provided Excel workbooks.</li>
+                          <li class="resume_line web_dev">Adhered to Agile methodologies throughout the software development lifecycle. Maintained open lines of communication with all project stakeholders and created project documentation using Jira.</li>
                         </ul>
                       </div>
                     </div>
@@ -681,8 +681,7 @@
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
-              </div>
+                <p>mjacquot.dev@gmail.com
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
@@ -695,24 +694,25 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{% url 'test_404' %}" method="post" role="form">
+              {% csrf_token %}
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+                  <input type="text" name="message-name" class="form-control" id="name" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
+                  <input type="email" class="form-control" name="message-email" id="email" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
+                <input type="text" class="form-control" name="message-subject" id="subject" required>
               </div>
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
+                <textarea class="form-control" name="message-body" rows="10" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>

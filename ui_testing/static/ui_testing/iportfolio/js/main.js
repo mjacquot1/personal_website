@@ -259,4 +259,35 @@
    */
   new PureCounter();
 
+/**
+ * Resume isotope and filter
+ */
+// window.addEventListener('load', () => {
+//   let portfolioContainer = select('.resume_accordion');
+//   if (portfolioContainer) {
+//     let portfolioIsotope = new Isotope(portfolioContainer, {
+//       itemSelector: '.resume_line'
+//     });
+
+//     let portfolioFilters = select('#skill-flters li', true);
+
+//     on('click', '#skill-flters li', function (e) {
+//       e.preventDefault();
+//       portfolioFilters.forEach(function (el) {
+//         el.classList.remove('filter-active');
+//       });
+//       this.classList.add('filter-active');
+
+//       portfolioIsotope.arrange({
+//         filter: this.getAttribute('data-filter')
+//       });
+//       portfolioIsotope.on('arrangeComplete', function () {
+//         AOS.refresh()
+//       });
+//     }, true);
+//   }
+// });
+
 })()
+
+
