@@ -51,8 +51,14 @@ CELERY_BROKER_URL = config(
 CELERY_RESULT_BACKEND = config(
     config("CELERY_BACKEND_ENV"), default=config("REDIS_BACKEND_ENV"))
 
+# Allows for uploading media like images
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = '1025'
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

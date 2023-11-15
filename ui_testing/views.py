@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Recreation, Web_Stack_Tools
 from django.core.mail import send_mail
+from django.contrib import messages
 
 # Create your views here.
 
@@ -23,11 +24,16 @@ def test_404(request):
         message_subject = request.POST['message-subject']
         message_body = request.POST['message-body']
 
+        # Alert Messages are saved in cookies first, then user session if needed.
+        # Already protected from header injections.
+        messages.add_message(request, messages.INFO, f'Thank you for reaching out {message_name}!')
+
         send_mail(
             message_name,
             (message_subject + '/' + message_body),
             message_email,
-            ['mjacquot.dev@gmail.com']
+            ['mjacquot.dev@gmail.com'],
+            fail_silently=False,
         )
 
         context['message_name'] = message_name

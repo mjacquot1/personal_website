@@ -68,6 +68,15 @@
     <div class="hero-container" data-aos="fade-in">
       <h1>Marcel Jacquot</h1>
       <p><span class="typed" data-typed-items="Back-End, Python, Django, Ruby on Rails, Microsoft VBA"></span> Developer</p>
+      
+      {% if messages %}
+        <div class="alert alert-success" role="alert">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+        </div>
+      {% endif %}
+    
     </div>
   </section><!-- End Hero -->
 
@@ -726,6 +735,7 @@
               </div> {% endcomment %}
               
               <div class="text-center"><button type="submit" class="btn btn-primary">Send Message</button></div>
+
             </form>
           </div>
 
