@@ -486,19 +486,22 @@ section {
 }
 
 .resume .resume-item h4 {
-  line-height: 18px;
-  font-size: 18px;
+  /* Change line-height, font-size, added bottom border */
+  line-height: 20px;
+  font-size: 20px;
   font-weight: 600;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid #ccc;;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
   color: #050d18;
-  margin-bottom: 10px;
 }
 
 .resume .resume-item h5 {
   font-size: 16px;
-  background: #e4edf9;
-  padding: 5px 15px;
+  /* background: #e4edf9; */
+  padding: 0px 15px;
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
