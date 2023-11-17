@@ -715,7 +715,7 @@ section {
 }
 
 .skills #skill-flters li {
-  cursor: pointer;
+  /* cursor: pointer; */
   display: inline-block;
   padding: 8px 15px 10px 15px;
   font-size: 14px;
@@ -730,7 +730,7 @@ section {
 }
 
 
-
+/* 
 .skills #skill-flters li:nth-of-type(4n - 2) {
   background: #c5ddfc;
 }
@@ -751,7 +751,7 @@ section {
 
 .skills #skill-flters li:last-child {
   margin-right: 0;
-}
+} */
 
 /*--------------------------------------------------------------
 # Portfolio

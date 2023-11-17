@@ -14,8 +14,8 @@ if not SECRET_KEY:
     SECRET_KEY = ''.join(random.choice(string.ascii_lowercase)
                          for i in range(32))
 
-DEBUG = config("DEBUG_ENV", default=True, cast=bool)
-# DEBUG = False
+DEBUG = config("DEBUG_ENV", default=False, cast=bool)
+# DEBUF = False
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS_ENV", cast=Csv())
 

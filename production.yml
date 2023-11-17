@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  web-app:
+      volumes:
+        # '/app/staticfiles' will be shared through 'static_volume'
+        - static_volume:/app/staticfiles
+
+
+  nginx:
+    volumes:
+      # '/staticfiles' will be shared through 'static_volume' and get files from web-app
+      - static_volume:/staticfiles
+
+volumes:
+  static_volume: # Volume to serve up static files for production 
+

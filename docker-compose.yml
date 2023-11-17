@@ -3,9 +3,7 @@ services:
   web-app:
     container_name: web-app
     image: django_gunicorn_instance # Added in
-    command: >
-      sh -c " python manage.py migrate && python manage.py collectstatic --noinput && gunicorn -c gunicorn-cfg.py core.wsgi --reload"
-    # sh -c ${WEB_APP_START_SCRIPT}
+    command: sh -c ${WEB_APP_START_SCRIPT}
     restart: always
     build:
       context: .
@@ -16,7 +14,7 @@ services:
     volumes:
       - .:/app
       # '/app/staticfiles' will be shared through 'static_volume'
-      - static_volume:/app/staticfiles
+      # - static_volume:/app/staticfiles
     networks:
       - db_network
       - web_network
@@ -116,9 +114,9 @@ services:
     ports:
       - ${NGINX_PORT}
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx/${NGINX_DIRECTORY}:/etc/nginx/conf.d
       # '/staticfiles' will be shared through 'static_volume' and get files from web-app
-      - static_volume:/staticfiles
+      # - static_volume:/staticfiles
     networks:
       - web_network
     depends_on:
@@ -132,7 +130,6 @@ networks:
 
 volumes:
   postgres_data: # Save on the 'local' volume (I believe like a name)
-  static_volume: # Volume to serve up static files for production 
 
   cache:
     driver: local

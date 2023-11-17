@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "ui_testing",
     "bootstrap5",
     'theme_soft_design',
+    'django_ses',
 ]
 
 MIDDLEWARE = [
