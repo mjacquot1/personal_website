@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Recreation, Web_Stack_Tools
 from django.core.mail import send_mail
 from django.contrib import messages
+from django.conf import settings
 
 # Create your views here.
 
@@ -16,6 +17,7 @@ def test_404(request):
     context = {
         'web_stack_tools': web_stack_tools,
         'recreation_images': recreation_images,
+        'debug':settings.DEBUG,
     }
 
     if request.method == 'POST':

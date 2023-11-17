@@ -3,13 +3,12 @@
 import os
 import sys
 
-from decouple import config
-
-
+from settings import return_config_env_variables
 
 def main():
     """Run administrative tasks."""
     # DJANGO_SETTINGS_MODULE_ENV is an env variable imported through decouple
+    config = return_config_env_variables()
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", config("DJANGO_SETTINGS_MODULE_ENV")) 
     try:
         from django.core.management import execute_from_command_line

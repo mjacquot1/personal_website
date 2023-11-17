@@ -3,17 +3,20 @@ services:
   web-app:
     container_name: web-app
     image: django_gunicorn_instance # Added in
-    # This calls gunicorn to run core.wsgi with the gunicorn-cfg.py configuration file by using the -c (--config) command
-    command: gunicorn -c gunicorn-cfg.py core.wsgi --reload
+    command: >
+      sh -c " python manage.py migrate && python manage.py collectstatic --noinput && gunicorn -c gunicorn-cfg.py core.wsgi --reload"
+    # sh -c ${WEB_APP_START_SCRIPT}
     restart: always
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
     # Passes the environment file through for decouple
     env_file:
-      - ./.env
+      - ${ENV_FILE}
     volumes:
       - .:/app
+      # '/app/staticfiles' will be shared through 'static_volume'
+      - static_volume:/app/staticfiles
     networks:
       - db_network
       - web_network
@@ -22,6 +25,7 @@ services:
       - redis
 
   db:
+    container_name: db
     image: postgres:14-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
@@ -59,7 +63,7 @@ services:
       - .:/app
     env_file:
       # - ./.env/.dev-sample
-      - ./.env
+      - ${ENV_FILE}
     networks:
       - db_network
       - web_network
@@ -77,7 +81,7 @@ services:
       - .:/app
     env_file:
       # - ./.env/.dev-sample
-      - ./.env
+      - ${ENV_FILE}
     networks:
       - db_network
       - web_network
@@ -95,7 +99,7 @@ services:
       - .:/app
     env_file:
       # - ./.env/.dev-sample
-      - ./.env
+      - ${ENV_FILE}
     ports:
       - 5557:5555
     networks:
@@ -113,6 +117,8 @@ services:
       - ${NGINX_PORT}
     volumes:
       - ./nginx:/etc/nginx/conf.d
+      # '/staticfiles' will be shared through 'static_volume' and get files from web-app
+      - static_volume:/staticfiles
     networks:
       - web_network
     depends_on:
@@ -126,6 +132,7 @@ networks:
 
 volumes:
   postgres_data: # Save on the 'local' volume (I believe like a name)
+  static_volume: # Volume to serve up static files for production 
 
   cache:
     driver: local

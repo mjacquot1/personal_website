@@ -1,7 +1,10 @@
 # Import base settings to use
 from .base import *
 
-from decouple import config, Csv
+from decouple import Csv
+from settings import return_config_env_variables
+
+config = return_config_env_variables()
 
 # SECRET_KEY = config("SECRET_KEY")
 
@@ -11,8 +14,8 @@ if not SECRET_KEY:
     SECRET_KEY = ''.join(random.choice(string.ascii_lowercase)
                          for i in range(32))
 
-DEBUG = config("DEBUG_ENV", default=False, cast=bool)
-# DEBUF = False
+DEBUG = config("DEBUG_ENV", default=True, cast=bool)
+# DEBUG = False
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS_ENV", cast=Csv())
 
@@ -45,6 +48,12 @@ CACHES = {
 #         "BACKEND": "django.core.cache.backends.dummy.DummyCache",
 #     }
 # }
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.1/howto/static-files/
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CELERY_BROKER_URL = config(
     config("CELERY_BROKER_ENV"), default=config("REDIS_BACKEND_ENV"))
