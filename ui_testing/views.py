@@ -5,8 +5,6 @@ from django.contrib import messages
 from django.conf import settings
 
 # Create your views here.
-
-
 def test_404(request):
 
     display_html = 'resume.html'
@@ -33,7 +31,7 @@ def test_404(request):
         send_mail(
             message_name,
             (message_subject + '/' + message_body),
-            message_email,
+            'mjacquot.dev@gmail.com',
             ['mjacquot.dev@gmail.com'],
             fail_silently=False,
         )
