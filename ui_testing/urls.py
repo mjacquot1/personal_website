@@ -7,7 +7,6 @@ from . import views
 app_name = 'ui_testing'
 
 urlpatterns = [
-    path('', views.test_404, name='test_404'),
-    path('demo', views.demo, name='demo'),
-    # path('ignore_again/', views.test_404, name='ignore'),
+    path('resume/', views.test_404, name='test_404'),
+    path('demo/', views.demo, name='demo'),
 ]
