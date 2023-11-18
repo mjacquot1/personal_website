@@ -42,3 +42,6 @@ def test_404(request):
 
     else:
         return render(request, display_html, context)
+# Create your views here.
+def demo(request):
+    return render(request, 'demo7.html')
