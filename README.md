@@ -1,5 +1,27 @@
 ![alt text](https://github.com/mjacquot1/personal_website/blob/master/personal_website_stack.drawio.png?raw=true)
 
+## To Do
+
+1. Rename CSS Classes
+2. Strip unused CSS and Javascript
+3. - [ ] Turn resume dynamic
+4. - [ ] Turn skills dynamic
+5. Make "resume" app
+6. Determine what static files to load
+7. Set cache for produciton (volume)
+8. Pytest files for email
+9. Pytest files for dynamic elements
+10. Https site
+11. See how to serve media in production
+12. Secure /media/
+13. Why do some recreation photos not enlarge?
+14. Buy Iportfolio template
+15. - [ ] Add filters to skills
+16. Cache elements
+17. Test traffic volume capabilities
+18. Determine webpage size
+19. Deploy to AWS with terraform
+20. Add clear Github link
 
 <!-- 
 
