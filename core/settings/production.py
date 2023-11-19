@@ -53,8 +53,8 @@ CELERY_RESULT_BACKEND = config(
     config("CELERY_BACKEND_ENV"), default=config("REDIS_BACKEND_ENV"))
 
 # Allows for uploading media like images
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
 
 EMAIL_BACKEND = 'django_ses.SESBackend'
 AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
