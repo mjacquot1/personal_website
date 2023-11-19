@@ -730,7 +730,7 @@ section {
 }
 
 .skills #skill-flters li {
-  /* cursor: pointer; */
+  cursor: pointer;
   display: inline-block;
   padding: 8px 15px 10px 15px;
   font-size: 14px;
@@ -756,14 +756,14 @@ section {
 .skills #skill-flters li:nth-of-type(4n) {
   background: #c5ddfc;
 }
-
+*/
 .skills #skill-flters li:hover,
 .skills #skill-flters li.filter-active {
   color: #ffffff;
   background: #173b6c;
 }
 
-.skills #skill-flters li:last-child {
+/* .skills #skill-flters li:last-child {
   margin-right: 0;
 } */
 

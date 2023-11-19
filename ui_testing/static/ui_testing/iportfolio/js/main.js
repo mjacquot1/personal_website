@@ -259,35 +259,78 @@
    */
   new PureCounter();
 
-/**
- * Resume isotope and filter
- */
-// window.addEventListener('load', () => {
-//   let portfolioContainer = select('.resume_accordion');
-//   if (portfolioContainer) {
-//     let portfolioIsotope = new Isotope(portfolioContainer, {
-//       itemSelector: '.resume_line'
-//     });
+}
 
-//     let portfolioFilters = select('#skill-flters li', true);
+)()
 
-//     on('click', '#skill-flters li', function (e) {
-//       e.preventDefault();
-//       portfolioFilters.forEach(function (el) {
-//         el.classList.remove('filter-active');
-//       });
-//       this.classList.add('filter-active');
+function openResumeAccordion(accordion_element, open) {
+  // Set the value to a boolean true if it is 'true', false in all other cases
+  const is_true = (String(accordion_element.getAttribute('aria-expanded')).toLowerCase() === 'true')
+  // console.log(accordion_element.getAttribute('aria-expanded'))
+  // Make sure openClose is a bool, and if it is not the correct state, click on the accordion button
+  if (typeof open == "boolean" && open != is_true) {
+    let click_event = new CustomEvent('click');
+    accordion_element.dispatchEvent(click_event);
+  }
+}
 
-//       portfolioIsotope.arrange({
-//         filter: this.getAttribute('data-filter')
-//       });
-//       portfolioIsotope.on('arrangeComplete', function () {
-//         AOS.refresh()
-//       });
-//     }, true);
-//   }
-// });
+function removeResumeFilter() {
+  let resume_accordion_list = document.getElementsByClassName("resume_accordion");
 
-})()
+  for (var i = 0; i < resume_accordion_list.length; i++) {
 
+    let resume_accordion_summary_button = resume_accordion_list[i].querySelector("[data-type='resume_summary_button']")
+    let resume_accordion_detail_button = resume_accordion_list[i].querySelector("[data-type='resume_detail_button']")
+    let resume_line_list = resume_accordion_list[i].getElementsByClassName('detail');
+
+    // console.log(resume_line_list);
+
+    for (let i = 0; i < resume_line_list.length; i++) {
+      resume_line_list[i].style.display = 'list-item';
+    }
+
+    openResumeAccordion(resume_accordion_summary_button, true);
+    openResumeAccordion(resume_accordion_detail_button, false);
+
+  }
+
+}
+
+function filterResumeItems(filter) { // Modify to allow for multiple filters to be selected and usable
+  let resume_filter = filter.getAttribute("data-filter").toUpperCase();
+
+  // filter.classList.add('filter-active');
+
+  // Want live node list in case of dynamic loading
+  let resume_accordion_list = document.getElementsByClassName("resume_accordion");
+
+  for (var i = 0; i < resume_accordion_list.length; i++) {
+    let resume_accordion_detail_button = resume_accordion_list[i].querySelector("[data-type='resume_detail_button']")
+
+    if (resume_accordion_list[i].getAttribute("data-filters") && resume_accordion_list[i].getAttribute("data-filters").includes(resume_filter)) {
+
+      let resume_line_list = resume_accordion_list[i].getElementsByClassName('detail');
+
+      // console.log(resume_line_list);
+
+      for (let i = 0; i < resume_line_list.length; i++) {
+        let categories = resume_line_list[i].getAttribute("data-filters");
+
+        if (categories && (categories.includes(resume_filter)))
+          resume_line_list[i].style.display = 'list-item';
+        else
+          resume_line_list[i].style.display = 'none';
+      }
+
+      openResumeAccordion(resume_accordion_detail_button, true);
+
+    } else {
+
+      openResumeAccordion(resume_accordion_detail_button, false);
+      // make sure to close accordion
+    }
+
+  }
+
+}
 
