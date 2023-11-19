@@ -757,6 +757,8 @@ section {
   background: #c5ddfc;
 }
 */
+
+/* The li.filter-active is theoretically for when the filter is selected */
 .skills #skill-flters li:hover,
 .skills #skill-flters li.filter-active {
   color: #ffffff;
