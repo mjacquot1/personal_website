@@ -262,75 +262,149 @@
 }
 
 )()
+/* 
+-----TO DO-----
 
-function openResumeAccordion(accordion_element, open) {
+- Change _ case to camelcase
+- Add error handlers for
+-- No 'resume_accordion' classes
+-- No 'resume_line_detail' classes
+-- No 'data-filters' classes
+
+
+*/
+
+
+const resumeBlockList = document.getElementsByClassName("resume_accordion");
+const resumeLineList = document.getElementsByClassName("resume_line_detail");
+
+const activeResumeFilters = [];
+
+const resumeCategoryElements = {
+  resumeBlocks : {},
+  resumeLines : {},
+};
+
+function isEmpty(value) {
+  return (value == null || (typeof value === "string" && value.trim().length === 0));
+}
+
+function isNotEmpty(value) {
+  return (value !== null || (typeof value === "string" && value.trim().length !== 0));
+}
+
+function returnAttributeValue(element, attribute) {
+  // Return empty string if no attribute
+  return isNotEmpty(element.getAttribute(attribute)) ? element.getAttribute(attribute) : ''
+}
+
+window.onload = function() {
+  for (let i = 0; i < resumeBlockList.length; i++){
+    if (isNotEmpty(resumeBlockList[i])) {
+      returnAttributeValue(resumeBlockList[i], 'data-filters').split(' ').forEach((category) => {
+        if (resumeCategoryElements.resumeBlocks.hasOwnProperty(category)) {
+          resumeCategoryElements.resumeBlocks[category].push(resumeBlockList[i]);
+        } else {
+          resumeCategoryElements.resumeBlocks[category] = [resumeBlockList[i]];
+        }
+      })
+    }
+  }
+
+  for (let i = 0; i < resumeLineList.length; i++){
+    if (isNotEmpty(resumeLineList[i])) {
+      returnAttributeValue(resumeLineList[i], 'data-filters').split(' ').forEach((category) => {
+        if (resumeCategoryElements.resumeLines.hasOwnProperty(category)) {
+          resumeCategoryElements.resumeLines[category].push(resumeLineList[i]);
+        } else {
+          resumeCategoryElements.resumeLines[category] = [resumeLineList[i]];
+        }
+      })
+    }
+  }
+
+};
+
+function openResumeAccordion(accordion_element, isOpen) {
+  if (isEmpty(accordion_element)) {
+    return
+  }
   // Set the value to a boolean true if it is 'true', false in all other cases
-  const is_true = (String(accordion_element.getAttribute('aria-expanded')).toLowerCase() === 'true')
+  const ariaIsTrue = (String(accordion_element.getAttribute('aria-expanded')).toLowerCase() === 'true')
   // console.log(accordion_element.getAttribute('aria-expanded'))
   // Make sure openClose is a bool, and if it is not the correct state, click on the accordion button
-  if (typeof open == "boolean" && open != is_true) {
+  if (typeof isOpen == "boolean" && isOpen != ariaIsTrue) {
     let click_event = new CustomEvent('click');
     accordion_element.dispatchEvent(click_event);
   }
 }
 
 function removeResumeFilter() {
-  let resume_accordion_list = document.getElementsByClassName("resume_accordion");
+  let resume_accordion_list = resumeBlockList;
+  let resume_line_list = resumeLineList;
+
+  for (let i = 0; i < resume_line_list.length; i++) {
+    resume_line_list[i].style.display = 'list-item';
+  }
 
   for (var i = 0; i < resume_accordion_list.length; i++) {
 
-    let resume_accordion_summary_button = resume_accordion_list[i].querySelector("[data-type='resume_summary_button']")
-    let resume_accordion_detail_button = resume_accordion_list[i].querySelector("[data-type='resume_detail_button']")
-    let resume_line_list = resume_accordion_list[i].getElementsByClassName('detail');
+    let resume_accordion_summary_button = resume_accordion_list[i].querySelector("[data-type='resume_summary_button']");
+    let resume_accordion_detail_button = resume_accordion_list[i].querySelector("[data-type='resume_detail_button']");
 
     // console.log(resume_line_list);
-
-    for (let i = 0; i < resume_line_list.length; i++) {
-      resume_line_list[i].style.display = 'list-item';
-    }
 
     openResumeAccordion(resume_accordion_summary_button, true);
     openResumeAccordion(resume_accordion_detail_button, false);
 
   }
+}
 
+function hideAllResumeLines() {
+  let resume_line_list = resumeLineList;
+
+  for (let i = 0; i < resume_line_list.length; i++) {
+    resume_line_list[i].style.display = 'none';
+  }
 }
 
 function filterResumeItems(filter) { // Modify to allow for multiple filters to be selected and usable
-  let resume_filter = filter.getAttribute("data-filter").toUpperCase();
 
-  // filter.classList.add('filter-active');
+  let activatedFilter = filter.getAttribute("data-filter").toUpperCase();
 
-  // Want live node list in case of dynamic loading
-  let resume_accordion_list = document.getElementsByClassName("resume_accordion");
-
-  for (var i = 0; i < resume_accordion_list.length; i++) {
-    let resume_accordion_detail_button = resume_accordion_list[i].querySelector("[data-type='resume_detail_button']")
-
-    if (resume_accordion_list[i].getAttribute("data-filters") && resume_accordion_list[i].getAttribute("data-filters").includes(resume_filter)) {
-
-      let resume_line_list = resume_accordion_list[i].getElementsByClassName('detail');
-
-      // console.log(resume_line_list);
-
-      for (let i = 0; i < resume_line_list.length; i++) {
-        let categories = resume_line_list[i].getAttribute("data-filters");
-
-        if (categories && (categories.includes(resume_filter)))
-          resume_line_list[i].style.display = 'list-item';
-        else
-          resume_line_list[i].style.display = 'none';
-      }
-
-      openResumeAccordion(resume_accordion_detail_button, true);
-
-    } else {
-
-      openResumeAccordion(resume_accordion_detail_button, false);
-      // make sure to close accordion
-    }
-
+  // if the button is active, remove it from filter and make it not active
+  if (filter.classList.contains('filter-active')) {
+    if (activeResumeFilters.indexOf(activatedFilter) > -1) activeResumeFilters.splice(activeResumeFilters.indexOf(activatedFilter),1);
+    filter.classList.remove('filter-active');
+  } else {
+    // Add filter to the fitler list if it's not currently a part of it
+    if (activeResumeFilters.indexOf(activatedFilter) === -1) activeResumeFilters.push(activatedFilter);
+    filter.classList.add('filter-active');
   }
 
-}
+  // If there are no filters active, show all items and end function
+  if (activeResumeFilters.length <= 0) {
+    removeResumeFilter()
+    return
+  }
 
+  // Hide all elements to make only filtered ones appear after
+  hideAllResumeLines();
+
+  activeResumeFilters.forEach((resume_filter) => {
+    // Want live node list in case of dynamic loading
+    let filteredResumeBlocks = resumeCategoryElements.resumeBlocks[resume_filter];
+    let filteredResumeLines = resumeCategoryElements.resumeLines[resume_filter];
+
+    // Open resume accordionsm
+    filteredResumeBlocks.forEach((resumeBlock) => {
+      openResumeAccordion(resumeBlock.querySelector("[data-type='resume_detail_button']"), true);
+    })
+
+    // Show items
+    filteredResumeLines.forEach((resumeLine) => {
+      resumeLine.style.display = 'list-item';
+    })
+  })
+
+}

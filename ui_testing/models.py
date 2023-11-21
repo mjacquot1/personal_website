@@ -26,7 +26,64 @@ class Web_Stack_Tools(models.Model):
             return 64
         else:
             return (64/photo.width*photo.height)
+        
+class ResumeSkillCategories(models.Model):
+    category = models.CharField(max_length=50)
+    display_order = models.IntegerField(default = 0)
 
+    # Display text for the view
+    category_display = models.CharField()
+
+    def __str__(self):
+        return f"{self.category}"
+
+class ResumeSkills(models.Model):
+    skill_title = models.CharField(max_length=30)
+    skill_category = models.ForeignKey(ResumeSkillCategories, on_delete=models.PROTECT)
+    skill_years = models.FloatField(default = 0)
+
+    # This is what will be used to filter resume items
+    skill_filter_category = models.CharField(max_length=30)
+
+    # Override save field to make sure the title is lowercase
+    def save(self, *args, **kwargs):
+        self.skill_title = self.skill_title.upper()
+        return super(User, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.skill_title}"
+    
+class ResumeExperienceCategory(models.Model):
+    category = models.CharField(max_length=50)
+    display_order = models.IntegerField(default = 0)
+
+    # Display text for the view
+    category_display = models.CharField()
+
+    def __str__(self):
+        return f"{self.category}"
+    
+class ResumeExperienceBlock(models.Model):
+    title = models.CharField(max_length=30)
+    company = models.CharField(max_length=50)
+    location = models.CharField(max_length=50)
+
+    start_date = models.DateField()
+    end_date = models.DateField()
+    still_there = models.BooleanField()
+
+    def __str__(self):
+        return f"{self.title} @ {self.company}"
+
+class ResumeLine(models.Model):
+    summary_item = models.BooleanField()
+    line_text = models.TextField()
+    resume_experience_block = models.ForeignKey(ResumeExperienceBlock, on_delete=models.CASCADE)
+
+    line_skill_categories = models.ManyToManyField(ResumeSkills)
+
+    def __str__(self):
+        return f"{self.resume_experience_block} @ {self.line_text}"
 
 class Recreation(models.Model):
 

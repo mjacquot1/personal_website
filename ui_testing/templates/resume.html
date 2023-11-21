@@ -1,4 +1,5 @@
 {% load static %}
+{% load resume_extras %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -223,6 +224,18 @@
               </div>
 
               <div class="card-body ">
+
+                {% for resume_skill_category in resume_skill_categories %}
+                  <h5 class="card-title"><strong>{{ resume_skill_category.category_display }}</strong></h5>
+                  <div class='skills align-items-center justify-content-center'>
+                    <ul id="skill-flters">
+                      {% for resume_skill in resume_skills_categorized|return_key_value:resume_skill_category.category %}
+                        <li data-filter="{{ resume_skill.skill_filter_category }}" onclick="filterResumeItems(this)">{{ resume_skill.skill_title }}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endfor %}
+
                 {% comment %} <h5 class="card-title"><strong>Interests</strong></h5>
                 <div class='skills align-items-center justify-content-center'>
                   <ul id="skill-flters">
@@ -324,8 +337,8 @@
                     <div id="work_exp_a_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_a_heading_2" data-bs-parent="#work_exp_a">
                       <div class="accordion-body">
                           <ul>
-                              <li data-filters="PYTHON" class="resume_line detail">Automated a manually intensive product attribute updating process by developing and deploying an application feature that asynchronously updated product attributes from supplier-provided Excel workbooks.</li>
-                              <li data-filters="VBA"  class="resume_line detail">Developed and implement both front-end and back-end features for updating product attributes utilizing Ruby on Rails gems including Views and Active Record. </li>
+                              <li data-filters="PYTHON" class="resume_line_detail">Automated a manually intensive product attribute updating process by developing and deploying an application feature that asynchronously updated product attributes from supplier-provided Excel workbooks.</li>
+                              <li data-filters="VBA"  class="resume_line_detail">Developed and implement both front-end and back-end features for updating product attributes utilizing Ruby on Rails gems including Views and Active Record. </li>
                               <li>Designed and developed AWS Lambda Ruby functions. Employed infrastructure as code tooling such as CloudFormation and Terraform  for VPC configurations, IAM security measures, and S3 connections.</li>
                               <li>Secured GraphQL queries and mutations by implementing authorization hooks based on user credentials within a centralized code repository. Mapped inter-app GraphQL usage between multiple stacks.</li>
                               <li>Strengthened code quality and reliability by developing and executing RSpec unit tests to validate program functionality, ensure accurate database updates, and effectively both handle and log errors.</li>
