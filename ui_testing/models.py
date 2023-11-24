@@ -1,4 +1,6 @@
 from django.db import models
+from datetime import datetime
+from django.db.models.functions import (ExtractYear, ExtractMonth,)
 
 # Create your models here.
 class Web_Stack_Tools(models.Model):
@@ -48,7 +50,7 @@ class ResumeSkills(models.Model):
     # Override save field to make sure the title is lowercase
     def save(self, *args, **kwargs):
         self.skill_title = self.skill_title.upper()
-        return super(User, self).save(*args, **kwargs)
+        return super(ResumeSkills, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.skill_title}"
@@ -60,18 +62,48 @@ class ResumeExperienceCategory(models.Model):
     # Display text for the view
     category_display = models.CharField()
 
+    # Bootstrap icon to be displayed next to category
+    icon_class = models.CharField(max_length=30, default='')
+
+    def save(self, *args, **kwargs):
+        self.category = self.category.upper()
+        self.category_display = self.category_display.upper()
+        return super(ResumeExperienceCategory, self).save(*args, **kwargs)
+
     def __str__(self):
         return f"{self.category}"
     
 class ResumeExperienceBlock(models.Model):
-    title = models.CharField(max_length=30)
-    company = models.CharField(max_length=50)
-    location = models.CharField(max_length=50)
+    title = models.CharField(max_length=100)
+    company = models.CharField(max_length=100, blank=True)
+    location = models.CharField(max_length=100, blank=True)
+
+    sub_text = models.CharField(max_length=100, blank=True)
 
     start_date = models.DateField()
     end_date = models.DateField()
     still_there = models.BooleanField()
 
+    category = models.ForeignKey(ResumeExperienceCategory, on_delete=models.PROTECT, default=None)
+
+    def save(self, *args, **kwargs):
+        self.title = self.title.upper()
+        if self.company: self.company = self.company.upper()
+
+        # Set something to state that the end date must be after the start date
+
+        return super(ResumeExperienceBlock, self).save(*args, **kwargs)
+    
+    def start_date_text(self):
+        month = datetime.strftime(self.start_date, '%B')
+        year = datetime.strftime(self.start_date, '%Y')
+        return f"{month}, {year}"
+    
+    def end_date_text(self):
+        month = datetime.strftime(self.end_date, '%B')
+        year = datetime.strftime(self.end_date, '%Y')
+        return f"{month}, {year}"
+    
     def __str__(self):
         return f"{self.title} @ {self.company}"
 
@@ -80,8 +112,15 @@ class ResumeLine(models.Model):
     line_text = models.TextField()
     resume_experience_block = models.ForeignKey(ResumeExperienceBlock, on_delete=models.CASCADE)
 
-    line_skill_categories = models.ManyToManyField(ResumeSkills)
+    line_skill_categories = models.ManyToManyField(ResumeSkills, blank=True)
+    
+    display_order = models.IntegerField(editable=False)
 
+    def save(self, *args, **kwargs):
+        self.display_order = ResumeLine.objects.all().count()
+
+        return super(ResumeLine, self).save(*args, **kwargs)
+    
     def __str__(self):
         return f"{self.resume_experience_block} @ {self.line_text}"
 
