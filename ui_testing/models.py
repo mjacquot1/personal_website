@@ -86,6 +86,8 @@ class ResumeExperienceBlock(models.Model):
 
     category = models.ForeignKey(ResumeExperienceCategory, on_delete=models.PROTECT, default=None)
 
+    lines = models.JSONField(default=dict)
+
     def save(self, *args, **kwargs):
         self.title = self.title.upper()
         if self.company: self.company = self.company.upper()

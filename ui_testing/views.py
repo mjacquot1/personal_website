@@ -5,7 +5,6 @@ from .models import (
     ResumeExperienceCategory, ResumeExperienceBlock, ResumeLine
     )
         
-    
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
