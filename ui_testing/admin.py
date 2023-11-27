@@ -2,11 +2,11 @@ from django.contrib import admin
 from django.db import models
 from django import forms
 from django.forms.widgets import TextInput
+# from django_json_widget.widgets import JSONEditorWidget
 from .models import Recreation, Web_Stack_Tools, ResumeSkillCategories, ResumeSkills, ResumeExperienceCategory, ResumeExperienceBlock, ResumeLine
 
-from .forms import ResumeLineForm
-
 from django_ses.views import DashboardView
+from django_json_widget.widgets import JSONEditorWidget
 
 # Register your models here.
 class RecreationAdmin(admin.ModelAdmin):
@@ -27,17 +27,10 @@ class ResumeExperienceCategoryAdmin(admin.ModelAdmin):
     pass
 
 
-class ResumeLineForm(forms.ModelForm):
-    class Meta:
-        model = ResumeExperienceBlock
-        
-        pass
-
 class ResumeExperienceBlockAdmin(admin.ModelAdmin):
-    # formfield_overrides = {
-    #     models.JSONField: {"widget": TextInput
-    # },
-    # }
+    formfield_overrides = {
+    models.JSONField: {'widget': JSONEditorWidget},
+    }
     pass
 
 class ResumeLineAdmin(admin.ModelAdmin):

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "bootstrap5",
     'theme_soft_design',
     'django_ses',
+    'django_json_widget',
 ]
 
 MIDDLEWARE = [

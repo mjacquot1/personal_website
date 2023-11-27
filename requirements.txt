@@ -19,7 +19,10 @@ Pillow>=10.1.0
 
 # Email Backend
 django-ses>=3.5.0
-django-ses[events]>=
+django-ses[events]
 
 # psycopg2-binary
 # mysqlclient
+
+# Better json widget
+django-json-widget>= 1.1.1

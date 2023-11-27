@@ -248,19 +248,52 @@
 
               {% for resume_experience_block in resume_blocks_categorized|return_key_value:resume_experience_category.category %}
                 <div class="resume-item">
-                  <h4 >{{ resume_experience_block.title }}<em>- {{ resume_experience_block.company }}</em> </h4>
-                  <h5>{{ resume_experience_block.start_date_text }} - {{ resume_experience_block.end_date_text }}</h5><em>  {{ resume_experience_block.location }}</em>
-                  {% if resume_experience_block.sub_text != None %}<h5><em>{{ resume_experience_block.sub_text }}</em></h5>{% endif %}
-                  
+                  <h4 >{{ resume_experience_block.block_info.title }}<em>- {{ resume_experience_block.block_info.company }}</em> </h4>
+                  <h5>{{ resume_experience_block.block_info.start_date_text }} - {{ resume_experience_block.block_info.end_date_text }}</h5><em>  {{ resume_experience_block.block_info.location }}</em>
+                  {% if resume_experience_block.block_info.sub_text != None %}<h5><em>{{ resume_experience_block.block_info.sub_text }}</em></h5>{% endif %}
+                  {% if resume_experience_block.resume_experience_Lines %}
+                    <div class="accordion accordion-flush resume_accordion" id="{{ resume_experience_block.block_id }}" data-filters="PYTHON VBA">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="work_exp_{{ forloop.counter0 }}_heading_1">
+                          <button class="accordion-button" data-type="resume_summary_button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_{{ forloop.counter0 }}_collapse_1" aria-expanded="true" aria-controls="work_exp_{{ forloop.counter0 }}_collapse_1">
+                            <strong>Summary</strong>
+                          </button>
+                        </h2>
+                        <div id="work_exp_{{ forloop.counter0 }}_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_{{ forloop.counter0 }}_heading_1" data-bs-parent="#{{ resume_experience_block.block_id }}">
+                          <div class="accordion-body">
+                            <ul>
+                              {% for block_line in resume_experience_block.resume_experience_Lines.summary %}
+                                <li data-filters="" class="resume_line_detail">{{ block_line.text }}</li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="work_exp_{{ forloop.counter0 }}_heading_2">
+                          <button class="accordion-button collapsed" data-type="resume_detail_button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_{{ forloop.counter0 }}_collapse_2" aria-expanded="false" aria-controls="work_exp_{{ forloop.counter0 }}_collapse_2">
+                            <b> Do you want to know more? </b>
+                          </button>
+                        </h2>
+                        <div id="work_exp_{{ forloop.counter0 }}_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_{{ forloop.counter0 }}_heading_2" data-bs-parent="#{{ resume_experience_block.block_id }}">
+                          <div class="accordion-body">
+                              <ul>
+                                {% for block_line in resume_experience_block.resume_experience_Lines.detail %}
+                                  <li data-filters="" class="resume_line_detail">{{ block_line.text }}</li>
+                                {% endfor %}
+                              </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
                 </div>
               {% endfor %}
             {% endfor %}
           
-            <div class="resume-item">
+            <!-- <div class="resume-item">
               <h4 >Software Engineer L2, Platform <em>- Drizly / Uber</em> </h4>
               <h5>March 2022 - March 2023</h5><em>  Remote</em>
-              <!-- Need to ad an if statement here to check for any resume lines -->
-              <!-- Also need an iterator to distinguish this accordian from all others -->
               <div class="accordion accordion-flush resume_accordion" id="work_exp_a" data-filters="PYTHON VBA">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="work_exp_a_heading_1">
@@ -397,11 +430,6 @@
             {% comment %} <div class="resume-item">
               <div class="accordion accordion-flush resume_accordion" id="work_exp_d">
                   <div class="accordion-item">
-                    <!-- <h2 class="accordion-header" id="work_exp_d_heading_1">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_d_collapse_1" aria-expanded="true" aria-controls="work_exp_d_collapse_1">
-                        <strong>Summary</strong>
-                      </button>
-                    </h2> -->
                     <div id="work_exp_d_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_d_heading_1" data-bs-parent="#work_exp_d">
                       <div class="accordion-body">
                         <ul>
@@ -412,11 +440,6 @@
                     </div>
                   </div>
                   <div class="accordion-item">
-                    <!-- <h2 class="accordion-header" id="work_exp_d_heading_2">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_d_collapse_2" aria-expanded="false" aria-controls="work_exp_d_collapse_2">
-                        <b> Do you want to know more? </b>
-                      </button>
-                    </h2> -->
                     <div id="work_exp_d_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_d_heading_2" data-bs-parent="#work_exp_d">
                       <div class="accordion-body">
                           <ul>
@@ -476,7 +499,7 @@
                     </div>
                   </div>
               </div>
-            </div>
+            </div> -->
 
             <h3 class="resume-title"><i class="bi bi-mortarboard-fill"></i> Education</h3>
 

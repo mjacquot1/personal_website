@@ -9,6 +9,8 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
 
+from .utils import ResumeLineHandler
+
 # Create your views here.
 def test_404(request):
 
@@ -44,12 +46,23 @@ def test_404(request):
         sorted(ResumeExperienceBlock.objects.all(), \
                key=lambda block:((block.still_there), block.end_date, block.start_date), \
                reverse=True):
-        # Put each block into a hash categorized by] (object).category
+        
+        # Create an empty array if theres no key for the block yet
         resume_block_category = resume_experience_block.category.category
-        if resume_block_category in resume_blocks_categorized.keys():
-            resume_blocks_categorized[resume_block_category].append(resume_experience_block)
-        else:
-            resume_blocks_categorized[resume_block_category] = [resume_experience_block]
+        if resume_block_category not in resume_blocks_categorized.keys():
+            resume_blocks_categorized[resume_block_category] = []
+        
+        resume_blocks_categorized[resume_block_category].append({
+            'block_info': resume_experience_block,
+            # 'block_id': f"{resume_experience_block.title.upper()}_{resume_experience_block.company.upper()}_{resume_experience_block.start_date}".replace(' ', '_').replace(',', ''),
+            # Create an array of objects for the resume lines
+            'resume_experience_Lines' : ResumeLineHandler(resume_experience_block.lines).return_lines_dict()
+            # 'resume_experience_Lines': [line for line in resume_experience_block.lines['lines']] if ('line' in resume_experience_block.lines.keys()) else None
+        })
+        
+
+
+        
 
 
     context = {
