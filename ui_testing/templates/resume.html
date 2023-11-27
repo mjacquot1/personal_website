@@ -254,12 +254,12 @@
                   {% if resume_experience_block.resume_experience_Lines %}
                     <div class="accordion accordion-flush resume_accordion" id="{{ resume_experience_block.block_id }}" data-filters="{{ resume_experience_block.block_info.aggregate_line_skills }}">
                       <div class="accordion-item">
-                        <h2 class="accordion-header" id="work_exp_{{ forloop.counter0 }}_heading_1">
-                          <button class="accordion-button" data-type="resume_summary_button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_{{ forloop.counter0 }}_collapse_1" aria-expanded="true" aria-controls="work_exp_{{ forloop.counter0 }}_collapse_1">
+                        <h2 class="accordion-header" id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_1">
+                          <button class="accordion-button" data-type="resume_summary_button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1" aria-expanded="true" aria-controls="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1">
                             <strong>Summary</strong>
                           </button>
                         </h2>
-                        <div id="work_exp_{{ forloop.counter0 }}_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_{{ forloop.counter0 }}_heading_1" data-bs-parent="#{{ resume_experience_block.block_id }}">
+                        <div id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1" class="accordion-collapse collapse show" aria-labelledby="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_1" data-bs-parent="#{{ resume_experience_block.block_id }}">
                           <div class="accordion-body">
                             <ul>
                               {% for block_line in resume_experience_block.resume_experience_Lines.summary %}
@@ -285,12 +285,12 @@
                         </div>
                       </div>
                       <div class="accordion-item">
-                        <h2 class="accordion-header" id="work_exp_{{ forloop.counter0 }}_heading_2">
-                          <button class="accordion-button collapsed" data-type="resume_detail_button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_{{ forloop.counter0 }}_collapse_2" aria-expanded="false" aria-controls="work_exp_{{ forloop.counter0 }}_collapse_2">
+                        <h2 class="accordion-header" id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_2">
+                          <button class="accordion-button collapsed" data-type="resume_detail_button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_2" aria-expanded="false" aria-controls="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_2">
                             <b> Do you want to know more? </b>
                           </button>
                         </h2>
-                        <div id="work_exp_{{ forloop.counter0 }}_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_{{ forloop.counter0 }}_heading_2" data-bs-parent="#{{ resume_experience_block.block_id }}">
+                        <div id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_2" class="accordion-collapse collapse" aria-labelledby="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_2" data-bs-parent="#{{ resume_experience_block.block_id }}">
                           <div class="accordion-body">
                               <ul>
                                 {% for block_line in resume_experience_block.resume_experience_Lines.detail %}
@@ -304,7 +304,7 @@
                                       {% for sub_text_line in block_line.sub_text %}
 
                                         {% with sub_text_line_skills=sub_text_line.skills|join:' '%}
-                                          <li data-filters="{{ sub_text_line_skills }}" class="resume_line_detail">{{ sub_text_line.text }}</li>
+                                          <li data-filters="{{ sub_text_line_skills }}" class="resume_line_detail">{{ sub_text_line.text|safe }}</li>
                                         {% endwith %}
 
                                       {% endfor%}
@@ -532,7 +532,7 @@
               </div>
             </div> -->
 
-            <h3 class="resume-title"><i class="bi bi-mortarboard-fill"></i> Education</h3>
+            <!-- <h3 class="resume-title"><i class="bi bi-mortarboard-fill"></i> Education</h3>
 
             <div class="resume-item">
               <h4>Bachelors in Business Administration <em>- CSUF</em></h4>
@@ -543,7 +543,7 @@
             <div class="resume-item">
               <h4>Associates in Business Administration <em>- Mt. San Antonio Community College</em></h4>
               <h5>2013 - 2016</h5>
-            </div>
+            </div> -->
 
           </div>
         </div>

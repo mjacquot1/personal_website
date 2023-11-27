@@ -11,7 +11,7 @@
 7. Set cache for produciton (volume)
 8. Pytest files for email
 9. Pytest files for dynamic elements
-10. Https site
+10. Use Https to secure site
 11. See how to serve media in production
 12. Secure /media/
 13. Why do some recreation photos not enlarge?
@@ -23,7 +23,7 @@
 19. Deploy to AWS with terraform
 20. Add clear Github link
 21. Make emailing asynchronous
-22. - [] Make a way to replace a words  with an anchor tags. 
+22. - [x] Make a way to replace a words  with an anchor tags. 
 
 <!-- 
 
