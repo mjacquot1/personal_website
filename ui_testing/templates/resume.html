@@ -263,7 +263,22 @@
                           <div class="accordion-body">
                             <ul>
                               {% for block_line in resume_experience_block.resume_experience_Lines.summary %}
-                                <li data-filters="" class="resume_line_detail">{{ block_line.text }}</li>
+
+                                {% with block_line_skills=block_line.skills|join:' '%}
+                                <li data-filters="{{ block_line_skills }}" class="resume_line_summary">{{ block_line.text }}</li>
+                                {% endwith %}
+
+                                {% if block_line.sub_text|length > 0 %}
+                                  <ul>
+                                    {% for sub_text_line in block_line.sub_text %}
+
+                                      {% with sub_text_line_skills=sub_text_line.skills|join:' '%}
+                                        <li data-filters="{{ sub_text_line_skills }}" class="resume_line_summary">{{ sub_text_line.text }}</li>
+                                      {% endwith %}
+
+                                    {% endfor%}
+                                  </ul>
+                                {% endif %}
                               {% endfor %}
                             </ul>
                           </div>
@@ -279,9 +294,23 @@
                           <div class="accordion-body">
                               <ul>
                                 {% for block_line in resume_experience_block.resume_experience_Lines.detail %}
+
                                   {% with block_line_skills=block_line.skills|join:' '%}
                                   <li data-filters="{{ block_line_skills }}" class="resume_line_detail">{{ block_line.text }}</li>
                                   {% endwith %}
+
+                                  {% if block_line.sub_text|length > 0 %}
+                                    <ul>
+                                      {% for sub_text_line in block_line.sub_text %}
+
+                                        {% with sub_text_line_skills=sub_text_line.skills|join:' '%}
+                                          <li data-filters="{{ sub_text_line_skills }}" class="resume_line_detail">{{ sub_text_line.text }}</li>
+                                        {% endwith %}
+
+                                      {% endfor%}
+                                    </ul>
+                                  {% endif %}
+
                                 {% endfor %}
                               </ul>
                           </div>
