@@ -54,7 +54,7 @@ def test_404(request):
         
         resume_blocks_categorized[resume_block_category].append({
             'block_info': resume_experience_block,
-            # 'block_id': f"{resume_experience_block.title.upper()}_{resume_experience_block.company.upper()}_{resume_experience_block.start_date}".replace(' ', '_').replace(',', ''),
+            'block_id': f"{resume_experience_block.title.upper()}_{resume_experience_block.company.upper()}_{resume_experience_block.start_date}".replace(' ', '_').replace(',', ''),
             # Create an array of objects for the resume lines
             'resume_experience_Lines' : ResumeLineHandler(resume_experience_block.lines).return_lines_dict()
             # 'resume_experience_Lines': [line for line in resume_experience_block.lines['lines']] if ('line' in resume_experience_block.lines.keys()) else None
