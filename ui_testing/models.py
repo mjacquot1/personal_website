@@ -2,6 +2,8 @@ from django.db import models
 from datetime import datetime
 from django.db.models.functions import (ExtractYear, ExtractMonth,)
 
+from .utils import ResumeLineHandler
+
 # Create your models here.
 class Web_Stack_Tools(models.Model):
     tool_name = models.CharField(max_length=30)
@@ -87,9 +89,14 @@ class ResumeExperienceBlock(models.Model):
     category = models.ForeignKey(ResumeExperienceCategory, on_delete=models.PROTECT, default=None)
 
     lines = models.JSONField(default=dict)
+    aggregate_line_skills = models.CharField(default='', blank=True)
 
     def save(self, *args, **kwargs):
         self.title = self.title.upper()
+
+        # Make an easy to access string of aggregate skills
+        self.aggregate_line_skills =  ' '.join(ResumeLineHandler(self.lines).return_aggregate_skills_set())
+
         if self.company: self.company = self.company.upper()
 
         # Set something to state that the end date must be after the start date

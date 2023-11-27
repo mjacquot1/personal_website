@@ -252,7 +252,7 @@
                   <h5>{{ resume_experience_block.block_info.start_date_text }} - {{ resume_experience_block.block_info.end_date_text }}</h5><em>  {{ resume_experience_block.block_info.location }}</em>
                   {% if resume_experience_block.block_info.sub_text != None %}<h5><em>{{ resume_experience_block.block_info.sub_text }}</em></h5>{% endif %}
                   {% if resume_experience_block.resume_experience_Lines %}
-                    <div class="accordion accordion-flush resume_accordion" id="{{ resume_experience_block.block_id }}" data-filters="PYTHON VBA">
+                    <div class="accordion accordion-flush resume_accordion" id="{{ resume_experience_block.block_id }}" data-filters="{{ resume_experience_block.block_info.aggregate_line_skills }}">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="work_exp_{{ forloop.counter0 }}_heading_1">
                           <button class="accordion-button" data-type="resume_summary_button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_{{ forloop.counter0 }}_collapse_1" aria-expanded="true" aria-controls="work_exp_{{ forloop.counter0 }}_collapse_1">
@@ -279,7 +279,9 @@
                           <div class="accordion-body">
                               <ul>
                                 {% for block_line in resume_experience_block.resume_experience_Lines.detail %}
-                                  <li data-filters="" class="resume_line_detail">{{ block_line.text }}</li>
+                                  {% with block_line_skills=block_line.skills|join:' '%}
+                                  <li data-filters="{{ block_line_skills }}" class="resume_line_detail">{{ block_line.text }}</li>
+                                  {% endwith %}
                                 {% endfor %}
                               </ul>
                           </div>

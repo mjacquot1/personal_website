@@ -290,7 +290,7 @@ function isEmpty(value) {
 }
 
 function isNotEmpty(value) {
-  return (value !== null || (typeof value === "string" && value.trim().length !== 0));
+  return (value != null || (typeof value === "string" && value.trim().length != 0));
 }
 
 function returnAttributeValue(element, attribute) {
@@ -397,14 +397,19 @@ function filterResumeItems(filter) { // Modify to allow for multiple filters to 
     let filteredResumeLines = resumeCategoryElements.resumeLines[resume_filter];
 
     // Open resume accordionsm
-    filteredResumeBlocks.forEach((resumeBlock) => {
-      openResumeAccordion(resumeBlock.querySelector("[data-type='resume_detail_button']"), true);
-    })
+    if (isNotEmpty(filteredResumeBlocks)) {
+      filteredResumeBlocks.forEach((resumeBlock) => {
+        openResumeAccordion(resumeBlock.querySelector("[data-type='resume_detail_button']"), true);
+      }) 
+    }
 
     // Show items
-    filteredResumeLines.forEach((resumeLine) => {
-      resumeLine.style.display = 'list-item';
-    })
+    if (isNotEmpty(filteredResumeLines)) {
+      filteredResumeLines.forEach((resumeLine) => {
+        resumeLine.style.display = 'list-item';
+      })
+    }
+
   })
 
 }

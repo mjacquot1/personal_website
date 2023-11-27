@@ -25,3 +25,17 @@ class ResumeLineHandler():
                 sorted_experience_lines['detail'].append(line)
         
         return sorted_experience_lines
+
+    def return_aggregate_skills_set(self):
+        if self.lines == None:
+            return
+
+        skills_set = set()
+
+        for line in self.lines:
+            for skill in line['skills']:
+                skills_set.add(skill)
+
+        # Return a set of all unique skills in the resume experience lines
+        return skills_set
+    
