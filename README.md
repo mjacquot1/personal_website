@@ -24,6 +24,11 @@
 20. Add clear Github link
 21. Make emailing asynchronous
 22. - [x] Make a way to replace a words  with an anchor tags. 
+23. - Create resume_lines_skill function to restrict what is saved in json
+24. - [] Make javascript highlight relevant experience
+24. Clean up text
+25. Add functions to change display_order in database
+26. Add something talking more about how the website is dynamically loaded
 
 <!-- 
 

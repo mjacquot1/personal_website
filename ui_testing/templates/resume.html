@@ -252,7 +252,7 @@
                   <h5>{{ resume_experience_block.block_info.start_date_text }} - {{ resume_experience_block.block_info.end_date_text }}</h5><em>  {{ resume_experience_block.block_info.location }}</em>
                   {% if resume_experience_block.block_info.sub_text != None %}<h5><em>{{ resume_experience_block.block_info.sub_text }}</em></h5>{% endif %}
                   {% if resume_experience_block.resume_experience_Lines %}
-                    <div class="accordion accordion-flush resume_accordion" id="{{ resume_experience_block.block_id }}" data-filters="{{ resume_experience_block.block_info.aggregate_line_skills }}">
+                    <div class="accordion accordion-flush resume_accordion" id="{{ resume_experience_block.block_id }}" data-filters="{{ resume_experience_block.block_info.aggregate_line_skills|upper }}">
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_1">
                           <button class="accordion-button" data-type="resume_summary_button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1" aria-expanded="true" aria-controls="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1">
@@ -265,7 +265,7 @@
                               {% for block_line in resume_experience_block.resume_experience_Lines.summary %}
 
                                 {% with block_line_skills=block_line.skills|join:' '%}
-                                <li data-filters="{{ block_line_skills }}" class="resume_line_summary">{{ block_line.text }}</li>
+                                <li data-filters="{{ block_line_skills|upper }}" class="resume_line_summary">{{ block_line.text }}</li>
                                 {% endwith %}
 
                                 {% if block_line.sub_text|length > 0 %}
@@ -273,7 +273,7 @@
                                     {% for sub_text_line in block_line.sub_text %}
 
                                       {% with sub_text_line_skills=sub_text_line.skills|join:' '%}
-                                        <li data-filters="{{ sub_text_line_skills }}" class="resume_line_summary">{{ sub_text_line.text }}</li>
+                                        <li data-filters="{{ sub_text_line_skills|upper }}" class="resume_line_summary">{{ sub_text_line.text }}</li>
                                       {% endwith %}
 
                                     {% endfor%}
@@ -296,15 +296,15 @@
                                 {% for block_line in resume_experience_block.resume_experience_Lines.detail %}
 
                                   {% with block_line_skills=block_line.skills|join:' '%}
-                                  <li data-filters="{{ block_line_skills }}" class="resume_line_detail">{{ block_line.text }}</li>
+                                  <li data-filters="{{ block_line_skills|upper }}" class="resume_line_detail">{{ block_line.text }}</li>
                                   {% endwith %}
 
                                   {% if block_line.sub_text|length > 0 %}
                                     <ul>
                                       {% for sub_text_line in block_line.sub_text %}
 
-                                        {% with sub_text_line_skills=sub_text_line.skills|join:' '%}
-                                          <li data-filters="{{ sub_text_line_skills }}" class="resume_line_detail">{{ sub_text_line.text|safe }}</li>
+                                        {% with sub_text_line_skills=sub_text_line.skills|join:' ' %}
+                                          <li data-filters="{{ sub_text_line_skills|upper }}" class="resume_line_detail">{{ sub_text_line.text|safe }}</li>
                                         {% endwith %}
 
                                       {% endfor%}

@@ -53,7 +53,7 @@ class ResumeLineHandler():
 
         for line in self.lines:
             for skill in line['skills']:
-                skills_set.add(skill)
+                skills_set.add(skill.upper())
 
         # Return a set of all unique skills in the resume experience lines
         return skills_set

@@ -95,7 +95,9 @@ class ResumeExperienceBlock(models.Model):
         self.title = self.title.upper()
 
         # Make an easy to access string of aggregate skills
-        self.aggregate_line_skills =  ' '.join(ResumeLineHandler(self.lines).return_aggregate_skills_set())
+        # If there are no lines or skills, set to blank string
+        aggregate_skills = ResumeLineHandler(self.lines).return_aggregate_skills_set()
+        self.aggregate_line_skills =  ' '.join(aggregate_skills) if aggregate_skills else ''
 
         if self.company: self.company = self.company.upper()
 
