@@ -1,0 +1,861 @@
+{% load static %}
+{% load resume_extras %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="{% static 'ui_testing/iportfolio/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'ui_testing/iportfolio/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'ui_testing/iportfolio/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'ui_testing/iportfolio/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'ui_testing/iportfolio/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'ui_testing/iportfolio/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'ui_testing/iportfolio/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'ui_testing/iportfolio/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    
+    <!-- Template Main CSS File -->
+    <link href="{% static 'ui_testing/iportfolio/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="{% static 'ui_testing/photos/me.jpg' %}" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">Marcel Jacquot</a></h1>
+        
+        <div class="social-links mt-3 text-center">
+          {% comment %} <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> {% endcomment %}
+          <a href="https://www.linkedin.com/in/marcel-jacquot-9b470975/" target="_blank" rel="noopener noreferrer" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/mjacquot1" target="_blank" rel="noopener noreferrer" class="github"><i class="bi bi-github"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#about" class="nav-link scrollto"><i class="bi bi-person-circle"></i> <span>About</span></a></li>
+          <li><a href="#services" class="nav-link scrollto"><i class="bi bi-stack"></i> <span>Web Stack</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bi bi-file-earmark-text"></i> <span>Resume</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bi bi-tree"></i> <span>Recreation</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bi bi-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Marcel Jacquot</h1>
+      <p><span class="typed" data-typed-items="Back-End, Python, Django, Ruby on Rails, Microsoft VBA"></span> Developer</p>
+
+      {% if messages %}
+        <div class="alert alert-success" role="alert">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+        </div>
+      {% endif %}
+    
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <p>
+            I am a software developer with a background in Finance &amp; Banking. My experience involves developing tools to assist data ingestion, financial planning, testing check processing systems. I have also done research involving social media and stock market movements.
+            My hobbies include hiking and camping outdoors, surfing and scuba-diving, and enjoying art installations.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="{% static 'ui_testing/photos/me.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Software Developer &amp; Finance Graduate.</h3>
+            {% comment %} <p class="fst-italic">
+                I am a software developer with a background in Finance &amp; Banking. My experience involves developing tools assisting data ingestion, financial planning, testing check processing systems. I have also done research involving social media and stock market movements.
+                My hobbies include hiking and camping outdoors, surfing and scuba-diving, and visiting art installations.    
+            </p> {% endcomment %}
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Henderson, Nevada</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelors</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>LinkedIn:</strong> 
+                    <a href="https://www.linkedin.com/in/marcel-jacquot-9b470975/" target="_blank" rel="noopener noreferrer"><span>Marcel Jacquot</span></a>
+                  </li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Github:</strong>
+                    <a href="https://github.com/mjacquot1" target="_blank" rel="noopener noreferrer"><span>https://github.com/mjacquot1</span></a>
+                  </li>
+                </ul>
+              </div>
+              {% comment %} <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Field:</strong> <span>Finance</span></li>
+                </ul>
+              </div> {% endcomment %}
+            </div>
+            {% comment %} <p>
+              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
+              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
+            </p> {% endcomment %}
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Web Stack</h2>
+          <p>This website is built using the following technologies.</p>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+          {% for stack_tool in web_stack_tools %}
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+              <div class="icon grow_icon">
+                <a href="{{ stack_tool.tool_link }}" target="_blank" rel="noopener noreferrer"><img src="{{ stack_tool.main_image.url }}" width="{{ stack_tool.thumbnail_width }}" height="{{ stack_tool.thumbnail_height }}" ></a>
+              </div>
+              {% comment "" %} target="_blank" rel="noopener noreferrer" opens in new rab, and rel="noopener noreferrer" adds security {% endcomment %}
+              <h4 class="title"><a href="{{ stack_tool.tool_link }}" target="_blank" rel="noopener noreferrer">{{ stack_tool.tool_name }}</a></h4>
+              <p class="description">{{ stack_tool.tool_description }}</p>
+            </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    {% comment %} <!-- ======= Facts Section ======= -->
+    <section id="facts" class="facts">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Website Stack</h2>
+          <p>This website is built using the following technologies.</p>
+        </div>
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+              <img src="{% static 'ui_testing\favicon\django.png' %}"  style="width:50.25px;height:64px;" >
+              <span>Django</span>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="count-box">
+              <i class="bi bi-images"></i>
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="count-box">
+              <i class="bi bi-headset"></i>
+              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="count-box">
+              <i class="bi bi-people"></i>
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Facts Section --> {% endcomment %}
+
+<!-- ======= Resume Section ======= -->
+
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+            <h2>Resume</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class='card d-flex text-center shadow custom_top_sticky'>
+              
+              <div class="card-header">
+                <h3 class="resume-title">Skills</h3>
+              </div>
+
+              <div class="card-body ">
+
+                {% for resume_skill_category in resume_skill_categories %}
+                  <h5 class="card-title"><strong>{{ resume_skill_category.category_display }}</strong></h5>
+                  <div class='skills align-items-center justify-content-center'>
+                    <ul id="skill-flters">
+                      {% for resume_skill in resume_skills_categorized|return_key_value:resume_skill_category.category %}
+                        <li data-filter="{{ resume_skill.skill_filter_category }}" onclick="filterResumeItems(this)">{{ resume_skill.skill_title }}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endfor %}
+
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="col-lg-9" data-aos="fade-up">
+            {% for resume_experience_category in resume_experience_categories %}
+              <h3 class="resume-title"><i class="bi {{ resume_experience_category.icon_class }}"></i> {{ resume_experience_category.category_display }}</h3>
+
+              {% for resume_experience_block in resume_blocks_categorized|return_key_value:resume_experience_category.category %}
+                <div class="resume-item">
+                  <h4 >{{ resume_experience_block.block_info.title }}<em>- {{ resume_experience_block.block_info.company }}</em> </h4>
+                  <h5>{{ resume_experience_block.block_info.start_date_text }} - {{ resume_experience_block.block_info.end_date_text }}</h5><em>  {{ resume_experience_block.block_info.location }}</em>
+                  {% if resume_experience_block.block_info.sub_text != None %}<h5><em>{{ resume_experience_block.block_info.sub_text }}</em></h5>{% endif %}
+                  {% if resume_experience_block.resume_experience_Lines %}
+                    <div class="accordion accordion-flush resume_accordion" id="{{ resume_experience_block.block_id }}" data-filters="{{ resume_experience_block.block_info.aggregate_line_skills|upper }}">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_1">
+                          <button class="accordion-button" data-type="resume_summary_button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1" aria-expanded="true" aria-controls="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1">
+                            <strong>Summary</strong>
+                          </button>
+                        </h2>
+                        <div id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1" class="accordion-collapse collapse show" aria-labelledby="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_1" data-bs-parent="#{{ resume_experience_block.block_id }}">
+                          <div class="accordion-body">
+                            <ul>
+                              {% for block_line in resume_experience_block.resume_experience_Lines.summary %}
+
+                                {% with block_line_skills=block_line.skills|join:' '%}
+                                <li data-filters="{{ block_line_skills|upper }}" class="resume_line_summary">{{ block_line.text }}</li>
+                                {% endwith %}
+
+                                {% if block_line.sub_text|length > 0 %}
+                                  <ul>
+                                    {% for sub_text_line in block_line.sub_text %}
+
+                                      {% with sub_text_line_skills=sub_text_line.skills|join:' '%}
+                                        <li data-filters="{{ sub_text_line_skills|upper }}" class="resume_line_summary">{{ sub_text_line.text }}</li>
+                                      {% endwith %}
+
+                                    {% endfor%}
+                                  </ul>
+                                {% endif %}
+                              {% endfor %}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_2">
+                          <button class="accordion-button collapsed" data-type="resume_detail_button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_2" aria-expanded="false" aria-controls="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_2">
+                            <b> Do you want to know more? </b>
+                          </button>
+                        </h2>
+                        <div id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_2" class="accordion-collapse collapse" aria-labelledby="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_2" data-bs-parent="#{{ resume_experience_block.block_id }}">
+                          <div class="accordion-body">
+                              <ul>
+                                {% for block_line in resume_experience_block.resume_experience_Lines.detail %}
+
+                                  {% with block_line_skills=block_line.skills|join:' '%}
+                                  <li data-filters="{{ block_line_skills|upper }}" class="resume_line_detail">{{ block_line.text }}</li>
+                                  {% endwith %}
+
+                                  {% if block_line.sub_text|length > 0 %}
+                                    <ul>
+                                      {% for sub_text_line in block_line.sub_text %}
+
+                                        {% with sub_text_line_skills=sub_text_line.skills|join:' ' %}
+                                          <li data-filters="{{ sub_text_line_skills|upper }}" class="resume_line_detail">{{ sub_text_line.text|safe }}</li>
+                                        {% endwith %}
+
+                                      {% endfor%}
+                                    </ul>
+                                  {% endif %}
+
+                                {% endfor %}
+                              </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            {% endfor %}
+          
+            <!-- <div class="resume-item">
+              <h4 >Software Engineer L2, Platform <em>- Drizly / Uber</em> </h4>
+              <h5>March 2022 - March 2023</h5><em>  Remote</em>
+              <div class="accordion accordion-flush resume_accordion" id="work_exp_a" data-filters="PYTHON VBA">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="work_exp_a_heading_1">
+                    <button class="accordion-button" data-type="resume_summary_button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_a_collapse_1" aria-expanded="true" aria-controls="work_exp_a_collapse_1">
+                      <strong>Summary</strong>
+                    </button>
+                  </h2>
+                  <div id="work_exp_a_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_a_heading_1" data-bs-parent="#work_exp_a">
+                    <div class="accordion-body">
+                      <ul>
+                        <li>Automated a manually intensive product attribute updating process by developing and deploying an application feature that asynchronously updated product attributes from supplier-provided Excel workbooks.</li>
+                        <li>Adhered to Agile methodologies throughout the software development lifecycle. Maintained open lines of communication with all project stakeholders and created project documentation using Jira.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="work_exp_a_heading_2">
+                    <button class="accordion-button collapsed" data-type="resume_detail_button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_a_collapse_2" aria-expanded="false" aria-controls="work_exp_a_collapse_2">
+                      <b> Do you want to know more? </b>
+                    </button>
+                  </h2>
+                  <div id="work_exp_a_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_a_heading_2" data-bs-parent="#work_exp_a">
+                    <div class="accordion-body">
+                        <ul>
+                            <li data-filters="PYTHON" class="resume_line_detail">Automated a manually intensive product attribute updating process by developing and deploying an application feature that asynchronously updated product attributes from supplier-provided Excel workbooks.</li>
+                            <li data-filters="VBA"  class="resume_line_detail">Developed and implement both front-end and back-end features for updating product attributes utilizing Ruby on Rails gems including Views and Active Record. </li>
+                            <li>Designed and developed AWS Lambda Ruby functions. Employed infrastructure as code tooling such as CloudFormation and Terraform  for VPC configurations, IAM security measures, and S3 connections.</li>
+                            <li>Secured GraphQL queries and mutations by implementing authorization hooks based on user credentials within a centralized code repository. Mapped inter-app GraphQL usage between multiple stacks.</li>
+                            <li>Strengthened code quality and reliability by developing and executing RSpec unit tests to validate program functionality, ensure accurate database updates, and effectively both handle and log errors.</li>
+                            <li>Monitored errors using New Relic alerts and implemented error handlers in critical areas where user input was accepted or database operations were performed. Generated  error reports for internal users.</li>
+                            <li>Developed and implemented data scrubbing modules using Ruby on Rails to secure external data inputs and protect against Json, SQL, and VBA injection attacks.</li>
+                            <li>Configured and ran Docker images to facilitate local app development and testing.</li>
+                            <li>Created internal documentation outlining the configuration process for a Terragrunt/Terraform repository used to deploy Ruby Lambdas within the primary stack.</li>
+                            <li>Utilized Git for CI/CD. Conducted code reviews and approvals to ensure deployment readiness.</li>
+                            <li>Adhered to Agile methodologies throughout the software development lifecycle. Maintained open lines of communication with all project stakeholders and created project documentation using Jira.</li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="resume-item">
+              <h4>Lead Software Engineer <em>- Landmark Wealth Management LLC</em></h4>
+              <h5>July 2019 - March 2022</h5><em>  Ontario, CA</em>
+              <div class="accordion accordion-flush resume_accordion" id="work_exp_b">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_b_heading_2">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_b_collapse_1" aria-expanded="true" aria-controls="work_exp_b_collapse_1">
+                        <strong>Summary</strong>
+                      </button>
+                    </h2>
+                    <div id="work_exp_b_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_b_heading_2" data-bs-parent="#work_exp_b">
+                      <div class="accordion-body">
+                        <ul>
+                          <li>Used python, VBA, and MongoDB to architect, design, and implement:</li>
+                          <ul>
+                            <li>A Python program to generate financial plans after automatically ingesing client information.</li>
+                            <li>Excel workbooks to automate day-to-day financial planning tasks. and calculations</li>
+                            <li>A MongoDB database to hold and access client information.</li>
+                          </ul>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_b_heading_2">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_b_collapse_2" aria-expanded="false" aria-controls="work_exp_b_collapse_2">
+                        <b> Do you want to know more? </b>
+                      </button>
+                    </h2>
+                    <div id="work_exp_b_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_b_heading_2" data-bs-parent="#work_exp_b">
+                      <div class="accordion-body">
+                          <ul>
+                              <li>Developed an automatic document writer through Python UI and MongoDB integration, allowing client information to be centralized to programmatically generate personalized financial plans.</li>
+                              <li>Oversaw the continual development of an Excel and VBA macro based cash flow tool that provides tax calculations, projected client cash flows, and retirement account recommendations.</li>
+                              <li>Employed a NoSQL data model with MongoDB using the attribute design pattern.</li>
+                              <li>Identified design problems early to refactor the necessary application code ensuring long term extensibility.</li>
+                              <li>Architect, designed, implemented and deployed the following features:</li>
+                              <ul>
+                                <li>A Python 3 Desktop GUI application to generate formatted word documents based on a list of userdefined conditional arguments and formatting rules.</li>
+                                <li>An interface to allow users to easily create conditional logic, translating the string conditions to executable code.</li>
+                                <li>An interface to allow users to easily create formatting rules that translate into Microsoft Word syntax.</li>
+                                <li>A calculator interface to easily create formulas used for conditional logic.</li>
+                                <li>Template revision history and restore feature to allow users to revert to an older template.</li>
+                                <li>An interface utilizing a Breadth First Search algorithm to import an Excel workbook and parse user conditional variables defined in the template.</li>
+                              </ul>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            
+            <div class="resume-item">
+              <h4>Business Analyst <em>- Mitsubishi Union Financial Group</em></h4>
+              <h5>December 2017 - July 2019</h5><em>  Monterey Park, CA</em>
+              <div class="accordion accordion-flush resume_accordion" id="work_exp_c">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_c_heading_1">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_c_collapse_1" aria-expanded="true" aria-controls="work_exp_c_collapse_1">
+                        <strong>Summary</strong>
+                      </button>
+                    </h2>
+                    <div id="work_exp_c_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_c_heading_1" data-bs-parent="#work_exp_c">
+                      <div class="accordion-body">
+                        <ul>
+                          <li>Managed development projects for item processing.</li>
+                          <li>Developed VBA Macros to assist in operations.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="work_exp_c_heading_2">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#work_exp_c_collapse_2" aria-expanded="false" aria-controls="work_exp_c_collapse_2">
+                        <b> Do you want to know more? </b>
+                      </button>
+                    </h2>
+                    <div id="work_exp_c_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_c_heading_2" data-bs-parent="#work_exp_c">
+                      <div class="accordion-body">
+                          <ul>
+                              <li>Used Excel VBA macros to randomly generate values for Checking items used for testing, resulting in an increase in testing accuracy, faster defect resolution, and a 95% reduction in man-hours.</li>
+                              <li>Designed, developed, and tested the Canadian item processing capture platform for our location in Tempe, Arizona, and oversaw record keeping for post implementation defect analysis and debugging.</li>
+                              <li>Automated risk reports of daily cash letters for MUB Controllers on a quarterly basis.</li>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            
+            {% comment %} <div class="resume-item">
+              <div class="accordion accordion-flush resume_accordion" id="work_exp_d">
+                  <div class="accordion-item">
+                    <div id="work_exp_d_collapse_1" class="accordion-collapse collapse show" aria-labelledby="work_exp_d_heading_1" data-bs-parent="#work_exp_d">
+                      <div class="accordion-body">
+                        <ul>
+                          <li>Assisted in managing a Men's Wearhouse retail store.</li>
+                          <li>Sold men's formal and casual wear on commission.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <div id="work_exp_d_collapse_2" class="accordion-collapse collapse" aria-labelledby="work_exp_d_heading_2" data-bs-parent="#work_exp_d">
+                      <div class="accordion-body">
+                          <ul>
+                              <li>Assisted in running management operations including opening and closing the store, depositing store funds, and delegating work to employees.</li>
+                              <li>Developed and maintained customer relationships to ensure repeat business.</li>
+                              <li>Networked through daily telephone calls.</li>
+                              <li>Sold on commission.</li>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div> {% endcomment %}
+
+            <h3 class="resume-title"><i class="bi bi-bar-chart-line-fill"></i> Research</h3>
+
+            <div class="resume-item">
+              <h4>Social Media and Investor Returns: The Case of Reddit</h4>
+              <h5>California State University, Fullerton</h5> <h5><em>Coauthor: Prof. Arsenio Staer.</em></h5>
+              <div class="accordion accordion-flush resume_accordion" id="research_exp_a">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="research_exp_a_heading_1">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#research_exp_a_collapse_1" aria-expanded="true" aria-controls="research_exp_a_collapse_1">
+                        <strong>Summary</strong>
+                      </button>
+                    </h2>
+                    <div id="research_exp_a_collapse_1" class="accordion-collapse collapse show" aria-labelledby="research_exp_a_heading_1" data-bs-parent="#research_exp_a">
+                      <div class="accordion-body">
+                        <ul>
+                          <li>We document a positive association between signed stock-related social media activity on Reddit and next day stock returns using a battery of sentiment analysis tests with a variety of controls.</li>
+                          <li>We used Python for data scraping and sentiment analysis.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="research_exp_a_heading_2">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#research_exp_a_collapse_2" aria-expanded="false" aria-controls="research_exp_a_collapse_2">
+                        <b> Do you want to know more? </b>
+                      </button>
+                    </h2>
+                    <div id="research_exp_a_collapse_2" class="accordion-collapse collapse" aria-labelledby="research_exp_a_heading_2" data-bs-parent="#research_exp_a">
+                      <div class="accordion-body">
+                          <ul>
+                              <li>Using Python we scraped and filtered over 200 million Reddit posts based on stock tickers mentioned.</li>
+                              <li>Using SQL and SAS Enterprise Guide we created comparison tables with CRSP data and ran regressions.</li>
+                              <li>
+                                We ran sentiment analysis using the 
+                                <a href="https://sraf.nd.edu/loughranmcdonald-master-dictionary/">Loughran-McDonald</a>
+                                Loughran-McDonald and a modified 
+                                <a href="https://github.com/cjhutto/vaderSentiment">VADER</a>
+                                 methodology.
+                              </li>
+                              <li>SSRN Abstract: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3282828"> https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3282828</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div> -->
+
+            <!-- <h3 class="resume-title"><i class="bi bi-mortarboard-fill"></i> Education</h3>
+
+            <div class="resume-item">
+              <h4>Bachelors in Business Administration <em>- CSUF</em></h4>
+              <h5>2016 - 2019</h5>
+              <ul><li>Minor in Finance</li></ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>Associates in Business Administration <em>- Mt. San Antonio Community College</em></h4>
+              <h5>2013 - 2016</h5>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End Resume Section -->
+
+    {% comment %} <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row skills-content">
+
+          <div class="col-lg-6" data-aos="fade-up">
+
+            <div class="progress">
+              <span class="skill">HTML <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">CSS <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">JavaScript <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="progress">
+              <span class="skill">PHP <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">WordPress/CMS <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Photoshop <i class="val">55%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Skills Section --> {% endcomment %}
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Recreation</h2>
+          <p>My favorite things to do involve going up a mountain, into the ocean, or wherever there is art.</p>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter_mountain">Mountain</li>
+              <li data-filter=".filter_ocean">Ocean</li>
+              <li data-filter=".filter_art">Art</li>
+              <li data-filter=".filter_misc">Misc</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          {% for image in recreation_images %}
+            <div class="col-lg-3 col-6 portfolio-item {{ image.filter_field }}">
+              <a href="{{ image.main_image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ image.image_description }}">
+                <div class="portfolio-wrap">
+                  {% comment %} <img src="{% get_media_prefix %}{{ image.tile_image.name }}" class="img-fluid" alt=""> {% endcomment %}
+                  <img src="{{ image.tile_image.url }}" class="img-fluid" alt="">
+
+                  <div class='portfolio-info'>
+                    <h4>{{ image.image_title }}</h4>
+                  </div>
+
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    {% comment %} <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Freelancer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section --> {% endcomment %}
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Feel free to reach out!</p>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Clark County, Nevada</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>mjacquot.dev@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1654312.9485156748!2d-116.28913531354517!3d35.92054235887508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80b8d6496837aa1d%3A0x3317d403aa5236f8!2sClark%20County%2C%20NV!5e0!3m2!1sen!2sus!4v1699443577916!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-7 d-flex align-items-stretch">
+            <form action="{% url 'ui_testing:test_404' %}" method="post" class="personal_email_bg">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="message-name" class="form-label">Your Name</label>
+                  <input type="text" name="message-name" class="form-control" id="name" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="message-email" class="form-label">Your Email</label>
+                  <input name="message-email" type="email" class="form-control" aria-describedby="emailHelp" required>
+                  {% comment %} <div id="emailHelp" class="form-text">I'll never share your email with anyone else.</div> {% endcomment %}
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="message-subject">Subject</label>
+                <input type="text" class="form-control" name="message-subject" id="subject">
+              </div>
+
+              <div class="mb-3">
+                <label for="message-body">Message {{ message_name }}</label>
+                <textarea class="form-control" name="message-body" rows="10" required></textarea>
+              </div>
+
+              {% comment %} <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div> {% endcomment %}
+              
+              <div class="text-center"><button type="submit" class="btn btn-primary">Send Message</button></div>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>iPortfolio</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        {% comment %} <a href="https://www.freepik.com/free-vector/abstract-colorful-technology-dotted-wave-background_6166234.htm#query=background&position=22&from_view=keyword&track=sph">Image by Harryarts</a> on Freepik {% endcomment %}
+      </div>
+      <p>Debug: {{ debug }}</p>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'ui_testing/iportfolio/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'ui_testing/iportfolio/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'ui_testing/iportfolio/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'ui_testing/iportfolio/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'ui_testing/iportfolio/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'ui_testing/iportfolio/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'ui_testing/iportfolio/vendor/typed.js/typed.umd.js' %}"></script>
+  <script src="{% static 'ui_testing/iportfolio/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'ui_testing/iportfolio/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'ui_testing/iportfolio/js/main.js' %}"></script>
+
+</body>
+
+    
+</body>
