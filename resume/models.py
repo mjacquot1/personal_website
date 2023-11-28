@@ -8,7 +8,7 @@ from django.db.models.functions import (ExtractYear, ExtractMonth,)
 from .utils import ResumeLineHandler
 
 # Create your models here.
-class Web_Stack_Tools(models.Model):
+class WebStackTools(models.Model):
     tool_name = models.CharField(max_length=30)
     tool_description = models.CharField()
     tool_link = models.URLField()
@@ -157,8 +157,9 @@ class Recreation(models.Model):
     main_image = models.ImageField(upload_to="recreation")
     tile_image = models.ImageField(upload_to="recreation")
 
+    class meta:
+        ordering = ['-display_order']
+
     def __str__(self):
         return f"image: {self.image_name}\ntitle: {self.image_title}\ndescription: {self.image_description}"
     
-    class meta:
-        ordering = ['-display_order']

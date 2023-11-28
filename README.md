@@ -7,7 +7,7 @@
 3. - [x] Turn resume dynamic
 4. - [x] Turn skills dynamic
 5. - [] Make "resume" app
-6. - []Determine what static files to load
+6. - [] Determine what static files to load
 7. Set cache for produciton (volume)
 8. Pytest files for email
 9. Pytest files for dynamic elements
@@ -31,6 +31,7 @@
 26. Add something talking more about how the website is dynamically loaded
 27. Add boot instructions to readme
 28. Add views to flowchart
+29. - [x] Rename database tables for Resume
 
 <!-- 
 

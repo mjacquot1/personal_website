@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from .models import (
-    Recreation, Web_Stack_Tools, 
+    Recreation, WebStackTools, 
     ResumeSkillCategories, ResumeSkills,
-    ResumeExperienceCategory, ResumeExperienceBlock, ResumeLine
+    ResumeExperienceCategory, ResumeExperienceBlock
     )
         
 from django.core.mail import send_mail
@@ -14,10 +14,10 @@ from .utils import ResumeLineHandler
 # Create your views here.
 def resume_main_page(request):
 
-    display_html = 'resume.html'
+    display_html = 'resume_main_page.html'
 
     # # Web Stack Tools
-    web_stack_tools = Web_Stack_Tools.objects.all().order_by('display_order')
+    web_stack_tools = WebStackTools.objects.all().order_by('display_order')
 
     # # Recreation Section
     recreation_images =Recreation.objects.all().order_by('display_order')

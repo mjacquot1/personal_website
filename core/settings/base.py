@@ -48,6 +48,8 @@ INSTALLED_APPS = [
 
     "home",
     "ui_testing",
+    "resume",
+    'core',
     "bootstrap5",
     'theme_soft_design',
     'django_ses',
@@ -74,7 +76,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         # "DIRS": [HOME_TEMPLATES, BASE_TEMPLATES],
-        "DIRS": [BASE_DIR / 'home' / 'templates', BASE_DIR / 'ui_testing' / 'templates'],
+        "DIRS": [BASE_DIR / 'home' / 'templates', BASE_DIR / 'ui_testing' / 'templates', BASE_DIR / 'resume' / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
