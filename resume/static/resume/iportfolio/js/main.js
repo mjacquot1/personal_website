@@ -328,7 +328,7 @@ function removeResumeFilter() {
 
   removeAllHighlightedResumeLines()
 
-  for (var i = 0; i < resume_accordion_list.length; i++) {
+  for (let i = 0; i < resume_accordion_list.length; i++) {
 
     let resume_accordion_summary_button = resume_accordion_list[i].querySelector("[data-type='resume_summary_button']");
     let resume_accordion_detail_button = resume_accordion_list[i].querySelector("[data-type='resume_detail_button']");

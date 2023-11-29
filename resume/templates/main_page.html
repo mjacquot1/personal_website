@@ -1,5 +1,9 @@
 {% extends "resume_base.html"%}
+{% load cache %}
+
 {% block content %}
+
+{% cache 10 main_page %}
 
   {% include "hero_section.html" %}
 
@@ -12,6 +16,8 @@
     {% include "contact_section.html" %}
 
   </main>
+
+{% endcache %}
 
 {% endblock content %}
 

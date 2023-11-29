@@ -30,6 +30,8 @@ def resume_main_page(request):
 
     ## Make a dictionary of skill categories and their skills
     for skill in resume_skills:
+                #### OPTIMIZE ####
+        # Hits the database every time to get foreing key attribute
         skill_category = skill.skill_category.category
         if skill_category in resume_skills_categorized.keys():
             resume_skills_categorized[skill_category].append(skill)
@@ -48,6 +50,8 @@ def resume_main_page(request):
                reverse=True):
         
         # Create an empty array if theres no key for the block yet
+                #### OPTIMIZE ####
+        # Hits the database every time to get foreing key attribute
         resume_block_category = resume_experience_block.category.category
         if resume_block_category not in resume_blocks_categorized.keys():
             resume_blocks_categorized[resume_block_category] = []

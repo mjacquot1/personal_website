@@ -36,9 +36,9 @@ CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
         "LOCATION": config("REDIS_BACKEND_ENV"),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient"
-        },
+        # "OPTIONS": {
+        #     "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        # },
     }
 }
 
@@ -71,3 +71,13 @@ EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+def show_toolbar(request):
+    return True
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
+}

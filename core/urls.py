@@ -20,6 +20,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+
+
 urlpatterns = [
     path('', include('home.urls')),
     path("admin/", admin.site.urls),
@@ -30,6 +32,7 @@ urlpatterns = [
 ]
 
 urlpatterns += (path('admin/django-ses/', include('django_ses.urls')),)
+urlpatterns += (path("__debug__/", include("debug_toolbar.urls")),)
 
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
