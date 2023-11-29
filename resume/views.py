@@ -8,6 +8,7 @@ from .models import (
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
+from django.db.models import F
 
 from .utils import ResumeLineHandler
 
@@ -24,16 +25,15 @@ def resume_main_page(request):
 
     # # Resume Skills Section
     resume_skill_categories =  ResumeSkillCategories.objects.all().order_by('display_order')
-    resume_skills = ResumeSkills.objects.select_related('skill_category').all()
-
+    # Annotate with F() expression to join it with the foreign_key's category attribute
+    resume_skills = ResumeSkills.objects.annotate(parent_category=F('skill_category__category'))
     
     # Categorized will place it into the correct skills categories
     resume_skills_categorized = {}
 
     ## Make a dictionary of skill categories and their skills
     for skill in resume_skills:
-        skill_category = skill.skill_category.category
-
+        skill_category = skill.parent_category
         if skill_category in resume_skills_categorized.keys():
             resume_skills_categorized[skill_category].append(skill)
         else:
@@ -47,12 +47,12 @@ def resume_main_page(request):
     resume_blocks_categorized = {}
     # Sort by if Im still working there, most recent leaving date, and then most recent starting date
     for resume_experience_block in \
-        sorted(ResumeExperienceBlock.objects.select_related('category').all(), \
+        sorted(ResumeExperienceBlock.objects.annotate(parent_category=F('category__category')), \
                key=lambda block:((block.still_there), block.end_date, block.start_date), \
                reverse=True):
         
         # Create an empty array if theres no key for the block yet
-        resume_block_category = resume_experience_block.category.category
+        resume_block_category = resume_experience_block.parent_category
         if resume_block_category not in resume_blocks_categorized.keys():
             resume_blocks_categorized[resume_block_category] = []
         

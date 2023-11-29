@@ -7,7 +7,7 @@
 3. - [x] Turn resume dynamic
 4. - [x] Turn skills dynamic
 5. - [x] Make "resume" app
-6. - [] Determine what static files to load
+6. - Determine what static files to load
 7. Set cache for production
 8. Pytest files for email
 9. Pytest files for dynamic elements
