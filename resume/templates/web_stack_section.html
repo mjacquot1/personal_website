@@ -1,0 +1,27 @@
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg">
+    <div class="container">
+
+        <div class="section-title">
+        <h2>Web Stack</h2>
+        <p>This website is built using the following technologies.</p>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+        {% for stack_tool in web_stack_tools %}
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon grow_icon">
+                <a href="{{ stack_tool.tool_link }}" target="_blank" rel="noopener noreferrer"><img src="{{ stack_tool.main_image.url }}" width="{{ stack_tool.thumbnail_width }}" height="{{ stack_tool.thumbnail_height }}" ></a>
+            </div>
+            {% comment "" %} target="_blank" rel="noopener noreferrer" opens in new rab, and rel="noopener noreferrer" adds security {% endcomment %}
+            <h4 class="title"><a href="{{ stack_tool.tool_link }}" target="_blank" rel="noopener noreferrer">{{ stack_tool.tool_name }}</a></h4>
+            <p class="description">{{ stack_tool.tool_description }}</p>
+            </div>
+        {% endfor %}
+
+        </div>
+
+    </div>
+    </section><!-- End Services Section -->

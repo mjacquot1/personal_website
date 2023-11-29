@@ -3,12 +3,12 @@
 ## To Do
 
 1. - [] Rename CSS Classes
-2. - []Strip unused CSS and Javascript
+2. - [] Strip unused CSS and Javascript
 3. - [x] Turn resume dynamic
 4. - [x] Turn skills dynamic
-5. - [] Make "resume" app
+5. - [x] Make "resume" app
 6. - [] Determine what static files to load
-7. Set cache for produciton (volume)
+7. Set cache for production
 8. Pytest files for email
 9. Pytest files for dynamic elements
 10. Use Https to secure site
@@ -32,6 +32,7 @@
 27. Add boot instructions to readme
 28. Add views to flowchart
 29. - [x] Rename database tables for Resume
+30. Remove mutable global from javascript
 
 <!-- 
 
