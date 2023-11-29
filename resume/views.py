@@ -20,23 +20,25 @@ def resume_main_page(request):
     web_stack_tools = WebStackTools.objects.all().order_by('display_order')
 
     # # Recreation Section
-    recreation_images =Recreation.objects.all().order_by('display_order')
+    recreation_images = Recreation.objects.all().order_by('display_order')
 
     # # Resume Skills Section
     resume_skill_categories =  ResumeSkillCategories.objects.all().order_by('display_order')
-    resume_skills = ResumeSkills.objects.all()
+    resume_skills = ResumeSkills.objects.select_related('skill_category').all()
 
+    
+    # Categorized will place it into the correct skills categories
     resume_skills_categorized = {}
 
     ## Make a dictionary of skill categories and their skills
     for skill in resume_skills:
-                #### OPTIMIZE ####
-        # Hits the database every time to get foreing key attribute
         skill_category = skill.skill_category.category
+
         if skill_category in resume_skills_categorized.keys():
             resume_skills_categorized[skill_category].append(skill)
         else:
             resume_skills_categorized[skill_category] = [skill]
+
 
 
     # # Resume Blocks
@@ -45,13 +47,11 @@ def resume_main_page(request):
     resume_blocks_categorized = {}
     # Sort by if Im still working there, most recent leaving date, and then most recent starting date
     for resume_experience_block in \
-        sorted(ResumeExperienceBlock.objects.all(), \
+        sorted(ResumeExperienceBlock.objects.select_related('category').all(), \
                key=lambda block:((block.still_there), block.end_date, block.start_date), \
                reverse=True):
         
         # Create an empty array if theres no key for the block yet
-                #### OPTIMIZE ####
-        # Hits the database every time to get foreing key attribute
         resume_block_category = resume_experience_block.category.category
         if resume_block_category not in resume_blocks_categorized.keys():
             resume_blocks_categorized[resume_block_category] = []
