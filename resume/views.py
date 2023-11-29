@@ -14,7 +14,7 @@ from .utils import ResumeLineHandler
 # Create your views here.
 def resume_main_page(request):
 
-    display_html = 'resume_main_page.html'
+    display_html = 'main_page.html'
 
     # # Web Stack Tools
     web_stack_tools = WebStackTools.objects.all().order_by('display_order')

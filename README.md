@@ -2,8 +2,8 @@
 
 ## To Do
 
-1. - [] Rename CSS Classes
-2. - [] Strip unused CSS and Javascript
+1. - [x] Rename CSS Classes
+2. - [x] Strip unused CSS and Javascript
 3. - [x] Turn resume dynamic
 4. - [x] Turn skills dynamic
 5. - [x] Make "resume" app
@@ -13,7 +13,7 @@
 9. Pytest files for dynamic elements
 10. Use Https to secure site
 11. See how to serve media in production
-12. Secure /media/
+12. Find a way to secure /media/
 13. Why do some recreation photos not enlarge?
 14. Buy Iportfolio template
 15. - [x] Add filters to skills

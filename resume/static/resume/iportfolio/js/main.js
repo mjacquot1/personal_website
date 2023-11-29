@@ -143,45 +143,28 @@
   }
 
   /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function (direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
-
-  /**
    * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
+    let recreationContainer = select('.recreation-container');
+    if (recreationContainer) {
+      let recreationIsotope = new Isotope(recreationContainer, {
+        itemSelector: '.recreation-item'
       });
 
-      let portfolioFilters = select('#portfolio-flters li', true);
+      let recreationFilters = select('#recreation-filter li', true);
 
-      on('click', '#portfolio-flters li', function (e) {
+      on('click', '#recreation-filter li', function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function (el) {
+        recreationFilters.forEach(function (el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
 
-        portfolioIsotope.arrange({
+        recreationIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
-        portfolioIsotope.on('arrangeComplete', function () {
+        recreationIsotope.on('arrangeComplete', function () {
           AOS.refresh()
         });
       }, true);

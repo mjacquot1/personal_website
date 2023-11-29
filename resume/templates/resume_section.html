@@ -20,7 +20,7 @@
               {% for resume_skill_category in resume_skill_categories %}
                 <h5 class="card-title"><strong>{{ resume_skill_category.category_display }}</strong></h5>
                 <div class='skills align-items-center justify-content-center'>
-                  <ul id="skill-flters">
+                  <ul id="skill-filter">
                     {% for resume_skill in resume_skills_categorized|return_key_value:resume_skill_category.category %}
                       <li data-filter="{{ resume_skill.skill_filter_category }}" onclick="filterResumeItems(this)">{{ resume_skill.skill_title }}</li>
                     {% endfor %}
