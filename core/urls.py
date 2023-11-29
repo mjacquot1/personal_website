@@ -16,9 +16,26 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
+
 urlpatterns = [
     path('', include('home.urls')),
     path("admin/", admin.site.urls),
     # path("home_test/", include('home.urls', namespace='home')),
+    # path("ui_testing/", include('ui_testing.urls')),
+    path("resume/", include('resume.urls')),
     path("", include('theme_soft_design.urls')),
 ]
+
+urlpatterns += (path('admin/django-ses/', include('django_ses.urls')),)
+urlpatterns += (path("__debug__/", include("debug_toolbar.urls")),)
+
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    urlpatterns += staticfiles_urlpatterns()

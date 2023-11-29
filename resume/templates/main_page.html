@@ -1,0 +1,23 @@
+{% extends "resume_base.html"%}
+{% load cache %}
+
+{% block content %}
+
+{% cache 10 main_page %}
+
+  {% include "hero_section.html" %}
+
+  <main id="main">
+
+    {% include "about_section.html" %}
+    {% include "web_stack_section.html" %}
+    {% include "resume_section.html" %}
+    {% include "recreation_section.html" %}
+    {% include "contact_section.html" %}
+
+  </main>
+
+{% endcache %}
+
+{% endblock content %}
+

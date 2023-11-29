@@ -1,0 +1,42 @@
+
+<!-- ======= Recreation Section ======= -->
+<section id="recreation" class="recreation section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Recreation</h2>
+        <p>My favorite things to do involve going up a mountain, into the ocean, or wherever there is art.</p>
+      </div>
+
+      <div class="row" data-aos="fade-up">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <ul id="recreation-filter">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter_mountain">Mountain</li>
+            <li data-filter=".filter_ocean">Ocean</li>
+            <li data-filter=".filter_art">Art</li>
+            <li data-filter=".filter_misc">Misc</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row recreation-container" data-aos="fade-up" data-aos-delay="100">
+
+        {% for image in recreation_images %}
+          <div class="col-lg-3 col-6 recreation-item {{ image.filter_field }}">
+            <a href="{{ image.main_image.url }}" data-gallery="recreationGallery" class="portfolio-lightbox" title="{{ image.image_description }}">
+              <div class="recreation-wrap">
+                {% comment %} <img src="{% get_media_prefix %}{{ image.tile_image.name }}" class="img-fluid" alt=""> {% endcomment %}
+                <img src="{{ image.tile_image.url }}" class="img-fluid" alt="">
+
+                <div class='recreation-info'>
+                  <h4>{{ image.image_title }}</h4>
+                </div>
+
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+
+    </div>
+</section><!-- End Recreation Section -->

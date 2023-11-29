@@ -7,12 +7,15 @@ set -o pipefail
 # exits if any of the variables is not set
 set -o nounset
 
+
+
 postgres_ready() {
 python << END
 import sys
-
 import psycopg2
-from decouple import config
+from settings import return_config_env_variables
+
+config = return_config_env_variables()
 
 try:
     psycopg2.connect(

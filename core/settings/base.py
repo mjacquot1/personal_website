@@ -16,7 +16,8 @@ import string
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# three parents makes it go from 'settings' to 'core' to 'personal_website'
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -46,7 +47,14 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "home",
+    "ui_testing",
+    "resume",
+    'core',
+    "bootstrap5",
     'theme_soft_design',
+    'django_ses',
+    'django_json_widget',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -58,17 +66,20 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
 
-HOME_TEMPLATES = os.path.join(BASE_DIR, 'home/', 'templates/')
-BASE_TEMPLATES = os.path.join(BASE_DIR, 'templates/')
+# HOME_TEMPLATES = os.path.join(BASE_DIR, 'home/', 'templates/')
+# BASE_TEMPLATES = os.path.join(BASE_DIR, 'templates/')
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [HOME_TEMPLATES, BASE_TEMPLATES],
+        # "DIRS": [HOME_TEMPLATES, BASE_TEMPLATES],
+        "DIRS": [BASE_DIR / 'home' / 'templates', BASE_DIR / 'ui_testing' / 'templates', BASE_DIR / 'resume' / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -77,6 +88,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            'debug':True
         },
     },
 ]
@@ -174,8 +186,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # if not DEBUG:
 #    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -186,4 +198,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = '/'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

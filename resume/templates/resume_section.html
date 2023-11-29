@@ -1,0 +1,120 @@
+{% load resume_extras %}
+
+<!-- ======= Resume Section ======= -->
+<section id="resume" class="resume">
+    <div class="container">
+
+      <div class="section-title">
+          <h2>Resume</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class='card d-flex text-center shadow custom_top_sticky'>
+            
+            <div class="card-header">
+              <h3 class="resume-title">Skills</h3>
+            </div>
+
+            <div class="card-body ">
+
+              {% for resume_skill_category in resume_skill_categories %}
+                <h5 class="card-title"><strong>{{ resume_skill_category.category_display }}</strong></h5>
+                <div class='skills align-items-center justify-content-center'>
+                  <ul id="skill-filter">
+                    {% for resume_skill in resume_skills_categorized|return_key_value:resume_skill_category.category %}
+                      <li data-filter="{{ resume_skill.skill_filter_category }}" onclick="filterResumeItems(this)">{{ resume_skill.skill_title }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="col-lg-9" data-aos="fade-up">
+          {% for resume_experience_category in resume_experience_categories %}
+            <h3 class="resume-title"><i class="bi {{ resume_experience_category.icon_class }}"></i> {{ resume_experience_category.category_display }}</h3>
+
+            {% for resume_experience_block in resume_blocks_categorized|return_key_value:resume_experience_category.category %}
+              <div class="resume-item">
+                <h4 >{{ resume_experience_block.block_info.title }}<em>- {{ resume_experience_block.block_info.company }}</em> </h4>
+                <h5>{{ resume_experience_block.block_info.start_date_text }} - {{ resume_experience_block.block_info.end_date_text }}</h5><em>  {{ resume_experience_block.block_info.location }}</em>
+                {% if resume_experience_block.block_info.sub_text != None %}<h5><em>{{ resume_experience_block.block_info.sub_text }}</em></h5>{% endif %}
+                {% if resume_experience_block.resume_experience_Lines %}
+                  <div class="accordion accordion-flush resume_accordion" id="{{ resume_experience_block.block_id }}" data-filters="{{ resume_experience_block.block_info.aggregate_line_skills|upper }}">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_1">
+                        <button class="accordion-button" data-type="resume_summary_button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1" aria-expanded="true" aria-controls="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1">
+                          <strong>Summary</strong>
+                        </button>
+                      </h2>
+                      <div id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_1" class="accordion-collapse collapse show" aria-labelledby="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_1" data-bs-parent="#{{ resume_experience_block.block_id }}">
+                        <div class="accordion-body">
+                          <ul>
+                            {% for block_line in resume_experience_block.resume_experience_Lines.summary %}
+
+                              {% with block_line_skills=block_line.skills|join:' '%}
+                              <li data-filters="{{ block_line_skills|upper }}" class="resume_line_summary">{{ block_line.text }}</li>
+                              {% endwith %}
+
+                              {% if block_line.sub_text|length > 0 %}
+                                <ul>
+                                  {% for sub_text_line in block_line.sub_text %}
+
+                                    {% with sub_text_line_skills=sub_text_line.skills|join:' '%}
+                                      <li data-filters="{{ sub_text_line_skills|upper }}" class="resume_line_summary">{{ sub_text_line.text }}</li>
+                                    {% endwith %}
+
+                                  {% endfor%}
+                                </ul>
+                              {% endif %}
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_2">
+                        <button class="accordion-button collapsed" data-type="resume_detail_button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_2" aria-expanded="false" aria-controls="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_2">
+                          <b> Do you want to know more? </b>
+                        </button>
+                      </h2>
+                      <div id="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_collapse_2" class="accordion-collapse collapse" aria-labelledby="{{ resume_experience_category.category }}_{{ forloop.counter0 }}_heading_2" data-bs-parent="#{{ resume_experience_block.block_id }}">
+                        <div class="accordion-body">
+                            <ul>
+                              {% for block_line in resume_experience_block.resume_experience_Lines.detail %}
+
+                                {% with block_line_skills=block_line.skills|join:' '%}
+                                <li data-filters="{{ block_line_skills|upper }}" class="resume_line_detail">{{ block_line.text }}</li>
+                                {% endwith %}
+
+                                {% if block_line.sub_text|length > 0 %}
+                                  <ul>
+                                    {% for sub_text_line in block_line.sub_text %}
+
+                                      {% with sub_text_line_skills=sub_text_line.skills|join:' ' %}
+                                        <li data-filters="{{ sub_text_line_skills|upper }}" class="resume_line_detail">{{ sub_text_line.text|safe }}</li>
+                                      {% endwith %}
+
+                                    {% endfor%}
+                                  </ul>
+                                {% endif %}
+
+                              {% endfor %}
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+</section><!-- End Resume Section -->

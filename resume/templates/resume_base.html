@@ -1,0 +1,109 @@
+{% load static %}
+{% load resume_extras %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="{% static 'resume/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'resume/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'resume/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'resume/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'resume/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'resume/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'resume/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'resume/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    
+    <!-- Template Main CSS File -->
+    <link href="{% static 'resume/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="{% static 'resume/photos/me.jpg' %}" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">Marcel Jacquot</a></h1>
+        
+        <div class="social-links mt-3 text-center">
+          {% comment %} <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> {% endcomment %}
+          <a href="https://www.linkedin.com/in/marcel-jacquot-9b470975/" target="_blank" rel="noopener noreferrer" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/mjacquot1" target="_blank" rel="noopener noreferrer" class="github"><i class="bi bi-github"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#about" class="nav-link scrollto"><i class="bi bi-person-circle"></i> <span>About</span></a></li>
+          <li><a href="#webStack" class="nav-link scrollto"><i class="bi bi-stack"></i> <span>Web Stack</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bi bi-file-earmark-text"></i> <span>Resume</span></a></li>
+          <li><a href="#recreation" class="nav-link scrollto"><i class="bi bi-tree"></i> <span>Recreation</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bi bi-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- <main id="main"> -->
+
+  {% block content %}
+
+  {% endblock %}
+
+  <!-- </main>End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>iPortfolio</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        {% comment %} <a href="https://www.freepik.com/free-vector/abstract-colorful-technology-dotted-wave-background_6166234.htm#query=background&position=22&from_view=keyword&track=sph">Image by Harryarts</a> on Freepik {% endcomment %}
+      </div>
+      <p>Debug: {{ debug }}</p>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'resume/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'resume/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'resume/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'resume/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'resume/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'resume/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'resume/vendor/typed.js/typed.umd.js' %}"></script>
+  <script src="{% static 'resume/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'resume/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'resume/js/main.js' %}"></script>
+
+</body>

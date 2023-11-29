@@ -10,7 +10,9 @@ https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
-from decouple import config
+from settings import return_config_env_variables
+
+config = return_config_env_variables()
 
 # DJANGO_SETTINGS_MODULE_ENV is an env variable imported through decouple
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", config("DJANGO_SETTINGS_MODULE_ENV")) 

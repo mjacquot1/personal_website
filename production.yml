@@ -1,0 +1,22 @@
+version: '3.8'
+
+# This can allow the combination of attributes
+
+services:
+  web-app:
+      # This will add the 'static volume' to web-app
+      volumes:
+        # '/app/staticfiles' will be shared through 'static_volume'
+        - static_volume:/app/staticfiles
+
+
+  nginx:
+    # This will add the 'static volume' to nginx
+    volumes:
+      # '/staticfiles' will be shared through 'static_volume' and get files from web-app
+      - static_volume:/staticfiles
+
+volumes:
+  # This will add static_volume to pre-existing volumes
+  static_volume: # Volume to serve up static files for production 
+
