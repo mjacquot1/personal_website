@@ -19,7 +19,7 @@
 15. - [x] Add filters to skills
 16. - [x] Cache elements
 17. Test traffic volume capabilities
-18. - [] Determine webpage size in memory
+18. - [x] Determine webpage size in memory
 19. Deploy to AWS with terraform
 20. Add clear Github link
 21. - [] Make emailing asynchronous
