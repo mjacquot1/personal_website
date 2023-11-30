@@ -21,6 +21,7 @@ services:
     depends_on:
       - db
       - redis
+      # - redis-stack
 
   db:
     container_name: db
@@ -39,6 +40,20 @@ services:
       # Make sure the webapp and the db has access to the same networks
       - db_network
 
+  # redis-stack:
+  #   image: redis/redis-stack:latest
+  #   # Save to disk every 20 seconds
+  #   command: redis-server --save 20 1
+  #   volumes:
+  #     - cache:/data
+  #   ports:
+  #     - 6379:6379
+  #     - 8001:8001
+  #   networks:
+  #     # Make sure the redis and the db has access to the same networks
+  #     - db_network
+  #     - web_network
+
   redis:
     image: redis:7-alpine
     # Save to disk every 20 seconds
@@ -49,6 +64,18 @@ services:
       - web_network
     volumes:
       - cache:/data
+
+  # redis_insight:
+  #   image: redislabs/redisinsight:latest
+  #   # command: chown -R 1001 redisinsight
+  #   ports:
+  #     - '8001:8001'
+  #   networks:
+  #     # Make sure the redis and the db has access to the same networks
+  #     - db_network
+  #     - web_network
+  #   volumes:
+  #     - redisinsight:/db
 
   celery_worker:
     # Build off the same docker file as Django, since they share many scripts and Celery tasks use django's ORM
@@ -67,8 +94,9 @@ services:
       - db_network
       - web_network
     depends_on:
-      - redis
+      # - redis-stack
       - db
+      - redis
 
   celery_beat:
     build:
@@ -87,6 +115,7 @@ services:
       - web_network
     depends_on:
       - redis
+      # - redis-stack
       - db
 
   flower:
@@ -108,6 +137,7 @@ services:
       - web_network
     depends_on:
       - redis
+      # - redis-stack
       - db
 
   nginx:
@@ -133,6 +163,8 @@ networks:
 
 volumes:
   postgres_data: # Save on the 'local' volume (I believe like a name)
+
+  # redisinsight:
 
   cache:
     driver: local
