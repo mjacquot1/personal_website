@@ -51,7 +51,6 @@ CELERY_BROKER_URL = config(
     config("CELERY_BROKER_ENV"), default=config("REDIS_BACKEND_ENV"))
 CELERY_RESULT_BACKEND = config(
     config("CELERY_BACKEND_ENV"), default=config("REDIS_BACKEND_ENV"))
-CELERY_CACHE_BACKEND = 'default'
 
 # Allows for uploading media like images
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -7,7 +7,7 @@
 3. - [x] Turn resume dynamic
 4. - [x] Turn skills dynamic
 5. - [x] Make "resume" app
-6. - Determine what static files to load
+6. Determine what static files to load
 7. Set cache for production
 8. Pytest files for email
 9. Pytest files for dynamic elements
@@ -15,24 +15,26 @@
 11. See how to serve media in production
 12. Find a way to secure /media/
 13. Why do some recreation photos not enlarge?
-14. Buy Iportfolio template
+14. - [x] Buy Iportfolio template
 15. - [x] Add filters to skills
 16. - [x] Cache elements
 17. Test traffic volume capabilities
 18. - [x] Determine webpage size in memory
 19. Deploy to AWS with terraform
-20. Add clear Github link
-21. - [] Make emailing asynchronous
+20. - [] Add clear Github link
+21. - [x] Make emailing asynchronous
 22. - [x] Make a way to replace a words  with an anchor tags. 
-23. - Create resume_lines_skill function to restrict what is saved in json
+23. - [] Create resume_lines_skill function to restrict what is saved in json
 24. - [x] Make javascript highlight relevant experience
 24. Clean up text
-25. Add functions to change display_order in database
-26. Add something talking more about how the website is dynamically loaded
+25. - [] Add functions to change display_order in database
+26. - [] Add something talking more about how the website is dynamically loaded
 27. Add boot instructions to readme
 28. Add views to flowchart
 29. - [x] Rename database tables for Resume
-30. Remove mutable global from javascript
+30. - [] Remove mutable global from javascript
+31. - [x] Get flower and redis UI working
+32. - [] Add redis-commander variables to prod env filed
 
 <!-- 
 

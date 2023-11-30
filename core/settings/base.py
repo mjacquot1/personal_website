@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'django_ses',
     'django_json_widget',
     'debug_toolbar',
-    'django_celery_results',
+    #~ 'django_celery_results',
 ]
 
 MIDDLEWARE = [

@@ -21,7 +21,6 @@ services:
     depends_on:
       - db
       - redis
-      # - redis-stack
 
   db:
     container_name: db
@@ -40,20 +39,6 @@ services:
       # Make sure the webapp and the db has access to the same networks
       - db_network
 
-  # redis-stack:
-  #   image: redis/redis-stack:latest
-  #   # Save to disk every 20 seconds
-  #   command: redis-server --save 20 1
-  #   volumes:
-  #     - cache:/data
-  #   ports:
-  #     - 6379:6379
-  #     - 8001:8001
-  #   networks:
-  #     # Make sure the redis and the db has access to the same networks
-  #     - db_network
-  #     - web_network
-
   redis:
     image: redis:7-alpine
     # Save to disk every 20 seconds
@@ -65,17 +50,21 @@ services:
     volumes:
       - cache:/data
 
-  # redis_insight:
-  #   image: redislabs/redisinsight:latest
-  #   # command: chown -R 1001 redisinsight
-  #   ports:
-  #     - '8001:8001'
-  #   networks:
-  #     # Make sure the redis and the db has access to the same networks
-  #     - db_network
-  #     - web_network
-  #   volumes:
-  #     - redisinsight:/db
+  # UI to see redis cache info
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+      - HTTP_USER=${REDIS_COMMANDER_USER}
+      - HTTP_PASSWORD=${REDIS_COMMANDER_PASSWORD}
+    ports:
+      - 8081:8081
+    networks:
+      # Make sure the redis and the db has access to the same networks
+      - db_network
+      - web_network
+    depends_on:
+      - redis
 
   celery_worker:
     # Build off the same docker file as Django, since they share many scripts and Celery tasks use django's ORM
@@ -94,7 +83,6 @@ services:
       - db_network
       - web_network
     depends_on:
-      # - redis-stack
       - db
       - redis
 
@@ -115,7 +103,6 @@ services:
       - web_network
     depends_on:
       - redis
-      # - redis-stack
       - db
 
   flower:
@@ -137,7 +124,6 @@ services:
       - web_network
     depends_on:
       - redis
-      # - redis-stack
       - db
 
   nginx:
