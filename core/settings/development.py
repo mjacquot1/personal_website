@@ -59,6 +59,7 @@ CELERY_BROKER_URL = config(
     config("CELERY_BROKER_ENV"), default=config("REDIS_BACKEND_ENV"))
 CELERY_RESULT_BACKEND = config(
     config("CELERY_BACKEND_ENV"), default=config("REDIS_BACKEND_ENV"))
+CELERY_CACHE_BACKEND = 'default'
 
 # Allows for uploading media like images
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -70,8 +71,11 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'tmp', 'app_messages')
 
+### Needed for debug toolbar ###
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
@@ -81,3 +85,5 @@ def show_toolbar(request):
 DEBUG_TOOLBAR_CONFIG = {
     "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
 }
+
+### End for debug toolbar ###

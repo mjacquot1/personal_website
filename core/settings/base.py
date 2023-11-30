@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django_ses',
     'django_json_widget',
     'debug_toolbar',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -198,3 +199,5 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = '/'
+
+
