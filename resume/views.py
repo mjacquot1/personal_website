@@ -4,7 +4,7 @@ from .models import (
     ResumeSkillCategories, ResumeSkills,
     ResumeExperienceCategory, ResumeExperienceBlock
     )
-from .tasks import a_send_basic_email
+from .tasks import async_send_basic_email
         
 from django.core.mail import send_mail
 from django.contrib import messages
@@ -86,7 +86,7 @@ def resume_main_page(request):
         # Already protected from header injections.
         messages.add_message(request, messages.INFO, f'Thank you for reaching out {message_name}!')
 
-        a_send_basic_email.delay(
+        async_send_basic_email.delay(
             message_name,
             (message_subject + '/' + message_body),
             'mjacquot.dev@gmail.com',

@@ -2,6 +2,17 @@
 from django.utils.html import format_html
 
 class ResumeLineHandler():
+    resume_block_schema={
+        "type": "object",
+        "properties": {
+        'text':         {'type': 'string'},
+        'skills':       {'type':'array'},
+        'sub_text':     {'type':'array'},
+        'is_summary':   {'type':'boolean'},
+        'anchor_tag':   {'type':'array'},
+        }, 
+    }
+
     def __init__(self, resume_experience_lines={}):
 
         # If there is no 'lines', or it equals an empty array, set to none
@@ -20,11 +31,11 @@ class ResumeLineHandler():
 
         for line in self.lines:
             # Add anchor tags to text
-            self.insert_anchor_tags_to_text(line)
+            self.__insert_anchor_tags_to_text(line)
 
             # Add anchor tags to subtext
             for sub_text in line['sub_text']:
-                self.insert_anchor_tags_to_text(sub_text)
+                self.__insert_anchor_tags_to_text(sub_text)
 
             if line['is_summary']:
                 sorted_experience_lines['summary'].append(line)
@@ -33,12 +44,6 @@ class ResumeLineHandler():
         
         return sorted_experience_lines
 
-    def insert_anchor_tags_to_text(self, line_dict):
-        if 'anchor_tags' not in line_dict.keys(): return
-
-        for anchor_tag in line_dict['anchor_tags']:
-            line_dict['text'] = self.return_formated_anchor_tag_text(line_dict['text'],anchor_tag["url"],anchor_tag['string_to_replace'],anchor_tag["replacement_string"])
-        
     def return_formated_anchor_tag_text(self, text='', url='', string_to_replace='', replacement_string=''):
         # format_html() allows it to render the anchor tag
         return format_html(text.replace(
@@ -59,4 +64,14 @@ class ResumeLineHandler():
         # Return a set of all unique skills in the resume experience lines
         return skills_set
     
-    
+    def validate_lines(self):
+
+        pass
+
+    def __insert_anchor_tags_to_text(self, line_dict):
+        if 'anchor_tags' not in line_dict.keys(): return
+
+        for anchor_tag in line_dict['anchor_tags']:
+            line_dict['text'] = self.return_formated_anchor_tag_text(line_dict['text'],anchor_tag["url"],anchor_tag['string_to_replace'],anchor_tag["replacement_string"])
+        
+

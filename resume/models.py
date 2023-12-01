@@ -95,6 +95,9 @@ class ResumeExperienceBlock(models.Model):
     aggregate_line_skills = models.CharField(default='', blank=True)
 
     def save(self, *args, **kwargs):
+        # Validate the format of the json information in skills
+        
+        
         self.title = self.title.upper()
 
         # Make an easy to access string of aggregate skills
@@ -103,6 +106,7 @@ class ResumeExperienceBlock(models.Model):
         self.aggregate_line_skills =  ' '.join(aggregate_skills) if aggregate_skills else ''
 
         if self.company: self.company = self.company.upper()
+
 
         # Set something to state that the end date must be after the start date
 
@@ -120,23 +124,6 @@ class ResumeExperienceBlock(models.Model):
     
     def __str__(self):
         return f"{self.title} @ {self.company}"
-
-# class ResumeLine(models.Model):
-#     summary_item = models.BooleanField()
-#     line_text = models.TextField()
-#     resume_experience_block = models.ForeignKey(ResumeExperienceBlock, on_delete=models.CASCADE)
-
-#     line_skill_categories = models.ManyToManyField(ResumeSkills, blank=True)
-    
-#     display_order = models.IntegerField(editable=False)
-
-#     def save(self, *args, **kwargs):
-#         self.display_order = ResumeLine.objects.all().count()
-
-#         return super(ResumeLine, self).save(*args, **kwargs)
-    
-#     def __str__(self):
-#         return f"{self.resume_experience_block} @ {self.line_text}"
 
 class Recreation(models.Model):
 
