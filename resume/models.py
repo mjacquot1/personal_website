@@ -4,6 +4,7 @@ from django.db import models
 from django.db import models
 from datetime import datetime
 from django.db.models.functions import (ExtractYear, ExtractMonth,)
+from django.core.exceptions import ValidationError
 
 from .utils import ResumeLineHandler
 
@@ -96,7 +97,9 @@ class ResumeExperienceBlock(models.Model):
 
     def save(self, *args, **kwargs):
         # Validate the format of the json information in skills
-        
+        # If invalid return error message
+        valid_resume_lines = ResumeLineHandler(self.lines).validate_lines()
+        if valid_resume_lines: raise ValidationError(valid_resume_lines)
         
         self.title = self.title.upper()
 
