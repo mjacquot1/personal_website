@@ -35,6 +35,14 @@ class WebStackTools(models.Model):
         else:
             return (64/photo.width*photo.height)
         
+    # Override save modify display order of other objects
+    def save(self, *args, **kwargs):
+        
+
+
+        return super(ResumeSkills, self).save(*args, **kwargs)
+
+        
 class ResumeSkillCategories(models.Model):
     category = models.CharField(max_length=50)
     display_order = models.IntegerField(default = 0)
@@ -98,8 +106,11 @@ class ResumeExperienceBlock(models.Model):
     def save(self, *args, **kwargs):
         # Validate the format of the json information in skills
         # If invalid return error message
-        valid_resume_lines = ResumeLineHandler(self.lines).validate_lines()
-        if valid_resume_lines: raise ValidationError(valid_resume_lines)
+        invalid_resume_lines = ResumeLineHandler(self.lines).enforce_schema()
+        if invalid_resume_lines: raise ValidationError(invalid_resume_lines)
+        
+        # Set something to state that the end date must be after the start date
+        if self.start_date >= self.end_date: raise ValidationError("Start date cannot be at or before end date.")
         
         self.title = self.title.upper()
 
@@ -109,9 +120,6 @@ class ResumeExperienceBlock(models.Model):
         self.aggregate_line_skills =  ' '.join(aggregate_skills) if aggregate_skills else ''
 
         if self.company: self.company = self.company.upper()
-
-
-        # Set something to state that the end date must be after the start date
 
         return super(ResumeExperienceBlock, self).save(*args, **kwargs)
     

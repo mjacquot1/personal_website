@@ -162,7 +162,6 @@
         });
       }, true);
     }
-
   });
 
   /**
@@ -235,6 +234,8 @@
    */
   new PureCounter();
 
+  
+
 }
 
 )()
@@ -246,10 +247,9 @@
 -- No 'resume_accordion' classes
 -- No 'resume_line_detail' classes
 -- No 'data-filters' classes
-
+-- Remove mutable globals from resume filtering function
 
 */
-
 
 const resumeBlockList = document.getElementsByClassName("resume_accordion");
 const resumeLineList = document.getElementsByClassName("resume_line_detail");

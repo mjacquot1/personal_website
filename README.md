@@ -24,7 +24,7 @@
 20. - [] Add clear Github link
 21. - [x] Make emailing asynchronous
 22. - [x] Make a way to replace a words  with an anchor tags. 
-23. - [] Create resume_lines_skill function to restrict what is saved in json
+23. - [x] Create resume_lines_skill function to restrict what is saved in json
 24. - [x] Make javascript highlight relevant experience
 24. Clean up text
 25. - [] Add functions to change display_order in database
@@ -32,9 +32,9 @@
 27. Add boot instructions to readme
 28. Add views to flowchart
 29. - [x] Rename database tables for Resume
-30. - [] Remove mutable global from javascript
+30. - Remove mutable global from javascript
 31. - [x] Get flower and redis UI working
-32. - [] Add redis-commander variables to prod env filed
+32. - [] Add redis-commander variables to prod env file
 
 <!-- 
 

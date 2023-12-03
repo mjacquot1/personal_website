@@ -179,8 +179,9 @@
         });
       }, true);
     }
-
   });
+
+  
 
   /**
    * Initiate portfolio lightbox 
@@ -266,7 +267,6 @@
 
 
 */
-
 
 const resumeBlockList = document.getElementsByClassName("resume_accordion");
 const resumeLineList = document.getElementsByClassName("resume_line_detail");
