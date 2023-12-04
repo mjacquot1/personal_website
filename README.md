@@ -35,6 +35,7 @@
 30. - Remove mutable global from javascript
 31. - [x] Get flower and redis UI working
 32. - [] Add redis-commander variables to prod env file
+33. - [] add getatter and setattr to ResumeLineHandler in utils
 
 <!-- 
 

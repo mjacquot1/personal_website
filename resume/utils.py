@@ -1,6 +1,38 @@
 # Helper functions and classes
 from django.utils.html import format_html
+from django.db.models import F
 import json
+
+def enforce_display_order(passed_object, old_display_order, new_display_order):
+        
+        object_model = type(passed_object)
+        lower_bound, upper_bound = None, None
+        increment = 1
+
+        # If the order is more than count of records, set it to the count to be last
+        # Since count starts at 0, it needs to be (count - 1)
+        record_count = object_model.objects.all().count()
+        if new_display_order >= record_count: new_display_order = (record_count - 1) if passed_object.pk else record_count
+        
+
+        # If there is no primary key, then this object is brand new
+        if passed_object.pk:
+            # Display order moves closer to 0: All order between previous value and up to the new value must be incremented to fill the gap
+            if old_display_order> new_display_order: lower_bound, upper_bound = new_display_order, old_display_order
+                
+            # Display order moved further away from 0: All order between previous value and up to the new value must be decremented to fill gap
+            if old_display_order < new_display_order: lower_bound, upper_bound, increment = old_display_order, new_display_order, -1
+            
+        else:
+            # Increment all display orders equal or more by 1 to display after
+            if new_display_order < record_count: lower_bound, upper_bound = new_display_order, (record_count+1)
+        
+        # Since value can be '0', we need to check explicitly if it equals None
+        if lower_bound != None and upper_bound != None:
+            object_model.objects.filter(display_order__gte=lower_bound, display_order__lte=upper_bound).update(display_order=F('display_order')+increment)
+
+    
+
 
 class ResumeLineHandler():
     resume_line_default_schema={
