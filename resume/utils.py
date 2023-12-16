@@ -5,13 +5,23 @@ import json
 
 def enforce_display_order(passed_object, old_display_order, new_display_order):
         
+        # If no display order is passed this cannot function
+        if new_display_order == None and old_display_order == None:
+            return
+
+        
         object_model = type(passed_object)
         lower_bound, upper_bound = None, None
         increment = 1
 
-        # If the order is more than count of records, set it to the count to be last
-        # Since count starts at 0, it needs to be (count - 1)
         record_count = object_model.objects.all().count()
+
+        # If the new display order is None, this record is being deleted.
+        # Set the new display order to be more than the count of records.
+        if new_display_order == None: new_display_order = record_count +1
+
+        # If the order is more than count of records, set the count to be last
+        # Since count starts at 0, it needs to be (count - 1)
         if new_display_order >= record_count: new_display_order = (record_count - 1) if passed_object.pk else record_count
         
 

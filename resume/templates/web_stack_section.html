@@ -1,3 +1,4 @@
+{% load static %}
 
 <!-- ======= WebStack Section ======= -->
 <section id="webStack" class="webStack section-bg">
@@ -9,6 +10,14 @@
         </div>
 
         <div class="row d-flex justify-content-center">
+
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+                <div class="icon grow_icon">
+                    <a href="https://github.com/mjacquot1/personal_website" target="_blank" rel="noopener noreferrer"><img src="{% static 'resume/photos/github-mark.png' %}" width="64" height="64" ></a>
+                </div>
+                <h5 class="title"><a href="https://github.com/mjacquot1/personal_website" target="_blank" rel="noopener noreferrer">Website Github Link!</a></h4>
+                <!-- <p class="description"></p> -->
+            </div>
 
         {% for stack_tool in web_stack_tools %}
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">

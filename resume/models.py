@@ -27,7 +27,7 @@ class WebStackTools(models.Model):
         return f"{ self.tool_name }"
     
     def save(self, *args, **kwargs):
-        # modify display order of other objects
+        # modify display order of other records
         enforce_display_order(self, self.__original_display_order, self.display_order)
 
         return super(WebStackTools, self).save(*args, **kwargs)
@@ -35,6 +35,8 @@ class WebStackTools(models.Model):
     # The larger of the width or height should be 64, and make the smaller size proportional
     def thumbnail_width(self):
         photo=self.main_image
+        if photo.height == 0 : photo.height == 1
+
         if photo.width >= photo.height:
             return 64
         else:
@@ -42,6 +44,8 @@ class WebStackTools(models.Model):
     
     def thumbnail_height(self):
         photo=self.main_image
+        if photo.width == 0 : photo.width == 1
+
         if photo.height >= photo.width:
             return 64
         else:
@@ -63,7 +67,7 @@ class ResumeSkillCategories(models.Model):
         return f"{self.category}"
     
     def save(self, *args, **kwargs):
-        # modify display order of other objects
+        # modify display order of other records
         enforce_display_order(self, self.__original_display_order, self.display_order)
 
         return super(ResumeSkillCategories, self).save(*args, **kwargs)
@@ -100,7 +104,7 @@ class ResumeExperienceCategory(models.Model):
         self.__original_display_order = self.display_order
 
     def save(self, *args, **kwargs):
-        # modify display order of other objects
+        # modify display order of other records
         enforce_display_order(self, self.__original_display_order, self.display_order)
 
         self.category = self.category.upper()
@@ -187,7 +191,7 @@ class Recreation(models.Model):
         self.__original_display_order = self.display_order
 
     def save(self, *args, **kwargs):
-        # modify display order of other objects
+        # modify display order of other records
         enforce_display_order(self, self.__original_display_order, self.display_order)
 
         return super(Recreation, self).save(*args, **kwargs)

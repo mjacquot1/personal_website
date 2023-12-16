@@ -46,9 +46,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    "home",
-    "ui_testing",
-    "resume",
+    "home.apps.HomeConfig",
+    "ui_testing.apps.UiTestingConfig",
+    "resume.apps.ResumeConfig",
     'core',
     "bootstrap5",
     'theme_soft_design',

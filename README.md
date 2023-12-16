@@ -21,21 +21,20 @@
 17. Test traffic volume capabilities
 18. - [x] Determine webpage size in memory
 19. Deploy to AWS with terraform
-20. - [] Add clear Github link
+20. - [x] Add clear Github link
 21. - [x] Make emailing asynchronous
 22. - [x] Make a way to replace a words  with an anchor tags. 
 23. - [x] Create resume_lines_skill function to restrict what is saved in json
 24. - [x] Make javascript highlight relevant experience
 24. Clean up text
-25. - [] Add functions to change display_order in database
-26. - [] Add something talking more about how the website is dynamically loaded
-27. Add boot instructions to readme
-28. Add views to flowchart
-29. - [x] Rename database tables for Resume
-30. - Remove mutable global from javascript
-31. - [x] Get flower and redis UI working
-32. - [] Add redis-commander variables to prod env file
-33. - [] add getatter and setattr to ResumeLineHandler in utils
+25. - [x] Add functions to change display_order in database
+26. Add boot instructions to readme
+27. Add views to flowchart
+28. - [x] Rename database tables for Resume
+39. - Remove mutable global from javascript
+30. - [x] Get flower and redis UI working
+31. - [] Add redis-commander variables to prod env file
+32. - [] Add variable for css colors
 
 <!-- 
 
