@@ -46,16 +46,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    "home",
-    "ui_testing",
-    "resume",
+    "home.apps.HomeConfig",
+    "ui_testing.apps.UiTestingConfig",
+    "resume.apps.ResumeConfig",
     'core',
     "bootstrap5",
     'theme_soft_design',
     'django_ses',
     'django_json_widget',
     'debug_toolbar',
-    'django_celery_results',
+    #~ 'django_celery_results',
 ]
 
 MIDDLEWARE = [

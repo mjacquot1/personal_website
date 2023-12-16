@@ -1,10 +1,3 @@
-/**
-* Template Name: iPortfolio
-* Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function () {
   "use strict";
 
@@ -186,8 +179,9 @@
         });
       }, true);
     }
-
   });
+
+  
 
   /**
    * Initiate portfolio lightbox 
@@ -273,7 +267,6 @@
 
 
 */
-
 
 const resumeBlockList = document.getElementsByClassName("resume_accordion");
 const resumeLineList = document.getElementsByClassName("resume_line_detail");

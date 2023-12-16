@@ -3,4 +3,6 @@
 set -o errexit
 set -o nounset
 
-celery -A core worker -l INFO
+# Get celery settings from the app variable in core/celery
+# Then start flower with it
+celery -A core.celery.app flower

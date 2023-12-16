@@ -1,10 +1,3 @@
-/**
-* Template Name: iPortfolio
-* Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function () {
   "use strict";
 
@@ -169,7 +162,6 @@
         });
       }, true);
     }
-
   });
 
   /**
@@ -242,6 +234,8 @@
    */
   new PureCounter();
 
+  
+
 }
 
 )()
@@ -253,10 +247,9 @@
 -- No 'resume_accordion' classes
 -- No 'resume_line_detail' classes
 -- No 'data-filters' classes
-
+-- Remove mutable globals from resume filtering function
 
 */
-
 
 const resumeBlockList = document.getElementsByClassName("resume_accordion");
 const resumeLineList = document.getElementsByClassName("resume_line_detail");

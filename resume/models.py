@@ -1,27 +1,42 @@
+from typing import Any
 from django.db import models
 
 # Create your models here.
 from django.db import models
 from datetime import datetime
 from django.db.models.functions import (ExtractYear, ExtractMonth,)
+from django.core.exceptions import ValidationError
+from django.db.models import F
 
-from .utils import ResumeLineHandler
+from .utils import ResumeLineHandler, enforce_display_order
 
 # Create your models here.
 class WebStackTools(models.Model):
     tool_name = models.CharField(max_length=30)
     tool_description = models.CharField()
     tool_link = models.URLField()
-    display_order = models.IntegerField(default = 0)
 
     main_image = models.ImageField(upload_to="web_stack_icons")
+    display_order = models.IntegerField()
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super(WebStackTools, self).__init__(*args, **kwargs)
+        self.__original_display_order = self.display_order
 
     def __str__(self):
         return f"{ self.tool_name }"
     
+    def save(self, *args, **kwargs):
+        # modify display order of other records
+        enforce_display_order(self, self.__original_display_order, self.display_order)
+
+        return super(WebStackTools, self).save(*args, **kwargs)
+    
     # The larger of the width or height should be 64, and make the smaller size proportional
     def thumbnail_width(self):
         photo=self.main_image
+        if photo.height == 0 : photo.height == 1
+
         if photo.width >= photo.height:
             return 64
         else:
@@ -29,20 +44,34 @@ class WebStackTools(models.Model):
     
     def thumbnail_height(self):
         photo=self.main_image
+        if photo.width == 0 : photo.width == 1
+
         if photo.height >= photo.width:
             return 64
         else:
             return (64/photo.width*photo.height)
         
+        
 class ResumeSkillCategories(models.Model):
     category = models.CharField(max_length=50)
-    display_order = models.IntegerField(default = 0)
+    display_order = models.IntegerField()
 
     # Display text for the view
     category_display = models.CharField()
 
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super(ResumeSkillCategories, self).__init__(*args, **kwargs)
+        self.__original_display_order = self.display_order
+
     def __str__(self):
         return f"{self.category}"
+    
+    def save(self, *args, **kwargs):
+        # modify display order of other records
+        enforce_display_order(self, self.__original_display_order, self.display_order)
+
+        return super(ResumeSkillCategories, self).save(*args, **kwargs)
+
 
 class ResumeSkills(models.Model):
     skill_title = models.CharField(max_length=30)
@@ -70,7 +99,14 @@ class ResumeExperienceCategory(models.Model):
     # Bootstrap icon to be displayed next to category
     icon_class = models.CharField(max_length=30, default='')
 
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super(ResumeExperienceCategory, self).__init__(*args, **kwargs)
+        self.__original_display_order = self.display_order
+
     def save(self, *args, **kwargs):
+        # modify display order of other records
+        enforce_display_order(self, self.__original_display_order, self.display_order)
+
         self.category = self.category.upper()
         self.category_display = self.category_display.upper()
         return super(ResumeExperienceCategory, self).save(*args, **kwargs)
@@ -95,16 +131,23 @@ class ResumeExperienceBlock(models.Model):
     aggregate_line_skills = models.CharField(default='', blank=True)
 
     def save(self, *args, **kwargs):
+        # Validate the format of the json information in skills
+        # If invalid return error message
+        resume_line_handler = ResumeLineHandler(self.lines)
+        invalid_resume_lines = resume_line_handler.enforce_schema()
+        if invalid_resume_lines: raise ValidationError(invalid_resume_lines)
+        
+        # Set something to state that the end date must be after the start date
+        if self.start_date >= self.end_date: raise ValidationError("Start date cannot be at or before end date.")
+        
         self.title = self.title.upper()
 
         # Make an easy to access string of aggregate skills
         # If there are no lines or skills, set to blank string
-        aggregate_skills = ResumeLineHandler(self.lines).return_aggregate_skills_set()
+        aggregate_skills = resume_line_handler.return_aggregate_skills_set()
         self.aggregate_line_skills =  ' '.join(aggregate_skills) if aggregate_skills else ''
 
         if self.company: self.company = self.company.upper()
-
-        # Set something to state that the end date must be after the start date
 
         return super(ResumeExperienceBlock, self).save(*args, **kwargs)
     
@@ -120,23 +163,6 @@ class ResumeExperienceBlock(models.Model):
     
     def __str__(self):
         return f"{self.title} @ {self.company}"
-
-# class ResumeLine(models.Model):
-#     summary_item = models.BooleanField()
-#     line_text = models.TextField()
-#     resume_experience_block = models.ForeignKey(ResumeExperienceBlock, on_delete=models.CASCADE)
-
-#     line_skill_categories = models.ManyToManyField(ResumeSkills, blank=True)
-    
-#     display_order = models.IntegerField(editable=False)
-
-#     def save(self, *args, **kwargs):
-#         self.display_order = ResumeLine.objects.all().count()
-
-#         return super(ResumeLine, self).save(*args, **kwargs)
-    
-#     def __str__(self):
-#         return f"{self.resume_experience_block} @ {self.line_text}"
 
 class Recreation(models.Model):
 
@@ -159,6 +185,16 @@ class Recreation(models.Model):
 
     class meta:
         ordering = ['-display_order']
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super(Recreation, self).__init__(*args, **kwargs)
+        self.__original_display_order = self.display_order
+
+    def save(self, *args, **kwargs):
+        # modify display order of other records
+        enforce_display_order(self, self.__original_display_order, self.display_order)
+
+        return super(Recreation, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"image: {self.image_name}\ntitle: {self.image_title}\ndescription: {self.image_description}"

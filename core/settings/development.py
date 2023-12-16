@@ -6,9 +6,6 @@ from settings import return_config_env_variables
 
 config = return_config_env_variables()
 
-# SECRET_KEY = config("SECRET_KEY")
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 if not SECRET_KEY:
     SECRET_KEY = ''.join(random.choice(string.ascii_lowercase)
@@ -19,6 +16,7 @@ DEBUG = config("DEBUG_ENV", default=False, cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS_ENV", cast=Csv())
 
+### POSTGRESQL DATABASE ###
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -31,7 +29,7 @@ DATABASES = {
 }
 
 
-# Redis Cache
+### Redis Cache ###
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
@@ -52,19 +50,21 @@ CACHES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+### STATIC FILE SERVING ###
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-CELERY_BROKER_URL = config(
-    config("CELERY_BROKER_ENV"), default=config("REDIS_BACKEND_ENV"))
-CELERY_RESULT_BACKEND = config(
-    config("CELERY_BACKEND_ENV"), default=config("REDIS_BACKEND_ENV"))
-CELERY_CACHE_BACKEND = 'default'
 
 # Allows for uploading media like images
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+### CELERY ###
+CELERY_BROKER_URL = config(
+    config("CELERY_BROKER_ENV"), default=config("REDIS_BACKEND_ENV"))
+CELERY_RESULT_BACKEND = config(
+    config("CELERY_BACKEND_ENV"), default=config("REDIS_BACKEND_ENV"))
+
+### EMAIL INFO ###
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = '1025'
 EMAIL_HOST_USER = ''
