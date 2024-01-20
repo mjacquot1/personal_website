@@ -10,8 +10,9 @@ app_name = 'home'
 homepage_view = RedirectView.as_view(url='/')
 
 urlpatterns = [
-    path('', views.resume, name='homepage'),
-    path('presentation/', views.index, name='index'),
+    path('', views.home, name='homepage'),
+
+    # path('presentation/', views.index, name='index'),
 
     # path('about-us-test/', homepage_view, name='about-us'),
 

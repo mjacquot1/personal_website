@@ -4,10 +4,9 @@ FROM python:3.9
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY ./requirements.txt /requirements.txt
-# install python dependencies
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r /requirements.txt
+RUN mkdir /app
+WORKDIR /app
+COPY . .
 
 COPY ./compose/local/django/entrypoint /entrypoint
 # sed is a stream editor to modify the /entrypoint file with the command:
@@ -36,8 +35,11 @@ COPY ./compose/local/django/celery/flower/start /start-flower
 RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 
-WORKDIR /app
-COPY . .
+COPY ./requirements.txt /requirements.txt
+
+# install python dependencies
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r /requirements.txt
 
 ENTRYPOINT ["/entrypoint"]
 

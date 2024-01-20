@@ -8,15 +8,18 @@ services:
       volumes:
         # '/app/staticfiles' will be shared through 'static_volume'
         - static_volume:/app/staticfiles
+        - media_volume:/app/media
 
 
   nginx:
-    # This will add the 'static volume' to nginx
+    # This will add the 'static volume' and 'media volume' to nginx
     volumes:
       # '/staticfiles' will be shared through 'static_volume' and get files from web-app
       - static_volume:/staticfiles
+      - media_volume:/mediafiles
 
 volumes:
   # This will add static_volume to pre-existing volumes
   static_volume: # Volume to serve up static files for production 
+  media_volume:
 
