@@ -75,7 +75,9 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <p>Debug: {{ debug }}</p>
+      {% if debug %}
+        <p>Debug: On</p>
+      {% endif %}
     </div>
   </footer><!-- End  Footer -->
 

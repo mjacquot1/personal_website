@@ -96,14 +96,6 @@ class ResumeLineHandler():
         
         return sorted_experience_lines
 
-    def return_formated_anchor_tag_text(self, text='', url='', string_to_replace='', replacement_string=''):
-        # format_html() allows it to render the anchor tag
-        return format_html(text.replace(
-                string_to_replace,
-                f'<a href="{url}" target="_blank" rel="noopener noreferrer">{replacement_string}</a>'
-            ))
-
-
     def return_aggregate_skills_set(self):
         if self.lines == None: return
 
@@ -170,6 +162,14 @@ class ResumeLineHandler():
         for anchor_tag in line_dict['anchor_tags']:
             line_dict['text'] = self.return_formated_anchor_tag_text(line_dict['text'],anchor_tag["url"],anchor_tag['string_to_replace'],anchor_tag["replacement_string"])
         
+    def return_formated_anchor_tag_text(self, text='', url='', string_to_replace='', replacement_string=''):
+        # format_html() allows it to render the anchor tag
+        return format_html(text.replace(
+                string_to_replace,
+                f'<a href="{url}" target="_blank" rel="noopener noreferrer">{replacement_string}</a>'
+            ))
+    
+    
     def __add_and_validate_schema_fields(self, passed_object, passed_schema):
         invalid_fields_flags = []
 

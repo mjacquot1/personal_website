@@ -1,18 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import redirect
 
 # Create your views here.
 
 
-def resume(request):
-    return render(request, 'pages/resume.html')
+def home(request):
+    response = redirect('/resume/')
+    return response
 
-
-def index(request):
-
-    # Page from the theme
-    return render(request, 'pages/index.html')
-
-
-def about_us(request):
-    return render(request, 'pages/about-us.html')
+def error(request):
+    response = redirect('/resume/')
+    return response

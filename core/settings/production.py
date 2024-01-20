@@ -14,7 +14,7 @@ if not SECRET_KEY:
     SECRET_KEY = ''.join(random.choice(string.ascii_lowercase)
                          for i in range(32))
 
-DEBUG = config("DEBUG_ENV")
+DEBUG = config("DEBUG_ENV", default=False, cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS_ENV", cast=Csv())
 
@@ -34,9 +34,9 @@ CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
         "LOCATION": config("REDIS_BACKEND_ENV"),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient"
-        },
+        # "OPTIONS": {
+        #     "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        # },
     }
 }
 
@@ -47,17 +47,26 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
 
+# media files gathered from 'collectstatic' will be saved in './media' folder and served in the '/media/' url
+MEDIA_URL = '/media/'
+MEDIA_DIRS = [
+    os.path.join(BASE_DIR, 'media'),
+]
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+
 CELERY_BROKER_URL = config(
     config("CELERY_BROKER_ENV"), default=config("REDIS_BACKEND_ENV"))
 CELERY_RESULT_BACKEND = config(
     config("CELERY_BACKEND_ENV"), default=config("REDIS_BACKEND_ENV"))
-
-# Allows for uploading media like images
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_URL = '/media/'
 
 EMAIL_BACKEND = 'django_ses.SESBackend'
 AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
 AWS_SES_REGION_NAME = config("AWS_SES_REGION_NAME")
 AWS_SES_REGION_ENDPOINT = config("AWS_SES_REGION_ENDPOINT")
+
+def show_toolbar(request):
+    return True
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
+}
