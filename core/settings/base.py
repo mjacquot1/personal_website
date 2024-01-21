@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "home.apps.HomeConfig",
-    "ui_testing.apps.UiTestingConfig",
     "resume.apps.ResumeConfig",
     'core',
     "bootstrap5",
@@ -55,6 +54,7 @@ INSTALLED_APPS = [
     'django_ses',
     'django_json_widget',
     'debug_toolbar',
+    # "ui_testing.apps.UiTestingConfig",
     #~ 'django_celery_results',
 ]
 
@@ -80,7 +80,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         # "DIRS": [HOME_TEMPLATES, BASE_TEMPLATES],
-        "DIRS": [BASE_DIR / 'home' / 'templates', BASE_DIR / 'ui_testing' / 'templates', BASE_DIR / 'resume' / 'templates'],
+        "DIRS": [BASE_DIR / 'home' / 'templates', BASE_DIR / 'resume' / 'templates'], #BASE_DIR / 'ui_testing' / 'templates', 
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
