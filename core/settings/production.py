@@ -7,6 +7,7 @@ from settings import return_config_env_variables
 config = return_config_env_variables()
 
 # SECRET_KEY = config("SECRET_KEY")
+ALLOWED_HOSTS = [config("IP_ADDRESS"),config("DOMAIN_NAME_1"), config("DOMAIN_NAME_2")]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')

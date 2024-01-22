@@ -140,6 +140,7 @@ services:
     ports:
       # - ${NGINX_PORT}
       - 5085:5085
+      # - 80:80
     volumes:
       - ./nginx/${NGINX_DIRECTORY}:/etc/nginx/conf.d
       # '/staticfiles' will be shared through 'static_volume' and get files from web-app
